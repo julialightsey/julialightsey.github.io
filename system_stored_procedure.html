@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="..\..\source\common.css">
+	</head>
+	<body>
+	<h1>[creating_system_stored_procedures]</h1>
+		<ol>
+			<li>why?
+			</li>
+			
+			<li>will default to current database if exists
+			</li>
+			
+			<li>how to drop
+				<pre><code>
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[master]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[dbo].[sp_get_server_information]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[dbo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sp_get_server_information]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+
+				</code></pre>
+			
+			</li>
+			
+			<li>case sensitive
+			</li>
+			
+			<li>
+				<pre><code>
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: blue; ">exec</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">[sp_MS_marksystemobject]</span>
+<br/>&nbsp;&nbsp;<span style="color: red; ">N'sp_get_server_information'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+			
+				</code></pre>
+			</li>
+		</ol>
+	</body>
+</html>

@@ -1,0 +1,437 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;INDEXED&nbsp;VIEWS&nbsp;ARE&nbsp;COVERED&nbsp;BY&nbsp;MICROSOFT&nbsp;CERTIFICATION&nbsp;EXAM&nbsp;70-461&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Exam&nbsp;70-461:&nbsp;Querying&nbsp;Microsoft&nbsp;SQL&nbsp;Server&nbsp;2012&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Create&nbsp;Database&nbsp;Objects&nbsp;(24%):&nbsp;Create&nbsp;and&nbsp;alter&nbsp;views&nbsp;(simple&nbsp;statements).&nbsp;May&nbsp;include&nbsp;but&nbsp;not&nbsp;limited&nbsp;to:&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create&nbsp;indexed&nbsp;views;&nbsp;create&nbsp;views&nbsp;without&nbsp;using&nbsp;the&nbsp;built&nbsp;in&nbsp;tools;&nbsp;CREATE,&nbsp;ALTER,&nbsp;DROP.&nbsp;Design&nbsp;views.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;May&nbsp;include&nbsp;but&nbsp;not&nbsp;limited&nbsp;to:&nbsp;ensure&nbsp;code&nbsp;non&nbsp;regression&nbsp;by&nbsp;keeping&nbsp;consistent&nbsp;signature&nbsp;for&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;procedure,&nbsp;views&nbsp;and&nbsp;function&nbsp;(interfaces);&nbsp;security&nbsp;implications.&nbsp;
+<br/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;INDEXED&nbsp;VIEWS&nbsp;ARE&nbsp;OFTEN&nbsp;REFERRED&nbsp;TO&nbsp;AS&nbsp;MATERIALIZED&nbsp;VIEWS&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;"After&nbsp;a&nbsp;unique&nbsp;clustered&nbsp;index&nbsp;is&nbsp;created&nbsp;on&nbsp;the&nbsp;view,&nbsp;the&nbsp;view's&nbsp;result&nbsp;set&nbsp;is&nbsp;materialized&nbsp;immediately&nbsp;and&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;persisted&nbsp;in&nbsp;physical&nbsp;storage&nbsp;in&nbsp;the&nbsp;database,&nbsp;saving&nbsp;the&nbsp;overhead&nbsp;of&nbsp;performing&nbsp;this&nbsp;costly&nbsp;operation&nbsp;at&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;execution&nbsp;time."&nbsp;
+<br/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;INDEXES&nbsp;ON&nbsp;AN&nbsp;INDEXED&nbsp;VIEW&nbsp;ARE&nbsp;USED&nbsp;BY&nbsp;THE&nbsp;QUERY&nbsp;OPTIMIZER&nbsp;JUST&nbsp;AS&nbsp;ARE&nbsp;INDEXES&nbsp;ON&nbsp;THE&nbsp;UNDERLYING&nbsp;OBJECTS&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;"The&nbsp;indexed&nbsp;view&nbsp;can&nbsp;be&nbsp;used&nbsp;in&nbsp;a&nbsp;query&nbsp;execution&nbsp;in&nbsp;two&nbsp;ways.&nbsp;The&nbsp;query&nbsp;can&nbsp;reference&nbsp;the&nbsp;indexed&nbsp;view&nbsp;directly,&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;or,&nbsp;more&nbsp;importantly,&nbsp;the&nbsp;query&nbsp;optimizer&nbsp;can&nbsp;select&nbsp;the&nbsp;view&nbsp;if&nbsp;it&nbsp;determines&nbsp;that&nbsp;the&nbsp;view&nbsp;can&nbsp;be&nbsp;substituted&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;some&nbsp;or&nbsp;all&nbsp;of&nbsp;the&nbsp;query&nbsp;in&nbsp;the&nbsp;lowest-cost&nbsp;query&nbsp;plan.&nbsp;In&nbsp;the&nbsp;second&nbsp;case,&nbsp;the&nbsp;indexed&nbsp;view&nbsp;is&nbsp;used&nbsp;instead&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;underlying&nbsp;tables&nbsp;and&nbsp;their&nbsp;ordinary&nbsp;indexes.&nbsp;The&nbsp;view&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;referenced&nbsp;in&nbsp;the&nbsp;query&nbsp;for&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;query&nbsp;optimizer&nbsp;to&nbsp;use&nbsp;it&nbsp;during&nbsp;query&nbsp;execution.&nbsp;This&nbsp;allows&nbsp;existing&nbsp;applications&nbsp;to&nbsp;benefit&nbsp;from&nbsp;the&nbsp;newly&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;created&nbsp;indexed&nbsp;views&nbsp;without&nbsp;changing&nbsp;those&nbsp;applications."&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Create&nbsp;Indexed&nbsp;Views:&nbsp;http://msdn.microsoft.com/en-us/library/ms191432.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Improving&nbsp;Performance&nbsp;with&nbsp;SQL&nbsp;Server&nbsp;2005&nbsp;Indexed&nbsp;Views:&nbsp;http://technet.microsoft.com/en-us/library/cc917715.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Improving&nbsp;Performance&nbsp;with&nbsp;SQL&nbsp;Server&nbsp;2008&nbsp;Indexed&nbsp;Views:&nbsp;http://msdn.microsoft.com/en-us/library/dd171921(v=sql.100).aspx&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'indexed_views'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;indexed_views'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Required&nbsp;SET&nbsp;Options&nbsp;for&nbsp;Indexed&nbsp;Views.&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;When&nbsp;SET&nbsp;ANSI_NULLS&nbsp;is&nbsp;ON,&nbsp;a&nbsp;SELECT&nbsp;statement&nbsp;that&nbsp;uses&nbsp;WHERE&nbsp;column_name&nbsp;=&nbsp;NULL&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;returns&nbsp;zero&nbsp;rows&nbsp;even&nbsp;if&nbsp;there&nbsp;are&nbsp;null&nbsp;values&nbsp;in&nbsp;column_name&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">ansi_nulls</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Trailing&nbsp;blanks&nbsp;in&nbsp;character&nbsp;values&nbsp;inserted&nbsp;into&nbsp;varchar&nbsp;columns&nbsp;are&nbsp;not&nbsp;trimmed.&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;Trailing&nbsp;zeros&nbsp;in&nbsp;binary&nbsp;values&nbsp;inserted&nbsp;into&nbsp;varbinary&nbsp;columns&nbsp;are&nbsp;not&nbsp;trimmed.&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;Values&nbsp;are&nbsp;not&nbsp;padded&nbsp;to&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;column.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">ansi_padding</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;When&nbsp;set&nbsp;to&nbsp;ON,&nbsp;if&nbsp;null&nbsp;values&nbsp;appear&nbsp;in&nbsp;aggregate&nbsp;functions,&nbsp;such&nbsp;as&nbsp;SUM,&nbsp;AVG,&nbsp;MAX,&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;MIN,&nbsp;STDEV,&nbsp;STDEVP,&nbsp;VAR,&nbsp;VARP,&nbsp;or&nbsp;COUNT,&nbsp;a&nbsp;warning&nbsp;message&nbsp;is&nbsp;generated.&nbsp;When&nbsp;set&nbsp;to&nbsp;OFF,&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;warning&nbsp;is&nbsp;issued.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">ansi_warnings</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Terminates&nbsp;a&nbsp;query&nbsp;when&nbsp;an&nbsp;overflow&nbsp;or&nbsp;divide-by-zero&nbsp;error&nbsp;occurs&nbsp;during&nbsp;query&nbsp;execution.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">arithabort</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;'abc'&nbsp;+&nbsp;NULL&nbsp;returns&nbsp;the&nbsp;value&nbsp;NULL.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">concat_null_yields_null</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;When&nbsp;SET&nbsp;NUMERIC_ROUNDABORT&nbsp;is&nbsp;ON,&nbsp;an&nbsp;error&nbsp;is&nbsp;generated&nbsp;after&nbsp;a&nbsp;loss&nbsp;of&nbsp;precision&nbsp;occurs&nbsp;in&nbsp;an&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;expression.&nbsp;When&nbsp;OFF,&nbsp;losses&nbsp;of&nbsp;precision&nbsp;do&nbsp;not&nbsp;generate&nbsp;error&nbsp;messages&nbsp;and&nbsp;the&nbsp;result&nbsp;is&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;rounded&nbsp;to&nbsp;the&nbsp;precision&nbsp;of&nbsp;the&nbsp;column&nbsp;or&nbsp;variable&nbsp;storing&nbsp;the&nbsp;result.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">numeric_roundabort</span>&nbsp;<span style="color: blue; ">off</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;When&nbsp;SET&nbsp;QUOTED_IDENTIFIER&nbsp;is&nbsp;ON,&nbsp;identifiers&nbsp;can&nbsp;be&nbsp;delimited&nbsp;by&nbsp;double&nbsp;quotation&nbsp;marks,&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;literals&nbsp;must&nbsp;be&nbsp;delimited&nbsp;by&nbsp;single&nbsp;quotation&nbsp;marks.&nbsp;When&nbsp;SET&nbsp;QUOTED_IDENTIFIER&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;OFF,&nbsp;identifiers&nbsp;cannot&nbsp;be&nbsp;quoted&nbsp;and&nbsp;must&nbsp;follow&nbsp;all&nbsp;Transact-SQL&nbsp;rules&nbsp;for&nbsp;identifiers.&nbsp;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">quoted_identifier</span>&nbsp;<span style="color: blue; ">on</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[view_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[c1]</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[c2]</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[c3]</span>&nbsp;<span style="color: black; font-style: italic; ">varchar</span><span style="color: maroon; ">(</span><span style="color: black; ">5</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;The&nbsp;view&nbsp;must&nbsp;be&nbsp;created&nbsp;WITH&nbsp;SCHEMABINDING&nbsp;in&nbsp;order&nbsp;to&nbsp;create&nbsp;an&nbsp;index&nbsp;on&nbsp;it.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Tables&nbsp;must&nbsp;be&nbsp;referenced&nbsp;by&nbsp;two-part&nbsp;names,&nbsp;schema.tablename&nbsp;in&nbsp;the&nbsp;view&nbsp;definition.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;The&nbsp;definition&nbsp;of&nbsp;an&nbsp;indexed&nbsp;view&nbsp;must&nbsp;be&nbsp;deterministic.&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[view_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span>
+<br/><span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">schemabinding</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[c1]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[c2]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[c3]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Having&nbsp;a&nbsp;non-deterministic&nbsp;function&nbsp;in&nbsp;the&nbsp;view&nbsp;will&nbsp;allow&nbsp;the&nbsp;view&nbsp;to&nbsp;be&nbsp;created,&nbsp;but&nbsp;attempts&nbsp;to&nbsp;create&nbsp;indexes&nbsp;will&nbsp;fail.&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;1949,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Cannot&nbsp;create&nbsp;index&nbsp;on&nbsp;view&nbsp;'test_01.[indexed_views].[view_test_01]'.&nbsp;The&nbsp;function&nbsp;'getdate'&nbsp;yields&nbsp;nondeterministic&nbsp;results.&nbsp;&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;Use&nbsp;a&nbsp;deterministic&nbsp;system&nbsp;function,&nbsp;or&nbsp;modify&nbsp;the&nbsp;user-defined&nbsp;function&nbsp;to&nbsp;return&nbsp;deterministic&nbsp;results.&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">getdate</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[timestamp]</span>
+<br/>&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;4512,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;3,&nbsp;Procedure&nbsp;[view_test_01],&nbsp;Line&nbsp;5&nbsp;</span>
+<br/>&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Cannot&nbsp;schema&nbsp;bind&nbsp;view&nbsp;'[indexed_views].[view_test_01]'&nbsp;because&nbsp;name&nbsp;'test_01'&nbsp;is&nbsp;invalid&nbsp;for&nbsp;schema&nbsp;binding.&nbsp;Names&nbsp;must&nbsp;be&nbsp;in&nbsp;two-part&nbsp;&nbsp;</span>
+<br/>&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;format&nbsp;and&nbsp;an&nbsp;object&nbsp;cannot&nbsp;reference&nbsp;itself.&nbsp;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[view_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span>
+<br/><span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">schemabinding</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">c1</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c2</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c3</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;An&nbsp;index&nbsp;on&nbsp;the&nbsp;table&nbsp;is&nbsp;not&nbsp;required&nbsp;to&nbsp;created&nbsp;an&nbsp;index&nbsp;on&nbsp;the&nbsp;view&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">indexes</span>&nbsp;<span style="color: maroon; ">idx</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">type_desc</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: red; ">N'HEAP'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;A&nbsp;UNIQUE&nbsp;CLUSTERED&nbsp;INDEX&nbsp;is&nbsp;required&nbsp;before&nbsp;a&nbsp;NONCLUSTERED&nbsp;INDEX&nbsp;can&nbsp;be&nbsp;created&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">indexproperty</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'[indexed_views].[view_test_01]'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'ix_test_view_test_01_c1'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'IndexID'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">[ix_test_view_test_01_c1]</span>&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">unique</span>&nbsp;<span style="color: blue; ">clustered</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">ix_test_view_test_01_c1</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">c1</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;After&nbsp;a&nbsp;unique&nbsp;clustered&nbsp;index&nbsp;is&nbsp;created&nbsp;a&nbsp;nonclustered&nbsp;index&nbsp;can&nbsp;be&nbsp;created&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">indexproperty</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'[indexed_views].[view_test_01]'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'ix_test_view_test_01_c1_c2_inc_c3'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'IndexID'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">ix_test_view_test_01_c1_c2_inc_c3</span>&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">nonclustered</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">ix_test_view_test_01_c1_c2_inc_c3</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[c1]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[c2]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">include</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[c3]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;There&nbsp;are&nbsp;now&nbsp;two&nbsp;indexes&nbsp;on&nbsp;the&nbsp;view&nbsp;but&nbsp;still&nbsp;none&nbsp;on&nbsp;the&nbsp;table&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">index_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">type_desc</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">is_unique</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">indexes</span>&nbsp;<span style="color: maroon; ">idx</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[view_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">indexes</span>&nbsp;<span style="color: maroon; ">idx</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">idx</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">type_desc</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: red; ">N'HEAP'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">c1</span><span style="color: silver; ">,</span><span style="color: maroon; ">c2</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span><span style="color: black; ">1</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">2</span><span style="color: silver; ">,</span><span style="color: black; ">2</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">3</span><span style="color: silver; ">,</span><span style="color: black; ">3</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">c1</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c2</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c3</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Attempts&nbsp;to&nbsp;truncate&nbsp;the&nbsp;table&nbsp;will&nbsp;fail.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;error:&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;3729,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;2,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">truncate</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'Cannot&nbsp;TRUNCATE&nbsp;TABLE&nbsp;[indexed_views].[test_01]&nbsp;because&nbsp;it&nbsp;is&nbsp;being&nbsp;referenced&nbsp;by&nbsp;object&nbsp;[view_test_01]'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Records&nbsp;can&nbsp;still&nbsp;be&nbsp;deleted&nbsp;from&nbsp;the&nbsp;table&nbsp;</span>
+<br/><span style="color: blue; ">delete</span>&nbsp;<span style="color: blue; ">from</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">c1</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">3</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">c1</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c2</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c3</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Attempts&nbsp;to&nbsp;change&nbsp;the&nbsp;underlying&nbsp;table&nbsp;in&nbsp;a&nbsp;way&nbsp;that&nbsp;would&nbsp;break&nbsp;the&nbsp;view&nbsp;will&nbsp;fail.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;error:&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;5074,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;The&nbsp;object&nbsp;'[view_test_01]'&nbsp;is&nbsp;dependent&nbsp;on&nbsp;column&nbsp;'c2'.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;4922,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;9,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">column</span>&nbsp;<span style="color: maroon; ">c2</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'ALTER&nbsp;TABLE&nbsp;DROP&nbsp;COLUMN&nbsp;c2&nbsp;failed&nbsp;because&nbsp;one&nbsp;or&nbsp;more&nbsp;objects&nbsp;access&nbsp;this&nbsp;column.'</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Attempts&nbsp;to&nbsp;drop&nbsp;the&nbsp;table&nbsp;will&nbsp;fail.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;error:&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;3729,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Line&nbsp;4&nbsp;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'Cannot&nbsp;DROP&nbsp;TABLE&nbsp;[indexed_views].[test_01]&nbsp;because&nbsp;it&nbsp;is&nbsp;being&nbsp;referenced&nbsp;by&nbsp;object&nbsp;[view_test_01].'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Columns&nbsp;can&nbsp;still&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;table&nbsp;</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">add</span>&nbsp;<span style="color: maroon; ">c4</span>&nbsp;<span style="color: black; font-style: italic; ">bit</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">sch</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">tbl</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">col</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">typ</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">columns</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">col</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">tables</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">tbl</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">tbl</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">col</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">schemas</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">sch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">sch</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">tbl</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">types</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">typ</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">col</span><span style="color: silver; ">.</span><span style="color: maroon; ">system_type_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">typ</span><span style="color: silver; ">.</span><span style="color: maroon; ">user_type_id</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">sch</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[indexed_views]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">tbl</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test_01'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Columns&nbsp;not&nbsp;referenced&nbsp;by&nbsp;the&nbsp;view&nbsp;can&nbsp;be&nbsp;altered&nbsp;</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">column</span>&nbsp;<span style="color: maroon; ">c4</span>&nbsp;<span style="color: black; font-style: italic; ">varchar</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Attempts&nbsp;to&nbsp;alter&nbsp;columns&nbsp;accessed&nbsp;by&nbsp;the&nbsp;view&nbsp;will&nbsp;fail&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;5074,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;The&nbsp;object&nbsp;'[view_test_01]'&nbsp;is&nbsp;dependent&nbsp;on&nbsp;column&nbsp;'c3'.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;4922,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;9,&nbsp;Line&nbsp;2&nbsp;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">column</span>&nbsp;<span style="color: maroon; ">c3</span>&nbsp;<span style="color: black; font-style: italic; ">varchar</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'ALTER&nbsp;TABLE&nbsp;ALTER&nbsp;COLUMN&nbsp;c3&nbsp;failed&nbsp;because&nbsp;one&nbsp;or&nbsp;more&nbsp;objects&nbsp;access&nbsp;this&nbsp;column.'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Creating&nbsp;views&nbsp;that&nbsp;access&nbsp;system&nbsp;objects&nbsp;will&nbsp;fail&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns:&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;2720,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Procedure&nbsp;vw_TryToAccessSystemObjects,&nbsp;Line&nbsp;5&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].vw_TryToAccessSystemObjets'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vw_trytoaccesssystemobjects</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'create&nbsp;view&nbsp;[indexed_views].vw_trytoaccesssystemobjects
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;schemabinding
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;as
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;col.name
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;&nbsp;&nbsp;sys.columns&nbsp;as&nbsp;col;'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'Cannot&nbsp;schema&nbsp;bind&nbsp;view&nbsp;[indexed_views].vw_TryToAccessSystemObjects&nbsp;because&nbsp;it&nbsp;references&nbsp;system&nbsp;object&nbsp;sys.columns.'</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;CREATING&nbsp;VIEWS&nbsp;AGAINST&nbsp;REMOTE&nbsp;DATA&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;CONNECTION&nbsp;test_02&nbsp;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[test_02]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views]'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;[indexed_views]'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'&nbsp;[indexed_views].view_remote_table'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">view_remote_table</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;A&nbsp;view&nbsp;can&nbsp;access&nbsp;remote&nbsp;data&nbsp;(across&nbsp;a&nbsp;linked&nbsp;server)&nbsp;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">view_remote_table</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[test_02]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;An&nbsp;indexed&nbsp;view&nbsp;can&nbsp;not&nbsp;access&nbsp;remote&nbsp;data&nbsp;(across&nbsp;a&nbsp;linked&nbsp;server)&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;it&nbsp;requires&nbsp;schema&nbsp;binding&nbsp;and&nbsp;you&nbsp;can&nbsp;not&nbsp;schema&nbsp;bind&nbsp;to&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;remote&nbsp;object.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;RETURNS:&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Msg&nbsp;2014,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Procedure&nbsp;vwi_TryToAccessRemoteWithIndexedView,&nbsp;Line&nbsp;5&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Remote&nbsp;access&nbsp;is&nbsp;not&nbsp;allowed&nbsp;from&nbsp;within&nbsp;a&nbsp;schema-bound&nbsp;object.&nbsp;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_trytoaccessremotewithindexedview</span>
+<br/><span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">schemabinding</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[test_02]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;INDEXES&nbsp;ON&nbsp;INDEXED&nbsp;VIEWS&nbsp;ARE&nbsp;USED&nbsp;AS&nbsp;TABLE&nbsp;INDEXES&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;CONNECTION:&nbsp;test_01&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].[view_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Accessing&nbsp;the&nbsp;data&nbsp;from&nbsp;either&nbsp;the&nbsp;view&nbsp;or&nbsp;table&nbsp;performs&nbsp;a&nbsp;table&nbsp;scan&nbsp;and&nbsp;SQL&nbsp;Server&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;suggests&nbsp;an&nbsp;index.&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">cvin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">csaletype</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">cstockcode</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[view_test_01]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">ddeliverydate</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">cast</span><span style="color: maroon; ">(</span><span style="color: red; ">N'2013-03-03'</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: black; font-style: italic; ">datetime</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">cvin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">csaletype</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">cstockcode</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">data</span><span style="color: silver; ">.</span><span style="color: maroon; ">nvdrdata</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">ddeliverydate</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">cast</span><span style="color: maroon; ">(</span><span style="color: red; ">N'2013-03-03'</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: black; font-style: italic; ">datetime</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Try&nbsp;with&nbsp;an&nbsp;indexed&nbsp;view&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[indexed_views].vwi_NVDRData'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_nvdrdata</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_nvdrdata</span>
+<br/><span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">schemabinding</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">cvin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">csaletype</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">cstockcode</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">ddeliverydate</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">data</span><span style="color: silver; ">.</span><span style="color: maroon; ">nvdrdata</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">indexproperty</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'[indexed_views].vwi_NVDRData'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'ix_indexed_views_vwi_NVDRData_cVIN'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'IndexID'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">[ix_indexed_views_vwi_nvdrdata_cvin]</span>&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_nvdrdata</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">indexproperty</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'[indexed_views].vwi_NVDRData'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'ix_indexed_views_vwi_NVDRData_dDeliveryDate'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'IndexID'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">index</span>&nbsp;<span style="color: maroon; ">[ix_indexed_views_vwi_nvdrdata_ddeliverydate]</span>&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_nvdrdata</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;No&nbsp;not&nbsp;only&nbsp;does&nbsp;a&nbsp;select&nbsp;using&nbsp;the&nbsp;view&nbsp;use&nbsp;the&nbsp;index,&nbsp;SQL&nbsp;Server&nbsp;also&nbsp;uses&nbsp;the&nbsp;index&nbsp;for&nbsp;a&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;directly&nbsp;to&nbsp;the&nbsp;table.&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">cvin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">csaletype</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">cstockcode</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[indexed_views]</span><span style="color: silver; ">.</span><span style="color: maroon; ">vwi_nvdrdata</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">ddeliverydate</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">cast</span><span style="color: maroon; ">(</span><span style="color: red; ">N'2013-03-03'</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: black; font-style: italic; ">datetime</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">cvin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">csaletype</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">cstockcode</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">data</span><span style="color: silver; ">.</span><span style="color: maroon; ">nvdrdata</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">ddeliverydate</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">cast</span><span style="color: maroon; ">(</span><span style="color: red; ">N'2013-03-03'</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: black; font-style: italic; ">datetime</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

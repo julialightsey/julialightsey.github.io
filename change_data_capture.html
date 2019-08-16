@@ -1,0 +1,456 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Exam&nbsp;70-463:&nbsp;Implementing&nbsp;a&nbsp;Data&nbsp;Warehouse&nbsp;with&nbsp;Microsoft&nbsp;SQL&nbsp;Server&nbsp;2012&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Extract&nbsp;and&nbsp;Transform&nbsp;Data&nbsp;(23%):&nbsp;Design&nbsp;data&nbsp;flow:&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;...use&nbsp;different&nbsp;methods&nbsp;to&nbsp;pull&nbsp;out&nbsp;changed&nbsp;data&nbsp;from&nbsp;data&nbsp;sources;&nbsp;
+<br/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;data&nbsp;capture&nbsp;records&nbsp;insert,&nbsp;update,&nbsp;and&nbsp;delete&nbsp;activity&nbsp;that&nbsp;is&nbsp;applied&nbsp;to&nbsp;a&nbsp;SQL&nbsp;Server&nbsp;table.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;makes&nbsp;the&nbsp;details&nbsp;of&nbsp;the&nbsp;changes&nbsp;available&nbsp;in&nbsp;an&nbsp;easily&nbsp;consumed&nbsp;relational&nbsp;format.&nbsp;Column&nbsp;information&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;metadata&nbsp;that&nbsp;is&nbsp;required&nbsp;to&nbsp;apply&nbsp;the&nbsp;changes&nbsp;to&nbsp;a&nbsp;target&nbsp;environment&nbsp;is&nbsp;captured&nbsp;for&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;modified&nbsp;rows&nbsp;and&nbsp;stored&nbsp;in&nbsp;change&nbsp;tables&nbsp;that&nbsp;mirror&nbsp;the&nbsp;column&nbsp;structure&nbsp;of&nbsp;the&nbsp;tracked&nbsp;source&nbsp;tables.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Table-valued&nbsp;functions&nbsp;are&nbsp;provided&nbsp;to&nbsp;allow&nbsp;systematic&nbsp;access&nbsp;to&nbsp;the&nbsp;change&nbsp;data&nbsp;by&nbsp;consumers.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;good&nbsp;example&nbsp;of&nbsp;a&nbsp;data&nbsp;consumer&nbsp;that&nbsp;is&nbsp;targeted&nbsp;by&nbsp;this&nbsp;technology&nbsp;is&nbsp;an&nbsp;extraction,&nbsp;transformation,&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;loading&nbsp;(ETL)&nbsp;application.&nbsp;An&nbsp;ETL&nbsp;application&nbsp;incrementally&nbsp;loads&nbsp;change&nbsp;data&nbsp;from&nbsp;SQL&nbsp;Server&nbsp;source&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;tables&nbsp;to&nbsp;a&nbsp;data&nbsp;warehouse&nbsp;or&nbsp;data&nbsp;mart.&nbsp;Although&nbsp;the&nbsp;representation&nbsp;of&nbsp;the&nbsp;source&nbsp;tables&nbsp;within&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;warehouse&nbsp;must&nbsp;reflect&nbsp;changes&nbsp;in&nbsp;the&nbsp;source&nbsp;tables,&nbsp;an&nbsp;end-to-end&nbsp;technology&nbsp;that&nbsp;refreshes&nbsp;a&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;replica&nbsp;of&nbsp;the&nbsp;source&nbsp;is&nbsp;not&nbsp;appropriate.&nbsp;Instead,&nbsp;you&nbsp;need&nbsp;a&nbsp;reliable&nbsp;stream&nbsp;of&nbsp;change&nbsp;data&nbsp;that&nbsp;is&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;structured&nbsp;so&nbsp;that&nbsp;consumers&nbsp;can&nbsp;apply&nbsp;it&nbsp;to&nbsp;dissimilar&nbsp;target&nbsp;representations&nbsp;of&nbsp;the&nbsp;data.&nbsp;SQL&nbsp;Server&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;change&nbsp;data&nbsp;capture&nbsp;provides&nbsp;this&nbsp;technology.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;Agent&nbsp;must&nbsp;be&nbsp;running&nbsp;for&nbsp;this&nbsp;presentation.
+<br/>
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[chamomile]&nbsp;uses&nbsp;change&nbsp;data&nbsp;capture&nbsp;to&nbsp;log&nbsp;a&nbsp;history&nbsp;of&nbsp;changes&nbsp;to&nbsp;[repository_secure].[data].
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[chamomile].[repository].[get_change]
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[chamomile].[repository].[get_change_job]
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;CHANGE&nbsp;DATA&nbsp;CAPTURE&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;-&nbsp;http://technet.microsoft.com/en-us/library/bb522489(v=sql.105).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;(SQL&nbsp;Server)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/cc645937.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enable&nbsp;and&nbsp;Disable&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;(SQL&nbsp;Server)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/cc627369.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduction&nbsp;to&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;(CDC)&nbsp;in&nbsp;SQL&nbsp;Server&nbsp;2008&nbsp;-&nbsp;http://blog.sqlauthority.com/2009/08/15/sql-server-introduction-to-change-data-capture-cdc-in-sql-server-2008/
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Track&nbsp;Data&nbsp;Changes&nbsp;(SQL&nbsp;Server):&nbsp;http://msdn.microsoft.com/en-us/library/bb933994.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;(SQL&nbsp;Server):&nbsp;http://msdn.microsoft.com/en-us/library/cc645937.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;Functions&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/bb510744.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;Stored&nbsp;Procedures&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/bb500244.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change&nbsp;Data&nbsp;Capture&nbsp;Tables&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/bb500353.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://technet.microsoft.com/en-us/library/bb510627.aspx&nbsp;UPDATE1&nbsp;VS&nbsp;UPDATE2:&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;=&nbsp;update&nbsp;(captured&nbsp;column&nbsp;values&nbsp;are&nbsp;those&nbsp;before&nbsp;the&nbsp;update&nbsp;operation).&nbsp;This&nbsp;value&nbsp;applies&nbsp;only&nbsp;when&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row&nbsp;filter&nbsp;option&nbsp;'all&nbsp;update&nbsp;old'&nbsp;is&nbsp;specified.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;=&nbsp;update&nbsp;(captured&nbsp;column&nbsp;values&nbsp;are&nbsp;those&nbsp;after&nbsp;the&nbsp;update&nbsp;operation)&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'change_data_capture'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;change_data_capture'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;ENABLE&nbsp;CHANGE&nbsp;DATA&nbsp;CAPTURE&nbsp;FOR&nbsp;A&nbsp;DATABASE&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;[sys].sp_cdc_disable_db&nbsp;-&nbsp;Enables&nbsp;change&nbsp;data&nbsp;capture&nbsp;for&nbsp;the&nbsp;current&nbsp;database.&nbsp;This&nbsp;procedure&nbsp;must&nbsp;be&nbsp;executed&nbsp;for&nbsp;a&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;database&nbsp;before&nbsp;any&nbsp;tables&nbsp;can&nbsp;be&nbsp;enabled&nbsp;for&nbsp;change&nbsp;data&nbsp;capture&nbsp;in&nbsp;that&nbsp;database.&nbsp;Change&nbsp;data&nbsp;capture&nbsp;records&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;insert,&nbsp;&nbsp;update,&nbsp;and&nbsp;delete&nbsp;activity&nbsp;applied&nbsp;to&nbsp;enabled&nbsp;tables,&nbsp;making&nbsp;the&nbsp;details&nbsp;of&nbsp;the&nbsp;changes&nbsp;available&nbsp;in&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;easily&nbsp;consumed&nbsp;relational&nbsp;format.&nbsp;Column&nbsp;information&nbsp;that&nbsp;mirrors&nbsp;the&nbsp;column&nbsp;structure&nbsp;of&nbsp;a&nbsp;tracked&nbsp;source&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;is&nbsp;captured&nbsp;for&nbsp;the&nbsp;modified&nbsp;rows,&nbsp;along&nbsp;with&nbsp;the&nbsp;metadata&nbsp;needed&nbsp;to&nbsp;apply&nbsp;the&nbsp;changes&nbsp;to&nbsp;a&nbsp;target&nbsp;environment.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[is_cdc_enabled]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[databases]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'chamomile'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[sp_cdc_disable_db]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;todo&nbsp;-&nbsp;what&nbsp;is&nbsp;created&nbsp;here?</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_cdc_enable_db</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;ENABLE&nbsp;CHANGE&nbsp;DATA&nbsp;CAPTURE&nbsp;FOR&nbsp;A&nbsp;TABLE&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[sys].sp_cdc_disable_table&nbsp;-&nbsp;Enables&nbsp;change&nbsp;data&nbsp;capture&nbsp;for&nbsp;the&nbsp;specified&nbsp;source&nbsp;table&nbsp;in&nbsp;the&nbsp;current&nbsp;database.&nbsp;When&nbsp;a&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;is&nbsp;enabled&nbsp;for&nbsp;change&nbsp;data&nbsp;capture,&nbsp;a&nbsp;record&nbsp;of&nbsp;each&nbsp;data&nbsp;manipulation&nbsp;language&nbsp;(DML)&nbsp;operation&nbsp;applied&nbsp;to&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;table&nbsp;is&nbsp;written&nbsp;to&nbsp;the&nbsp;transaction&nbsp;log.&nbsp;The&nbsp;change&nbsp;data&nbsp;capture&nbsp;process&nbsp;retrieves&nbsp;this&nbsp;information&nbsp;from&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;log&nbsp;and&nbsp;writes&nbsp;it&nbsp;to&nbsp;change&nbsp;tables&nbsp;that&nbsp;are&nbsp;accessed&nbsp;by&nbsp;using&nbsp;a&nbsp;set&nbsp;of&nbsp;functions.&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Disable&nbsp;Change&nbsp;Data&nbsp;Tracking&nbsp;for&nbsp;[change_data_capture].[meta_data]&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[is_tracked_by_cdc]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[is_tracked_by_cdc]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_cdc_disable_table</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@source_schema</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@source_name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@capture_instance</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture_meta_data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[change_data_capture].[meta_data]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[category]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[class]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[type]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[constraint]</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">constraint</span>&nbsp;<span style="color: maroon; ">[change_data_capture.meta_data.id.clustered_primary_key]</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">asc</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;@capture_instance&nbsp;defaults&nbsp;to&nbsp;<@source_schema>_<@source_name>&nbsp;or&nbsp;it&nbsp;can&nbsp;be&nbsp;named&nbsp;explicitly&nbsp;as&nbsp;is&nbsp;done&nbsp;here.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;@filegroup_name:&nbsp;allows&nbsp;the&nbsp;change&nbsp;table&nbsp;to&nbsp;be&nbsp;created&nbsp;on&nbsp;the&nbsp;specified&nbsp;filegroup.&nbsp;Default&nbsp;will&nbsp;be&nbsp;used&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;@filegroup_name&nbsp;is&nbsp;NULL.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;todo&nbsp;-&nbsp;what&nbsp;is&nbsp;created&nbsp;here??&nbsp;</span>
+<br/><span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_cdc_enable_table</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@source_schema</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@source_name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@role_name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@capture_instance</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'change_data_capture_meta_data'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@supports_net_changes</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Getting&nbsp;information&nbsp;about&nbsp;the&nbsp;change&nbsp;data&nbsp;capture&nbsp;enabled&nbsp;table&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_cdc_help_change_data_capture</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@source_schema</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@source_name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;captured&nbsp;columns&nbsp;only&nbsp;for&nbsp;the&nbsp;@capture_instance&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[sp_cdc_get_captured_columns]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@capture_instance</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">'change_data_capture_meta_data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Notice&nbsp;that&nbsp;there&nbsp;are&nbsp;new&nbsp;objects&nbsp;and&nbsp;functions&nbsp;created&nbsp;for&nbsp;the&nbsp;change&nbsp;data&nbsp;capture&nbsp;enabled&nbsp;table&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">object_schema_name</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[objects]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schema]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[type_desc]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[create_date]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[objects]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[objects]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[objects]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">like</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: red; ">N'%meta_data%'</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[schema]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;fn_cdc_get_all_changes_:&nbsp;Returns&nbsp;one&nbsp;row&nbsp;for&nbsp;each&nbsp;change&nbsp;applied&nbsp;to&nbsp;the&nbsp;source&nbsp;table&nbsp;within&nbsp;the&nbsp;specified&nbsp;log&nbsp;sequence&nbsp;number&nbsp;(LSN)&nbsp;range.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;fn_cdc_get_net_changes_:&nbsp;Returns&nbsp;one&nbsp;net&nbsp;change&nbsp;row&nbsp;for&nbsp;each&nbsp;source&nbsp;row&nbsp;changed&nbsp;within&nbsp;the&nbsp;specified&nbsp;LSN&nbsp;range.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;all&nbsp;captured&nbsp;columns&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Note&nbsp;that&nbsp;these&nbsp;instances&nbsp;will&nbsp;NOT&nbsp;show&nbsp;up&nbsp;until&nbsp;the&nbsp;database&nbsp;is&nbsp;enabled&nbsp;for&nbsp;change&nbsp;data&nbsp;capture!</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[source_table]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[capture_table]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[capture_table]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[capture_instance]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[capture_instance]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[captured_columns]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[column_name]</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[column_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[captured_columns]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[column_type]</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[column_type]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[captured_columns]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[captured_columns]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[change_tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[change_tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[change_tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[captured_columns]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[capture_table]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[capture_table]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[captured_columns]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[change_tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[source_object_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schemas]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schemas]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;one&nbsp;row&nbsp;for&nbsp;each&nbsp;change&nbsp;table&nbsp;in&nbsp;the&nbsp;database.&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[change_tables]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Returns&nbsp;one&nbsp;row&nbsp;for&nbsp;each&nbsp;index&nbsp;column&nbsp;associated&nbsp;with&nbsp;a&nbsp;change&nbsp;table.&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[index_columns]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Returns&nbsp;one&nbsp;row&nbsp;for&nbsp;each&nbsp;transaction&nbsp;having&nbsp;rows&nbsp;in&nbsp;a&nbsp;change&nbsp;table.&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[lsn_time_mapping]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;TRACKING&nbsp;CHANGES&nbsp;IN&nbsp;A&nbsp;TABLE&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[category]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[class]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[type]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[constraint]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'flower'</span><span style="color: silver; ">,</span><span style="color: red; ">N'rose'</span><span style="color: silver; ">,</span><span style="color: red; ">N'red'</span><span style="color: silver; ">,</span><span style="color: blue; ">null</span><span style="color: silver; ">,</span><span style="color: red; ">N'a&nbsp;red&nbsp;rose'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'flower'</span><span style="color: silver; ">,</span><span style="color: red; ">N'rose'</span><span style="color: silver; ">,</span><span style="color: red; ">N'yellow'</span><span style="color: silver; ">,</span><span style="color: blue; ">null</span><span style="color: silver; ">,</span><span style="color: red; ">N'a&nbsp;Texas&nbsp;rose'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">waitfor</span>&nbsp;<span style="color: maroon; ">delay</span>&nbsp;<span style="color: red; ">N'00:00:02'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">update</span>&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span>
+<br/><span style="color: blue; ">set</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[description]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'a&nbsp;very&nbsp;red&nbsp;rose'</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[category]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'flower'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[class]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'rose'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[type]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'red'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[category]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[class]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[constraint]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;View&nbsp;data&nbsp;changes&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;[cdc].fn_cdc_get_all_changes_&nbsp;-&nbsp;returns&nbsp;all&nbsp;changes&nbsp;for&nbsp;a&nbsp;tracked&nbsp;table&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">fn_cdc_get_min_lsn</span><span style="color: maroon; ">(</span><span style="color: red; ">'change_data_capture_meta_data'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">fn_cdc_get_max_lsn</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_get_all_changes_change_data_capture_meta_data]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: #8000FF; ">@from_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'all'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Get&nbsp;changes&nbsp;for&nbsp;a&nbsp;specific&nbsp;primary&nbsp;key&nbsp;value&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Join&nbsp;to&nbsp;[cdc].lsn_time_mapping&nbsp;to&nbsp;return&nbsp;transaction&nbsp;start&nbsp;and&nbsp;end&nbsp;times&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">fn_cdc_get_min_lsn</span><span style="color: maroon; ">(</span><span style="color: red; ">'change_data_capture_meta_data'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">fn_cdc_get_max_lsn</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">case</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">__$operation</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: black; ">1</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">N'DELETE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: black; ">2</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">N'INSERT'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: black; ">3</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">N'UPDATE1'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: black; ">4</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">N'UPDATE2'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'Operation'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[category]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[class]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">lst</span><span style="color: silver; ">.</span><span style="color: maroon; ">tran_begin_time</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">lst</span><span style="color: silver; ">.</span><span style="color: maroon; ">tran_end_time</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">fn_cdc_get_all_changes_change_data_capture_meta_data</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: #8000FF; ">@from_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'all'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">lsn_time_mapping</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">lst</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">__$start_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">lst</span><span style="color: silver; ">.</span><span style="color: maroon; ">start_lsn</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1</span>
+<br/><span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">__$start_lsn</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[change_data_function]</span><span style="color: silver; ">.</span><span style="color: maroon; ">__$seqval</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;DDL&nbsp;CHANGES&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;columns&nbsp;added&nbsp;here&nbsp;will&nbsp;NOT&nbsp;automatically&nbsp;be&nbsp;cdc&nbsp;tracked!&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">change_data_capture</span><span style="color: silver; ">.</span><span style="color: maroon; ">meta_data</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">add</span>&nbsp;<span style="color: maroon; ">[entry]</span>&nbsp;<span style="color: black; font-style: italic; ">xml</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">change_data_capture</span><span style="color: silver; ">.</span><span style="color: maroon; ">meta_data</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">column</span>&nbsp;<span style="color: maroon; ">[class]</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;This&nbsp;one&nbsp;is&nbsp;not&nbsp;tracked&nbsp;</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[change_data_capture]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[meta_data]</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: blue; ">nocheck</span>&nbsp;<span style="color: blue; ">add</span>&nbsp;<span style="color: blue; ">constraint</span>&nbsp;<span style="color: maroon; ">ck_id</span>&nbsp;<span style="color: blue; ">check</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: black; ">0</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: maroon; ">ddl_history</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">dh</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">dh</span><span style="color: silver; ">.</span><span style="color: maroon; ">source_object_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schemas]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schemas]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'change_data_capture'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta_data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Check&nbsp;to&nbsp;see&nbsp;if&nbsp;a&nbsp;column&nbsp;has&nbsp;changed&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">binary</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@groupnm_ordinal</span>&nbsp;<span style="color: black; font-style: italic; ">int</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_get_min_lsn]</span><span style="color: maroon; ">(</span><span style="color: red; ">'change_data_capture_meta_data'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_get_max_lsn]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@groupnm_ordinal</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_get_column_ordinal]</span><span style="color: maroon; ">(</span><span style="color: red; ">'change_data_capture_meta_data'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'category'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@from_lsn</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@groupnm_ordinal</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_is_bit_set]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@groupnm_ordinal</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">__$update_mask</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'IsGroupNmUpdated'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[cdc]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[fn_cdc_get_all_changes_change_data_capture_meta_data]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@from_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@to_lsn</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'all'</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">__$operation</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">4</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/>
+</span></div>
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

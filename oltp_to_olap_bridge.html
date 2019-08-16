@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu_designs.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+           <table class="content">
+            <tr>
+              <td>
+                <img src=".\source\image\zhijinghe_arch_wide_view.jpg" alt="Zhijinghe Bridge, Dazhipingzhen, Hubei, HighestBridges.com" height="350" style="float:right;">
+		<h1><i>OLTP to OLAP Bridge</i> design document</h1>
+
+	<h2>assumptions and requirements by priority</h2>
+		<ol>
+			<li><u>Data integrity is of the highest priority</u>.  Even minor data corruption or loss may have a significant impact. For example; if a client makes a decision based on mortage rates changing from 4.53% to 3.21% when in fact the change was from 4.53% to 5.85% (plus or minus 1.32), significant losses may occur.
+			</li>
+			<li><u>Integration with client data</u>. We must be able to integrate client content with our content and that of other clients with the highest level of assurance that content rights will be guarded. We have to expect that clients will wish to integrate their own or licensed data with our content, and wish to restrict that content to only specific end points. We must be able to provide this capability by; 
+			<ol>
+				<li>Integration with a common content set and protecting content integrity through an authentication mechanism.
+				</li>
+				<li>Integrating client content from a separate source and presenting it combined with our content in a dedicated client warehouse,
+				</li>
+				<li>Supporting a dedicated instance for the client which contains only information provided by the client.
+				</li>
+			</ol>
+			<li>
+			<ul>
+			<u>We must be able to deploy content to the client regardless of platform</u>. For example; while the core system may be built and the data stored on MS SQL Server 2012, we will need to deliver content to systems using Oracle, SAP, Postgres, etc.
+			</li>
+			<li><u>Content must be internationalized</u>. Content may not be expected to be in Latin characters. We must be able to store Arabic, Asian, and other collations.
+			</li>
+			</ul>
+			</li>
+		</ol>
+	
+
+	<h2>system design</h2>
+		<ol>
+		<li><h2>secure tier</h2>
+			<p>All data is pumped into a secure tier. The secure tier is analogous to a <i>steam tunnel</i> or engineering room in a commercial building. It is an engineering area that is not intended to be pretty. These are highly normalized and rigorously constrained objects. The purpose of the secure tier is to provide highly robust and secure data storage as free from the possibility of data corruption as is reasonable given available technology.
+			</p>
+			<p>The secure tier will actually be the lightest loaded. If it takes an hour to build a load that is acceptable as the DW instances are populated asynchronously. There should be virtually no select operations in the secure tier. Data is inserted into and updated. Then the change tables are mined for journaling operations and for building data warehouse records. The actual tables in the secure tier will never be selected on during normal operations. This allows indexing to be minimal, reducing overhead during OLTP operations.
+			</p>
+			<p>The structures in the secure tier are normalized not for data size purposes, but rather for data integrity purposes.
+			</p>
+		
+		</li>
+		<li><h2>data loading</h2>
+			<p>Records may be loaded into the secure tier via ETL operations such as BCP or Bulk Insert, or they may be loaded individually through a user interface. The underlying architecture is abstracted from this process and will process the resultant records and changes in the same manner regardless of the sources. 
+			</p>
+			<p>Every record will be traceable to source and allowed access. During any mutator operation, regardless of whether it is a bulk or individual operation, the resultant data and/or changes will be tagged with the source of the data so that the authentication process can use the data in building each data warehouse.
+			</p>
+		
+		</li>
+		<li><h2>the change table mining operation</h2>
+			<p>Each table in the secure tier will be configured for Change Data Capture. Periodically, a process will mine the change tables, extracting data for journaling and for building the data warehouses. As this is accomplished each record in the change table will be deleted. Theoretically, the journaling process could be kicked off by a load. However, records in the change tables are only left for up to three days, so a maximum time would have to be set as well. It is expected that the mining operation may occur at intervals no more frequently than once per minute, with once every five to fifteen minutes probably being a more practical minimum depending on the total amount of data. 
+			</p>
+			<p>The change table mining operation builds records both for the journal and for each data warehouse. Journal records are loaded directly into the journal. Records for each data warehouse are loaded into the queue for distribution.
+			</p>
+		
+		</li>
+		<li><h2>data authentication</h2>
+			<p>Each record in the secure tier will be tagged with meta data that indicates the source of the data and the ownership of the data, and the distribution of the data. Optionally, the meta data may include a role name and list of columns. If this information is included, that role will receive only those columns when the change table mining operation builds the data warehouse records for that role. This mechanism allows controlled access at the column level when required. By allowing all in absence the additional complexity is not required for normal operations, but the capability is there if needed.
+			</p>
+			<p>Access to data is controlled only in the secure tier. The change table mining operation builds records for a specific data warehouse based on the authentication objects, then distributes those objects as required to each data warehouse. Each data warehouse is then accessible by the client.
+			</p>
+			<p>There is no provision in this model for further levels of access restriction within the data warehouse itself. For example; when a data warehouse is built for a company, any authorized user of that company has access to that entire data warehouse, but no users outside those authorized by that company may access that data warehouse. 
+			</p>
+			<p>Should their be a requirement to further restrict access within that data warehouse to tiers based on roles within the company, additional features will need to be added at the DW level to accommodate date that requirement. This is not seen to be a particularly cumbersome design task, it is simply one that is not believed to be required and therefore is not included. Should it be required in the future the proposed design will accommodate changes such as this.
+			</p>
+			<ol>
+				<li>data source - the data source will be based on a meta data table that lists sources.
+				</li>
+				<li>data ownership - data ownership will be based on a table of clients.
+				</li>
+				<li>data distribution - data distribution will be the name of a subscriber role. Roles will be groupings of data warehouses. 
+				</li>
+			</ol>
+			</p>
+		
+		</li>
+		<li>
+		<h2>the journal</h2>
+			<li>Every record in the change table will get logged to a journal. <i>the journal</i> will be a simple table where (effectively) "select * from change_table_object for xml auto" is dumped. That table will become massive, however, it can be placed on a separate partition. This table is not intended to be accessed normally, only rarely.
+			</li>
+			<p>The journal will be on a filestream partition. This will allow the data to be mined off by non-sql applications. Or, the partition can simply be copied off and then dropped. The resultant file can be accessed then or in the future as a simple XML file.
+			</p>
+		
+		</li>
+		<li>
+		<h2>the asynchronous message queue</h2>
+			<p>The change table mining operation will manage creation of records to be sent to the various data warehouses. Record structures will be built, then handed off to the message queue. The message queue may be created as either targeted or broadcast, delivering the records to one or many data warehouses.
+			</p>
+			<p>As the DW records are built up they are pumped into Service Broker as XML messages. When all the changes are pumped into the queue and the changes have been placed in the journal, the change tables are truncated. In this manner, only current data is stored live in the object table, but a full journal is available if needed.
+			</p>
+			<p>Service Broker then delivers the queued data as appropriate. SB can be configured either for guaranteed delivery or for broadcast only. Guaranteed delivery may be required for dedicated client warehouses where we guarantee the delivery of data even if the target system is offline. Broadcast only may be used for delivery such as RSS feeds or for mass delivery to many client data warehouses. Using this mechanism, it is possible to have five DW, each receiving its own mix of content based on the authentication objects. Or it is possible to have five hundred thousand. The distribution is abstracted from the processes within the secure tier providing maximum scalability.
+			</p>
+			<p>The receiving applications must to be able to access an industry standard queue. Examples of these included MQ Series, WebLogic, or JBoss. Programmatically, these queue can be accessed via T-SQL, PL-SQL, Java, C#, ABAP, and most other modern languages and systems.
+			</p>
+			<p>With this architecture it is trivial to build a DW on Oracle for one client using a WebLogic queue, in SAP for another using WebSphere, another on MySql using Jboss, another on Postgres, etc.
+			</p>
+		
+		</li>
+		<li>
+		<h2>the data warehouses</h2>
+			<p>Distribution of content will performed through the creation of data warehouses. An initial DW will be created. That DW will be expanded as adds more content. If a subset of the core content is required, a separate data warehouse will be created for each subset. This is required due to the authentication mechanism being controlled solely at the point of DW record creation.
+			<p>Each data warehouse will have its own unique record set based distribution requirements.
+			</p>
+			<p>The data warehouse structure is primarily designed for OLAP access, however, it will be updated regularly with updates from the change table mining operation. Because of this, the DW tables will be optimized for select (report building) operations, but will still included certain OLTP constructs such as the use of surrogate primary keys.
+			</p>
+		
+		</li>
+	<li>
+	<h2>the prototype</h2>
+		<ol>
+			<li><u>First generation prototype</u>. The prototype will consist of five SQL Server instances installed on a single machine. These will represent both an installation of the secure tier ([oltp]), as well as a data warehouse installation and three separate client data warehouses. 
+			</li>
+			<li><u>Second generation prototype</u>. A second generation prototype will include simulations of client data warehouses as installations of databases other than SQL Server, possibly including Oracle (Developer Edition), Postgres, and MySQL. These will all be contained either within the development machine. Implementations may also be built of an RSS feed and web services at this stage.
+			</li>
+			<li><u>Third generation prototype</u>. A third generation prototype will include simulations of or actual client data warehouses as installations of databases other than SQL Server, possibly including Oracle (Developer Edition), Postgres, and MySQL, and possibly including an RSS feed and web services. These will be remote machines outside of the network.
+		</ol>
+	
+	</li>
+	
+	<li>
+	<h2>the installations</h2>
+		<ol>
+			<li><u>[oltp] (<i>the secure tier</i>)</u>
+				<p>Content - The [oltp] instance is <i>the secure tier</i>. It contains all data in highly normalized and constrained form. For the prototypes this data will consist of sample data from loads.
+				</p>
+				<p>Collation - Latin1_General_100_CS_AS_KS_WS_SC, Latin1_General_100_CS_AS_KS_WS (SSAS)<i></i>
+				</p>
+			</li>
+			<li><u>[abca] (<i>ABC Auto</i>)</u>
+				<p>Content - Simulated client data warehouse. US English.
+				</p>
+				<p>Collation - Latin1_General_100_CI, Latin1_General_100_CI(SSAS)</p>
+			</li>
+		</ol>
+		
+	
+              </td>
+            </tr>
+          </table>
+  </body>
+</html>

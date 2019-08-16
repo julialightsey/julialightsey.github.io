@@ -1,0 +1,33 @@
+
+			<!DOCTYPE html>
+				<html>
+					<head>
+						<link rel="stylesheet" type="text/css" href="..\..\..\source\common.css" target="blank">
+						<p class="header">built on <a href="http://www.katherinelightsey.com" target="blank">[chamomile]</a></p>
+					</head>
+					<body>
+		 <details><summary>job list</summary> <div id="first_indent"><details><summary>[chamomile].[job].[get_change]</summary><div id="first_indent"><ol><li><details><summary>job details</summary>
+			   <ol><li>id {64058A26-0DC5-497B-B512-4C4EE1F071F0}</li>
+				  <li>originating server {MCK790L8159\CHAMOMILE}</li>
+				  <li>description {This job runs the change table scrubber.}</li>
+				  <li> {enabled} <li>starts on step {1}</li><li>owner {TORCHMARKCORP\KELIGHTSEY}</li><li>job category {[Uncategorized (Local)]}</li><li>created {Jul 16 2014  5:28PM}</li><li>modified {Jul 18 2014  7:27AM}</li><li>version {10}</li></ol></details></li></ol></div><div id="first_indent"><details><summary>step="1" name="get_change"</summary><div id="second_indent"><ol> <li>command {execute [repository].[get_change];}</li></ol></div></details></div><div id="first_indent"><details><summary>step="2" name="step 2"</summary><div id="second_indent"><ol> <li>command {select * from sys.tables;}</li></ol></div></details></div></details></div><div id="first_indent"><details><summary>[chamomile].[job].[cdc.chamomile_capture]</summary><div id="first_indent"><ol><li><details><summary>job details</summary>
+			   <ol><li>id {F87B4EBD-CA04-47F7-9617-B11D5C21793D}</li>
+				  <li>originating server {MCK790L8159\CHAMOMILE}</li>
+				  <li>description {CDC Log Scan Job}</li>
+				  <li> {enabled} <li>starts on step {1}</li><li>owner {sa}</li><li>job category {REPL-LogReader}</li><li>created {Jul 11 2014  6:21PM}</li><li>modified {Jul 11 2014  6:21PM}</li><li>version {3}</li></ol></details></li></ol></div><div id="first_indent"><details><summary>step="1" name="Starting Change Data Capture Collection Agent"</summary><div id="second_indent"><ol> <li>command {RAISERROR(22801, 10, -1)}</li></ol></div></details></div><div id="first_indent"><details><summary>step="2" name="Change Data Capture Collection Agent"</summary><div id="second_indent"><ol> <li>command {sys.sp_MScdc_capture_job}</li></ol></div></details></div></details></div><div id="first_indent"><details><summary>[chamomile].[job].[syspolicy_purge_history]</summary><div id="first_indent"><ol><li><details><summary>job details</summary>
+			   <ol><li>id {FC1A46DF-B399-4B05-A3F5-BFB8DA7D15B7}</li>
+				  <li>originating server {MCK790L8159\CHAMOMILE}</li>
+				  <li>description {No description available.}</li>
+				  <li> {enabled} <li>starts on step {1}</li><li>owner {sa}</li><li>job category {[Uncategorized (Local)]}</li><li>created {Jun 22 2014  6:57PM}</li><li>modified {Jun 22 2014  6:57PM}</li><li>version {5}</li></ol></details></li></ol></div><div id="first_indent"><details><summary>step="1" name="Verify that automation is enabled."</summary><div id="second_indent"><ol> <li>command {IF (msdb.dbo.fn_syspolicy_is_automation_enabled() != 1)
+        BEGIN
+            RAISERROR(34022, 16, 1)
+        END}</li></ol></div></details></div><div id="first_indent"><details><summary>step="2" name="Purge history."</summary><div id="second_indent"><ol> <li>command {EXEC msdb.dbo.sp_syspolicy_purge_history}</li></ol></div></details></div><div id="first_indent"><details><summary>step="3" name="Erase Phantom System Health Records."</summary><div id="second_indent"><ol> <li>command {if ('$(ESCAPE_SQUOTE(INST))' -eq 'MSSQLSERVER') {$a = '\DEFAULT'} ELSE {$a = ''};
+(Get-Item SQLSERVER:\SQLPolicy\$(ESCAPE_NONE(SRVR))$a).EraseSystemHealthPhantomRecords()}</li></ol></div></details></div></details></div><div id="first_indent"><details><summary>[chamomile].[job].[cdc.chamomile_cleanup]</summary><div id="first_indent"><ol><li><details><summary>job details</summary>
+			   <ol><li>id {3D1AB388-00E0-4D9A-8F80-C807AE24AEF9}</li>
+				  <li>originating server {MCK790L8159\CHAMOMILE}</li>
+				  <li>description {CDC Cleanup Job}</li>
+				  <li> {enabled} <li>starts on step {1}</li><li>owner {sa}</li><li>job category {REPL-Checkup}</li><li>created {Jul 11 2014  6:21PM}</li><li>modified {Jul 11 2014  6:21PM}</li><li>version {2}</li></ol></details></li></ol></div><div id="first_indent"><details><summary>step="1" name="Change Data Capture Cleanup Agent"</summary><div id="second_indent"><ol> <li>command {sys.sp_MScdc_cleanup_job}</li></ol></div></details></div></details></div></details>
+			</body>
+				<p class="footer">copyright 2014 <a href="http://www.katherinelightsey.com" target="blank">Katherine Elizabeth Lightsey</a></p>
+			</html>
+		

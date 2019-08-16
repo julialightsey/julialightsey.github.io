@@ -1,0 +1,5 @@
+
+
+-- determine if file exists using dtutil
+-- at command prompt:
+dtutil /SQL <packagepath\packagename> /SOURCESERVER <instance\database> /EXISTS

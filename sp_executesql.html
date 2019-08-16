@@ -1,0 +1,377 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_executesql&nbsp;can&nbsp;be&nbsp;used&nbsp;instead&nbsp;of&nbsp;stored&nbsp;procedures&nbsp;to&nbsp;execute&nbsp;a&nbsp;Transact-SQL&nbsp;statement&nbsp;many&nbsp;times&nbsp;when&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;change&nbsp;in&nbsp;parameter&nbsp;values&nbsp;to&nbsp;the&nbsp;statement&nbsp;is&nbsp;the&nbsp;only&nbsp;variation.&nbsp;Because&nbsp;the&nbsp;Transact-SQL&nbsp;statement&nbsp;itself&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;remains&nbsp;constant&nbsp;and&nbsp;only&nbsp;the&nbsp;parameter&nbsp;values&nbsp;change,&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;query&nbsp;optimizer&nbsp;is&nbsp;likely&nbsp;to&nbsp;reuse&nbsp;the&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;execution&nbsp;plan&nbsp;it&nbsp;generates&nbsp;for&nbsp;the&nbsp;first&nbsp;execution.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;improve&nbsp;performance&nbsp;use&nbsp;fully&nbsp;qualified&nbsp;object&nbsp;names&nbsp;in&nbsp;the&nbsp;statement&nbsp;string.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;To&nbsp;execute&nbsp;a&nbsp;string,&nbsp;we&nbsp;recommend&nbsp;that&nbsp;you&nbsp;use&nbsp;the&nbsp;sp_executesql&nbsp;stored&nbsp;procedure&nbsp;instead&nbsp;of&nbsp;the&nbsp;EXECUTE&nbsp;statement.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Because&nbsp;this&nbsp;stored&nbsp;procedure&nbsp;supports&nbsp;parameter&nbsp;substitution,&nbsp;sp_executesql&nbsp;is&nbsp;more&nbsp;versatile&nbsp;than&nbsp;EXECUTE;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;because&nbsp;sp_executesql&nbsp;generates&nbsp;execution&nbsp;plans&nbsp;that&nbsp;are&nbsp;more&nbsp;likely&nbsp;to&nbsp;be&nbsp;reused&nbsp;by&nbsp;SQL&nbsp;Server,&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_executesql&nbsp;is&nbsp;more&nbsp;efficient&nbsp;than&nbsp;EXECUTE.
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_executesql&nbsp;[&nbsp;@stmt&nbsp;=&nbsp;]&nbsp;statement&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;,&nbsp;[&nbsp;@params&nbsp;=&nbsp;]&nbsp;N'@parameter_name&nbsp;data_type&nbsp;[&nbsp;OUT&nbsp;|&nbsp;OUTPUT&nbsp;][&nbsp;,...n&nbsp;]'&nbsp;}&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;,&nbsp;[&nbsp;@param1&nbsp;=&nbsp;]&nbsp;'value1'&nbsp;[&nbsp;,...n&nbsp;]&nbsp;}&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;]&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;----------------------------------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_executesql&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/ms188001.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Injection:&nbsp;http://msdn.microsoft.com/en-us/library/ms161953(v=SQL.105).aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;injection:&nbsp;http://en.wikipedia.org/wiki/SQL_injection&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Getting&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;columns&nbsp;in&nbsp;a&nbsp;table&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@schema</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'repository_secure'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@table</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">=</span><span style="color: red; ">N'data'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">col</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">tables</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">columns</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">col</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">col</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">schemas</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schemas]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@schema</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@table</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;What&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;parameterize&nbsp;the&nbsp;query&nbsp;to&nbsp;allow&nbsp;getting&nbsp;columns&nbsp;from&nbsp;other&nbsp;databases&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;pass&nbsp;in&nbsp;the&nbsp;schema&nbsp;and&nbsp;table&nbsp;as&nbsp;variables?&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@database</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">=</span><span style="color: red; ">N'chamomile_oltp'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@schema</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@table</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">=</span><span style="color: red; ">N'data'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@builder</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">xml</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;This&nbsp;throws&nbsp;an&nbsp;error.&nbsp;sp_executesql&nbsp;only&nbsp;handles&nbsp;unicode&nbsp;data&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;@parameters&nbsp;VARCHAR(max)&nbsp;=&nbsp;N'@builder&nbsp;xml&nbsp;output'&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'@schema&nbsp;[sysname],&nbsp;@table&nbsp;[sysname],&nbsp;@builder&nbsp;xml&nbsp;output'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">'set&nbsp;@builder=(select&nbsp;
+<br/>	[columns].[name]					as&nbsp;N''@name''
+<br/>	,&nbsp;[types].[name]					as&nbsp;N''@type''
+<br/>	,&nbsp;case
+<br/>	--
+<br/>		when&nbsp;[types].[name]&nbsp;=&nbsp;N''nvarchar''&nbsp;then&nbsp;N''[''+[types].[name]+''](''&nbsp;+&nbsp;cast([columns].[max_length]/2&nbsp;as&nbsp;[sysname])&nbsp;+&nbsp;N'')''
+<br/>		when&nbsp;[types].[name]&nbsp;=&nbsp;N''decimal''&nbsp;then&nbsp;N''[''+[types].[name]+''](''&nbsp;
+<br/>			+&nbsp;cast([columns].[precision]&nbsp;as&nbsp;[sysname])&nbsp;+&nbsp;N'',''&nbsp;
+<br/>			+&nbsp;cast([columns].[scale]&nbsp;as&nbsp;[sysname])&nbsp;&nbsp;+&nbsp;N'')''
+<br/>		else&nbsp;N''[''+[types].[name]+'']''
+<br/>	--
+<br/>	end									as&nbsp;N''@formatted''	
+<br/>from&nbsp;&nbsp;&nbsp;['</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@database</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'].[sys].[tables]			as&nbsp;[tables]&nbsp;
+<br/>join&nbsp;&nbsp;&nbsp;['</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@database</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'].[sys].[columns]			as&nbsp;[columns]&nbsp;
+<br/>&nbsp;&nbsp;on&nbsp;[tables].[object_id]=&nbsp;[columns].[object_id]
+<br/>join&nbsp;&nbsp;&nbsp;['</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@database</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'].[sys].[schemas]			as&nbsp;[schemas]&nbsp;
+<br/>&nbsp;&nbsp;on&nbsp;[schemas].[schema_id]&nbsp;=&nbsp;[tables].[schema_id]
+<br/>join&nbsp;&nbsp;&nbsp;['</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@database</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'].[sys].types				as&nbsp;[types]
+<br/>	on&nbsp;[types].[user_type_id]&nbsp;=&nbsp;[columns].[user_type_id]
+<br/>where&nbsp;&nbsp;[schemas].[name]&nbsp;=&nbsp;&nbsp;@schema&nbsp;&nbsp;
+<br/>and&nbsp;[tables].[name]&nbsp;=&nbsp;@table&nbsp;
+<br/>for&nbsp;xml&nbsp;path&nbsp;(''column''),&nbsp;root('''</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@database</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">N'.'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@schema</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">N'.'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@table</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'''))'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dynamic_sql]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;order&nbsp;is&nbsp;important!!&nbsp;first&nbsp;@sql,&nbsp;then&nbsp;@parameters,&nbsp;etc.&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@sql</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@parameters</span><span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@schema</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@schema</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@table</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@table</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@builder</span>&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@builder</span>&nbsp;<span style="color: maroon; ">output</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;&nbsp;&nbsp;
+<br/>--&nbsp;This&nbsp;throws&nbsp;an&nbsp;error&nbsp;
+<br/>--&nbsp;The&nbsp;parameter&nbsp;string&nbsp;must&nbsp;be&nbsp;immediately&nbsp;after&nbsp;the&nbsp;SQL&nbsp;string&nbsp;which&nbsp;must&nbsp;be&nbsp;first!&nbsp;
+<br/>EXECUTE&nbsp;sp_executesql&nbsp;
+<br/>&nbsp;&nbsp;@sql&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;@sql,&nbsp;
+<br/>&nbsp;&nbsp;@builder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;@builder&nbsp;output,&nbsp;
+<br/>&nbsp;&nbsp;@parameters=&nbsp;@parameters;&nbsp;&nbsp;
+<br/>&nbsp;*/</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@builder</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;SQL&nbsp;INJECTION&nbsp;ATTACKS&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;begin&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span><span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[test].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">name</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">color</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">name</span><span style="color: silver; ">,</span><span style="color: maroon; ">color</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'spot'</span><span style="color: silver; ">,</span><span style="color: red; ">N'white'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'spot'</span><span style="color: silver; ">,</span><span style="color: red; ">N'blue'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'dick'</span><span style="color: silver; ">,</span><span style="color: red; ">N'red'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'jane'</span><span style="color: silver; ">,</span><span style="color: red; ">N'blue'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">tables</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: #FF0080; font-weight: bold; ">object_schema_name</span><span style="color: maroon; ">(</span><span style="color: maroon; ">object_id</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test'</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Using&nbsp;EXECUTE()&nbsp;to&nbsp;execute&nbsp;ad&nbsp;hoc&nbsp;sql&nbsp;is&nbsp;prone&nbsp;to&nbsp;attack&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span><span style="color: red; ">N'spot'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'select&nbsp;*&nbsp;from&nbsp;test.test_01&nbsp;where&nbsp;name=N'''</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'''&nbsp;and&nbsp;[color]&nbsp;=&nbsp;N''white'''</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@sql</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;end&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;begin&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;A&nbsp;user&nbsp;can&nbsp;drop&nbsp;the&nbsp;table&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span><span style="color: red; ">N'block'';&nbsp;DROP&nbsp;TABLE&nbsp;[test].[test_01];&nbsp;--'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'select&nbsp;*&nbsp;from&nbsp;test.test_01&nbsp;where&nbsp;name=N'''</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'''&nbsp;and&nbsp;[color]&nbsp;=&nbsp;N''white'''</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'hacked&nbsp;sql&nbsp;to&nbsp;drop&nbsp;table'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@sql</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">tables</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: #FF0080; font-weight: bold; ">object_schema_name</span><span style="color: maroon; ">(</span><span style="color: maroon; ">object_id</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test'</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;end&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;begin&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;A&nbsp;user&nbsp;can&nbsp;create&nbsp;an&nbsp;account&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'[test].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">name</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">color</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">name</span><span style="color: silver; ">,</span><span style="color: maroon; ">color</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'spot'</span><span style="color: silver; ">,</span><span style="color: red; ">N'white'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'spot'</span><span style="color: silver; ">,</span><span style="color: red; ">N'blue'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'dick'</span><span style="color: silver; ">,</span><span style="color: red; ">N'red'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'jane'</span><span style="color: silver; ">,</span><span style="color: red; ">N'blue'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">syslogins</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_login'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: maroon; ">login</span>&nbsp;<span style="color: maroon; ">[hacker_login]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">sysusers</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_user'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">user</span>&nbsp;<span style="color: maroon; ">[hacker_user]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span><span style="color: red; ">N'block'';&nbsp;create&nbsp;login&nbsp;hacker_login&nbsp;with&nbsp;password&nbsp;=&nbsp;''1_Hacker'';&nbsp;CREATE&nbsp;USER&nbsp;hacker_user&nbsp;for&nbsp;login&nbsp;hacker_login;--'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'select&nbsp;*&nbsp;from&nbsp;test.test_01&nbsp;where&nbsp;name=N'''</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@user_entered_parameter_value</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'''&nbsp;and&nbsp;[color]&nbsp;=&nbsp;N''white'''</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'hacked&nbsp;sql&nbsp;to&nbsp;create&nbsp;login&nbsp;and&nbsp;user.'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@sql</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">syslogins</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_login'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">sysusers</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_user'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">syslogins</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_login'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: maroon; ">login</span>&nbsp;<span style="color: maroon; ">[hacker_login]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">sysusers</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_user'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">user</span>&nbsp;<span style="color: maroon; ">[hacker_user]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">syslogins</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_login'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">sysusers</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hacker_user'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;end&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;begin&nbsp;code&nbsp;block</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;SP_EXECUTE()&nbsp;mitigates&nbsp;the&nbsp;risk&nbsp;of&nbsp;sql&nbsp;injection&nbsp;attacks&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span><span style="color: red; ">N'spot'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: black; font-style: italic; ">int</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'set&nbsp;@id&nbsp;=&nbsp;(select&nbsp;id&nbsp;from&nbsp;test.test_01&nbsp;where&nbsp;name=@name&nbsp;and&nbsp;[color]&nbsp;=&nbsp;N''blue'')'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;we'll&nbsp;declare&nbsp;@name&nbsp;as&nbsp;[nvarchar](max)&nbsp;to&nbsp;prove&nbsp;a&nbsp;point,&nbsp;but&nbsp;it&nbsp;would&nbsp;be&nbsp;best&nbsp;to&nbsp;match&nbsp;it&nbsp;to&nbsp;the&nbsp;table&nbsp;column&nbsp;width&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'@name&nbsp;[nvarchar](max),&nbsp;@id&nbsp;int&nbsp;output'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@sql</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@parameters</span><span style="color: silver; ">=</span><span style="color: #8000FF; ">@parameters</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@name</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: maroon; ">output</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">test</span><span style="color: silver; ">.</span><span style="color: maroon; ">test_01</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span><span style="color: red; ">N'block'';&nbsp;DROP&nbsp;TABLE&nbsp;[test].[test_01];&nbsp;--'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: black; font-style: italic; ">int</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'set&nbsp;@id&nbsp;=&nbsp;(select&nbsp;id&nbsp;from&nbsp;test.test_01&nbsp;where&nbsp;name=@name&nbsp;and&nbsp;[color]&nbsp;=&nbsp;N''blue'')'</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;we'll&nbsp;declare&nbsp;@name&nbsp;as&nbsp;[nvarchar](max)&nbsp;to&nbsp;prove&nbsp;a&nbsp;point,&nbsp;but&nbsp;it&nbsp;would&nbsp;be&nbsp;best&nbsp;to&nbsp;match&nbsp;it&nbsp;to&nbsp;the&nbsp;table&nbsp;column&nbsp;width&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'@name&nbsp;[nvarchar](max),&nbsp;@id&nbsp;int&nbsp;output'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@sql</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@sql</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@parameters</span><span style="color: silver; ">=</span><span style="color: #8000FF; ">@parameters</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@name</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: maroon; ">output</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">tables</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: #FF0080; font-weight: bold; ">object_schema_name</span><span style="color: maroon; ">(</span><span style="color: maroon; ">object_id</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test'</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;There&nbsp;are&nbsp;many&nbsp;other&nbsp;steps&nbsp;to&nbsp;take&nbsp;in&nbsp;protecting&nbsp;against&nbsp;sql&nbsp;injection&nbsp;attacks.&nbsp;What&nbsp;is&nbsp;shown&nbsp;here&nbsp;is&nbsp;only&nbsp;a&nbsp;small&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;subset&nbsp;for&nbsp;the&nbsp;purposes&nbsp;of&nbsp;demonstration.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;EXAMPLE&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;**************************************************************************************************************************&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[KateTest].[GetRecords]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[katetest]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[getrecords]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[katetest]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[getrecords]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@key</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">varchar</span><span style="color: maroon; ">(</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@archive</span>&nbsp;<span style="color: black; font-style: italic; ">bit</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">0</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'@key&nbsp;VARCHAR(10)'</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'SELECT&nbsp;[value1],&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;[value2]&nbsp;
+<br/>FROM&nbsp;&nbsp;&nbsp;[KateTest].[Records]&nbsp;
+<br/>WHERE&nbsp;&nbsp;[key]&nbsp;=&nbsp;@key'</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">if</span>&nbsp;<span style="color: #8000FF; ">@archive</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">0</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'&nbsp;AND&nbsp;[archive]&nbsp;IS&nbsp;NOT&nbsp;NULL;'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@sql</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@parameters</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@key</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@key</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

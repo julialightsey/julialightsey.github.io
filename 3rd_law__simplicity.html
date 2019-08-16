@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href="./source/image/chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href="./source/common.css" />
+	</head>
+	<body id="top">
+		<table style="border-collapse: collapse; margin-top:0px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td >
+								<iframe src="./header.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0; margin:0 auto; display:block;" height="325" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-bottom:0px; margin-top:-25px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="content">
+						<tr>
+							<td class="content">
+								<iframe src="./menu__home.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0;" height="50" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__laws_of_software_design.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="75" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-top:0px; margin-top:-15px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table -->
+					<table class="content">
+						<tr>
+							<td>
+								<img style="float:right; padding-left:35px; width:450px;" src="./source/image/daisy.jpg" alt="daisy" />
+								<h3>[3rd_law__simplicity]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content" style="text-align:center;">If a method is too complex to effectively unit test, it is too complex.</p>
+								<p class="quote">Simplicity is the ultimate sophistication. Leonardo da Vinci.</p>
+								<p>If you can&#39;t test it, it doesn&#39;t exist. It&#39;s really that simply. Any thing else is supposition, postulation, and theory. It is never my preference to try to promote a theoretical object into production, yet that is exactly what the majority of software programmers do daily.</p>
+								<p class="quote">In just six weeks from the time the design was started, we had the motor on the block testing its power. Orville Wright</p>
+								<p>Some believe they have fulfilled the obligations of testing by checking the &quot;unit test&quot; check box in <a href="https://www.rallydev.com/" target="blank">Rally</a>. Most believe that it is possible for them as individuals to determine by inspection that their work meets requirements. Others believe that it is possible for a peer to review their code and to determine by inspection that their work meets requirements.</a>
+								<p class="content">The problem is that 100% inspection is only 70% efficient. The only effective way to fully test that software meets requirements is through the use of programmatic tests.</p>
+								<p class="quote"><a href="http://en.wikipedia.org/wiki/Complexity" target="blank">Complexity</a> is generally used to characterize something with many parts where those parts interact with each other in multiple ways. The study of these complex linkages is the main goal of complex systems theory.</p>
+								<p class="quote">In science, there are at this time a number of approaches to characterizing complexity...</p>
+								<p class="quote">Neil Johnson admits that &quot;even among scientists, there is no unique definition of complexity - and the scientific notion has traditionally been conveyed using particular examples...&quot; Ultimately he adopts the definition of &#39;complexity science&#39; as &quot;the study of the phenomena which emerge from a collection of interacting objects.&quot;</p>
+								<p>One of the primary goals of any design is to reduce its complexity. Complexity is not a desired artifact of any system, but rather, <a href=".\8th_law__elegance.html" target="blank">complexity must justify itself</a>.</p>
+								<p class="quote">Chaos: When the present determines the future, but the approximate present does not approximately determine the future. Edward Lorenz.</p>
+								<p class="content">Many development shops have standards for complexity. Some do not and you will find stored procedures that are three to five thousand lines long and are just a?big ball of mud, sometimes referred to as spaghetti code. Some shops simply state that a method should be no longer than a certain number of lines. This is valid at face value, but you can rapidly find that you are having to create multiple methods to perform accessor and mutator operations on the same object. By using an arbitrary limitation as a complexity rule, you have forced the complexity into the public interface. A complexity measure that is common with the?Agile methodologies(and one which I carry over from my time working with dangerous machinery) is that a method is too complex if it cannot be effectively tested programmatically. This is a core and driving factor in the?Test Driven Development methodology.</p>
+								<p class="content">The logic behind this statement is simple; if you can effectively, repeatably, programmatically, and fully test an object, it can be refactored?in the future for performance, extension, clarity, etc. If you cannot effectively, repeatably, programmatically, and fully test an object, then even fifteen lines of code is too long. If it can be tested, you can modify or enhance it and run the original tests against it to ensure that the original functionality has not been lost. If you cannot test it, you have to wait for the customer to tell you if you have impacted the original functionality. In 'machinery' terms, that would mean that I would have to wait until someone is killed or maimed to find out if my design change is valid. In business software terms, that means I may have to wait until a hacker steals or corrupts business data, or until a client?s data is compromised or corrupted to know that my design change is valid. Neither option is acceptable.</p>
+								<p class="content">Note that nothing is said here about the test environment. That is not an indication that the test environment or the process of change management is of minor importance. To the contrary, the test environment and the change management process can be the deciding factor between success and failure. Nonetheless, both are supporting components of the design and build process rather than primary components.
+								</p>
+								<hr class="in_chapter" />
+								<p>The most common means of defining complexity of software methods are by lines of code and by number of operations performed.</p>
+								<ol>
+									<li>
+										<p>The number of lines of code in an object is an easy measure, and thus an easy target, but is an arbitrary measure at best. Formatting differences can dramatically change the number of lines of code, and attempts to condense code into fewer lines can actually add to the complexity.</p>
+										<p>Consider the following two sets of code. Syntactically they are identical. The first requires only one line. The second requires six lines, yet it is significantly easier to read. Code reviews that use the length of an object measured by lines of code force programmers into the first method, increasing actual rather than perceived complexity and reducing the ability of the programmer to maintain or update the object in the future.</p>
+										<ol>
+											<li>
+												<font face="Courier New" size="2">
+												<font color="blue">select</font>? 
+												<font color="blue">case</font>? 
+												<font color="blue">when</font>? 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;white&#39;</font>? 
+												<font color="blue">then</font>? 
+												<font color="red">N&#39;blank&#39;</font> ? 
+												<font color="blue">when</font>? 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;black&#39;</font>? 
+												<font color="blue">then</font>? 
+												<font color="red">N&#39;dark&#39;</font> ? 
+												<font color="blue">when</font>? 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;red&#39;</font>? 
+												<font color="blue">then</font>? 
+												<font color="red">N&#39;angry&#39;</font> ? 
+												<font color="blue">when</font>? 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;pink&#39;</font>? 
+												<font color="blue">then</font>? 
+												<font color="red">N&#39;happy&#39;</font> ? 
+												<font color="blue">else</font>? 
+												<font color="red">N&#39;uncertain&#39;</font> ? 
+												<font color="blue">end</font> 
+												<font color="silver">;</font>?</font>
+											</li>
+											<li>
+												<font face="Courier New" size="2">
+												<font color="blue">select</font> 
+												<font color="blue">case</font> 
+												<font color="blue">when</font> 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;white&#39;</font> 
+												<font color="blue">then</font> 
+												<font color="red">N&#39;blank&#39;</font>
+												<br />
+												<font color="blue">when</font> 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;black&#39;</font> 
+												<font color="blue">then</font> 
+												<font color="red">N&#39;dark&#39;</font>
+												<br />
+												<font color="blue">when</font> 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;red&#39;</font> 
+												<font color="blue">then</font> 
+												<font color="red">N&#39;angry&#39;</font>
+												<br />
+												<font color="blue">when</font> 
+												<font color="#8000FF">@color</font> 
+												<font color="silver">=</font> 
+												<font color="red">N&#39;pink&#39;</font> 
+												<font color="blue">then</font> 
+												<font color="red">N&#39;happy&#39;</font>
+												<br />
+												<font color="blue">else</font> 
+												<font color="red">N&#39;uncertain&#39;</font>
+												<br />
+												<font color="blue">end</font> 
+												<font color="silver">;</font></font>
+											</li>
+										</ol>
+										<p>The length of an object measured by lines of code is invalid as a determination of its complexity.</p>
+									</li>
+									<li>
+										<p>The number of operations performed in an object is an easy measure as well, and therefore also an easy target, but this is also an arbitrary measure at best. Consider the following object. I have worked in shops where I was not allowed to create this type of object. The objection stated was always some variation of, &quot;Our developers aren&#39;t skilled enough to understand this code.&quot; No consideration was ever given to the complexity required to maintain separate objects for insert, update, and delete operations as well as optionally generating output and automatically logging the result if not indicated otherwise.</p>
+										<p>The complexity of an object MUST include the complexity of using it in calling objects. A calling object can create one method call for an object such as this and parameterize the options for output and logging without changing the call.</p>
+										<p>Breaking this method out into three to five separate objects might make each individual object easier to understand for an unskilled SQL developer, but when is the level of incompetence of a developer a valid reason to push complexity out to the architecture or onto calling methods?</p>
+										<p>
+											<font face="Courier New" size="2">
+											<font color="blue">create</font>?
+											<font color="blue">procedure</font>?
+											<font color="maroon">[sales]</font>
+											<font color="silver">.</font>
+											<font color="#FF0080">
+											<b>[set_monthly_report]</b>
+											</font>?
+											<font color="#8000FF">@report</font>?
+											<font color="black">
+											<i>[xml]</i>
+											</font>
+											<font color="silver">,</font>
+											<font color="#8000FF">@verbose</font>?
+											<font color="black">
+											<i>[bit]</i>
+											</font>?
+											<font color="silver">=</font>?
+											<font color="black">0</font>
+											<font color="silver">,</font>
+											<font color="#8000FF">@delete</font>?
+											<font color="black">
+											<i>[bit]</i>
+											</font>?
+											<font color="silver">=</font>?
+											<font color="black">0</font>
+											<font color="silver">,</font>
+											<font color="#8000FF">@id</font>?
+											<font color="black">
+											<i>[int]</i>
+											</font>
+											<font color="silver">,</font>
+											<font color="#8000FF">@log</font>?
+											<font color="black">
+											<i>[bit]</i>
+											</font>?
+											<font color="silver">=</font>?
+											<font color="black">1</font>
+											<font color="silver">,</font>
+											<font color="#8000FF">@output</font>?
+											<font color="black">
+											<i>[xml]</i>
+											</font>?
+											<font color="silver">=</font>?
+											<font color="blue">null</font>?
+											<font color="maroon">output</font>
+											<br />
+											<font color="blue">as</font>
+											<br />??
+											<font color="blue">begin</font>
+											<br />??????
+											<font color="blue">declare</font>?
+											<font color="#8000FF">@output_list</font>?
+											<font color="blue">table</font>
+											<br />????????
+											<font color="maroon">(</font>
+											<font color="maroon">[action]</font>?
+											<font color="black">
+											<i>[sysname]</i>
+											</font>?
+											<font color="blue">not</font>?
+											<font color="blue">null</font>
+											<font color="silver">,</font>
+											<br />?????????
+											<font color="maroon">[id]</font>?????
+											<font color="black">
+											<i>[int]</i>
+											</font>?
+											<font color="blue">not</font>?
+											<font color="blue">null</font>
+											<font color="silver">,</font>
+											<br />?????????
+											<font color="maroon">[report]</font>?
+											<font color="black">
+											<i>[xml]</i>
+											</font>?
+											<font color="blue">not</font>?
+											<font color="blue">null</font>
+											<br />????????
+											<font color="maroon">)</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="blue">begin</font>?
+											<font color="blue">transaction</font>?
+											<font color="maroon">[sales.monthly_report.tx]</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />??????
+											<font color="blue">begin</font>
+											<br />??????????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />??????????
+											<font color="blue">merge</font>?
+											<font color="blue">into</font>?
+											<font color="maroon">[sales]</font>
+											<font color="silver">.</font>
+											<font color="maroon">[report]</font>?
+											<font color="blue">as</font>?
+											<font color="maroon">target</font>
+											<br />??????????
+											<font color="maroon">using</font>?
+											<font color="maroon">(</font>
+											<font color="blue">select</font>?
+											<font color="#8000FF">@id</font>
+											<br />????????????????????????
+											<font color="silver">,</font>
+											<font color="#8000FF">@report</font>
+											<font color="maroon">)</font>?
+											<font color="blue">as</font>?
+											<font color="maroon">source</font>?
+											<font color="maroon">(</font>
+											<font color="maroon">[id]</font>
+											<font color="silver">,</font>?
+											<font color="maroon">[report]</font>
+											<font color="maroon">)</font>
+											<br />??????????
+											<font color="blue">on</font>?
+											<font color="maroon">target</font>
+											<font color="silver">.</font>
+											<font color="maroon">[id]</font>
+											<font color="silver">=</font>
+											<font color="maroon">source</font>
+											<font color="silver">.</font>
+											<font color="maroon">[id]</font>?
+											<font color="blue">and</font>
+											<br />?????????????
+											<font color="#8000FF">@delete</font>
+											<font color="silver">=</font>
+											<font color="black">0</font>
+											<br />??????????
+											<font color="blue">when</font>?
+											<font color="maroon">matched</font>?
+											<font color="blue">then</font>
+											<br />????????????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />????????????
+											<font color="blue">update</font>?
+											<font color="blue">set</font>?
+											<font color="maroon">target</font>
+											<font color="silver">.</font>
+											<font color="maroon">[report]</font>
+											<font color="silver">=</font>
+											<font color="maroon">source</font>
+											<font color="silver">.</font>
+											<font color="maroon">[report]</font>
+											<br />??????????
+											<font color="blue">when</font>?
+											<font color="blue">not</font>?
+											<font color="maroon">matched</font>?
+											<font color="blue">by</font>?
+											<font color="maroon">target</font>?
+											<font color="blue">and</font>?
+											<font color="#8000FF">@delete</font>?
+											<font color="silver">=</font>?
+											<font color="black">0</font>?
+											<font color="blue">then</font>
+											<br />????????????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />????????????
+											<font color="blue">insert</font>?
+											<font color="maroon">(</font>
+											<font color="maroon">[report]</font>
+											<font color="maroon">)</font>
+											<br />????????????
+											<font color="blue">values</font>?
+											<font color="maroon">(</font>
+											<font color="maroon">[report]</font>
+											<font color="maroon">)</font>
+											<br />??????????
+											<font color="blue">when</font>?
+											<font color="blue">not</font>?
+											<font color="maroon">matched</font>?
+											<font color="blue">by</font>?
+											<font color="maroon">source</font>?
+											<font color="blue">and</font>?
+											<font color="#8000FF">@delete</font>?
+											<font color="silver">=</font>?
+											<font color="black">1</font>?
+											<font color="blue">then</font>
+											<br />????????????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />????????????
+											<font color="blue">delete</font>
+											<br />??????????
+											<font color="maroon">output</font>?
+											<font color="maroon">$action</font>
+											<font color="silver">,</font>
+											<br />?????????????????
+											<font color="#FF0080">
+											<b>isnull</b>
+											</font>
+											<font color="maroon">(</font>
+											<font color="maroon">inserted</font>
+											<font color="silver">.</font>
+											<font color="maroon">[report]</font>
+											<font color="silver">,</font>?
+											<font color="maroon">deleted</font>
+											<font color="silver">.</font>
+											<font color="maroon">[report]</font>
+											<font color="maroon">)</font>
+											<br />??????????
+											<font color="blue">into</font>?
+											<font color="#8000FF">@output_list</font>
+											<font color="maroon">(</font>
+											<font color="maroon">[id]</font>
+											<font color="silver">,</font>?
+											<font color="maroon">[report]</font>
+											<font color="maroon">)</font>
+											<font color="silver">;</font>
+											<br />??????
+											<font color="blue">end</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="blue">commit</font>?
+											<font color="blue">transaction</font>?
+											<font color="maroon">[sales.monthly_report.tx]</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>--?build?@output</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>-------------------------------------------</i>
+											</font>
+											<br />??????
+											<font color="blue">set</font>?
+											<font color="#8000FF">@output</font>?
+											<font color="silver">=</font>?
+											<font color="maroon">(</font>
+											<font color="blue">select</font>?
+											<font color="maroon">[action]</font>
+											<br />????????????????????????????
+											<font color="silver">,</font>
+											<font color="maroon">[id]</font>
+											<br />????????????????????????????
+											<font color="silver">,</font>
+											<font color="maroon">[report]</font>
+											<br />?????????????????????
+											<font color="blue">from</font>???
+											<font color="#8000FF">@output_list</font>
+											<br />?????????????????????
+											<font color="blue">for</font>?
+											<font color="maroon">xml</font>?
+											<font color="maroon">path</font>?
+											<font color="maroon">(</font>
+											<font color="red">N&#39;report&#39;</font>
+											<font color="maroon">)</font>
+											<font color="silver">,</font>?
+											<font color="maroon">root</font>
+											<font color="maroon">(</font>
+											<font color="red">N&#39;report_list&#39;</font>
+											<font color="maroon">)</font>
+											<font color="maroon">)</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>--?display?results?if?@verbose?=?1</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>-------------------------------------------</i>
+											</font>
+											<br />??????
+											<font color="blue">if</font>?
+											<font color="#8000FF">@verbose</font>
+											<font color="silver">=</font>
+											<font color="black">1</font>?
+											<font color="blue">begin</font>
+											<br />????????????
+											<font color="blue">select</font>?
+											<font color="maroon">[action]</font>
+											<br />???????????????????
+											<font color="silver">,</font>
+											<font color="maroon">[id]</font>
+											<br />???????????????????
+											<font color="silver">,</font>
+											<font color="maroon">[report]</font>
+											<br />????????????
+											<font color="blue">from</font>???
+											<font color="#8000FF">@output_list</font>
+											<font color="silver">;</font>
+											<br />????????
+											<font color="blue">end</font>
+											<font color="silver">;</font>
+											<br />
+											<br />??????
+											<font color="green">
+											<i>--</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>--?log?results?if?@log?=?1</i>
+											</font>
+											<br />??????
+											<font color="green">
+											<i>-------------------------------------------</i>
+											</font>
+											<br />??????
+											<font color="blue">if</font>?
+											<font color="#8000FF">@log</font>
+											<font color="silver">=</font>
+											<font color="black">1</font>?
+											<font color="blue">begin</font>
+											<br />????????????
+											<font color="blue">insert</font>?
+											<font color="blue">into</font>?
+											<font color="maroon">[utility]</font>
+											<font color="silver">.</font>
+											<font color="maroon">[log]</font>
+											<br />????????????????????????
+											<font color="maroon">(</font>
+											<font color="maroon">[entry]</font>
+											<font color="maroon">)</font>
+											<br />????????????
+											<font color="blue">values</font>??????
+											<font color="maroon">(</font>
+											<font color="#8000FF">@output</font>
+											<font color="maroon">)</font>
+											<font color="silver">;</font>
+											<br />????????
+											<font color="blue">end</font>
+											<font color="silver">;</font>
+											<br />??
+											<font color="blue">end</font>
+											<font color="silver">;</font>
+											<br />
+											<br />
+											<font color="maroon">go</font>?</font>
+										</p>
+										<p>Insisting on limiting the number of operations in an object may force the object to broken into constituent parts that do not make sense on their own.</p>
+										<p>I prefer to encapsulate the complexity into an object that can be reused and refactored if necessary while simplifying both the architecture and the calling objects.</p>
+									</li>
+								</ol>
+								<hr class="in_chapter" />
+								<p>The counterpoint to this is that you must avoid creating a "<a href="https://en.wikipedia.org/wiki/God_object" target="blank">God Object</a>". This is easily avoided by writing proper <a href=".\unit_test.html" target="blank">unit tests</a> (see: <a href=".\test_driven_development.html" target="blank">Test Driven Development</a>). In the case of the procedure above, tests can clearly be written for each case; insert, update, delete, verbose output, and logging.</p>
+								<p class="quote">Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better. Edsger Wybe Dijkstra.</p>
+								<p>This is a difficult concept for those who have not written unit tests. Write a few using the methodology presented in <a href=".\test_driven_development.html" target="blank">Test Driven Development</a> and you will rapidly see that unit tests easily constrain complexity.
+								</p>
+								<hr class="in_chapter" />
+								<p>The two methods that should be used to constrain complexity on an object are:
+								<ol>
+									<li>Reduce complexity in the architecture and in calling objects.</li>
+									<li>All interactions of the object as well as side effects must be testable by programmatic unit tests.</li>
+								</ol>
+								</p>
+								<p> The best means of managing complexity is the unit test. If tests can be written that effectively test the required business functionality of the object, the object can be improved and augmented now or at a later date. If tests cannot effectively determine that the object meets required business functionalilty, then it is simply too complex.</p>
+								<p>If the software under inspection is simply too complex to be unit tested, it should be refactored until the individual components may be unit tested. Unit testing serves in this manner to ensure both code compliance as well as code simplicity. Keep in mind that this is not an esoteric objective.</p>
+								<p>Code which is too complex to unit test will be too complex to maintain and extend as well.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content">
+						<tr>
+							<td>
+								<div><span style="font-family: Courier New; font-size: 10pt;">
+									<span style="color: green; font-style: italic; ">/*
+									<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+									<br/>&nbsp;&nbsp;---------------------------------------------
+									<br/>
+									<br/>&nbsp;&nbsp;--
+									<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+									<br/>&nbsp;&nbsp;---------------------------------------------
+									<br/>
+									<br/>&nbsp;&nbsp;--
+									<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+									<br/>&nbsp;&nbsp;---------------------------------------------
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+									<br/>&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;--
+									<br/>&nbsp;&nbsp;--&nbsp;references
+									<br/>&nbsp;&nbsp;---------------------------------------------
+									<br/>*/</span>
+									<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+									<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+									<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'address'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span><span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;address'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+									<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[address].[data]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>&nbsp;<span style="color: maroon; ">(</span>
+									<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+									<br/>&nbsp;&nbsp;uses&nbsp;one&nbsp;procedure&nbsp;to&nbsp;get&nbsp;addresses&nbsp;by&nbsp;any&nbsp;of&nbsp;the&nbsp;variables&nbsp;passed&nbsp;in.&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;all&nbsp;the&nbsp;cases&nbsp;are&nbsp;not&nbsp;built&nbsp;out...&nbsp;it&nbsp;should&nbsp;be&nbsp;obvious&nbsp;that&nbsp;there&nbsp;would&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;be&nbsp;a&nbsp;cte&nbsp;for&nbsp;each&nbsp;of&nbsp;the&nbsp;parameters&nbsp;and&nbsp;all&nbsp;would&nbsp;be&nbsp;unioned&nbsp;together.&nbsp;
+									<br/>&nbsp;&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;I&nbsp;do&nbsp;not&nbsp;mind&nbsp;using&nbsp;"select&nbsp;*"&nbsp;in&nbsp;this&nbsp;case&nbsp;as&nbsp;the&nbsp;select&nbsp;is&nbsp;from&nbsp;the&nbsp;cte&nbsp;
+									<br/>&nbsp;&nbsp;just&nbsp;preceding&nbsp;the&nbsp;select&nbsp;statement,&nbsp;and&nbsp;part&nbsp;of&nbsp;the&nbsp;overall&nbsp;construct.&nbsp;
+									<br/>&nbsp;&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;This&nbsp;gets&nbsp;all&nbsp;of&nbsp;the&nbsp;addresses&nbsp;that&nbsp;meet&nbsp;any&nbsp;of&nbsp;the&nbsp;parameters.&nbsp;a&nbsp;technique&nbsp;
+									<br/>&nbsp;&nbsp;to&nbsp;get&nbsp;only&nbsp;addresses&nbsp;that&nbsp;meet&nbsp;all&nbsp;of&nbsp;the&nbsp;parameters&nbsp;is&nbsp;shown&nbsp;elsewhere.&nbsp;
+									<br/>&nbsp;&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;There&nbsp;is&nbsp;only&nbsp;one&nbsp;method&nbsp;for&nbsp;the&nbsp;calling&nbsp;application&nbsp;to&nbsp;be&nbsp;aware&nbsp;of.&nbsp;This&nbsp;
+									<br/>&nbsp;&nbsp;is&nbsp;NOT&nbsp;an&nbsp;example&nbsp;of&nbsp;a&nbsp;God&nbsp;object&nbsp;(anti&nbsp;pattern)&nbsp;as&nbsp;the&nbsp;method&nbsp;still&nbsp;does&nbsp;
+									<br/>&nbsp;&nbsp;one&nbsp;very&nbsp;clearly&nbsp;defined&nbsp;task;&nbsp;get&nbsp;an&nbsp;address.&nbsp;
+									<br/>*/</span>
+									<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;</span>
+									<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[address].[get]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[get]</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get]</span>
+									<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@street_01</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@street_02</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@rural_route</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@post_office_box</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@city</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@state</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@postal_code</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/><span style="color: blue; ">as</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[get_by_street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[street_01]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@street_01</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[street_02]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@street_02</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[city]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@city</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[union_all]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_city]</span><span style="color: maroon; ">)</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[union_all]</span><span style="color: silver; ">;</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+									<br/>&nbsp;&nbsp;uses&nbsp;one&nbsp;procedure&nbsp;for&nbsp;each&nbsp;parameter.&nbsp;There&nbsp;will&nbsp;need&nbsp;to&nbsp;be&nbsp;a&nbsp;total&nbsp;
+									<br/>&nbsp;&nbsp;of&nbsp;eight&nbsp;separate&nbsp;procedures&nbsp;for&nbsp;the&nbsp;interface&nbsp;to&nbsp;call.&nbsp;The&nbsp;
+									<br/>&nbsp;&nbsp;developer&nbsp;programming&nbsp;the&nbsp;interface&nbsp;must&nbsp;determine&nbsp;which&nbsp;procedure&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;to&nbsp;call,&nbsp;forcing&nbsp;complexity&nbsp;into&nbsp;the&nbsp;calling&nbsp;application.&nbsp;Additionally,&nbsp;
+									<br/>&nbsp;&nbsp;how&nbsp;does&nbsp;the&nbsp;calling&nbsp;application&nbsp;get&nbsp;addresses&nbsp;that&nbsp;match&nbsp;multiple&nbsp;
+									<br/>&nbsp;&nbsp;parameters,&nbsp;by&nbsp;building&nbsp;even&nbsp;more&nbsp;methods&nbsp;such&nbsp;as&nbsp;&nbsp;
+									<br/>&nbsp;&nbsp;"get_by_street_01_and_street_02",&nbsp;etc.&nbsp;Reductio&nbsp;ad&nbsp;absurdum.&nbsp;I&nbsp;have&nbsp;
+									<br/>&nbsp;&nbsp;seen&nbsp;designs&nbsp;such&nbsp;as&nbsp;this&nbsp;result&nbsp;in&nbsp;fifteen&nbsp;to&nbsp;twenty&nbsp;separate&nbsp;methods&nbsp;
+									<br/>&nbsp;&nbsp;simply&nbsp;to&nbsp;get&nbsp;an&nbsp;address.&nbsp;
+									<br/>*/</span>
+									<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;</span>
+									<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[address].[get_by_id]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[get_by_id]</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>
+									<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_by_id]</span>
+									<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/><span style="color: blue; ">as</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: silver; ">;</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span><span style="color: silver; ">;</span>
+									<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_by_street_01]</span>
+									<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+									<br/><span style="color: blue; ">as</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_01]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[street_02]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[rural_route]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[post_office_box]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[city]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[state]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[postal_code]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[address]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[street_01]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@street_01</span><span style="color: silver; ">;</span>
+									<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span><span style="color: silver; ">;</span>
+									<br/><span style="color: maroon; ">go</span>&nbsp;
+									</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse; margin:0 auto; width:100%; margin-top:-25px;" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td > 
+								<iframe src="./footer.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="200" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

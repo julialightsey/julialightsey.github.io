@@ -1,0 +1,48 @@
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;used&nbsp;for&nbsp;[chamomile].[presentation].[unbreakable_code]
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;unbreakable_code&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.dm_tran_active_transactions&nbsp;(Transact-SQL)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms174302.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Unit&nbsp;unbreakable_codeing&nbsp;-&nbsp;http://en.wikipedia.org/wiki/Unit_unbreakable_codeing
+<br/>*/</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'unbreakable_code'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;unbreakable_code'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[unbreakable_code].[flower]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[unbreakable_code]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[flower]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[unbreakable_code]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[flower]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[flower]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">constraint</span>&nbsp;<span style="color: maroon; ">[unbreakable_code.flower.flower.unique]</span>&nbsp;<span style="color: blue; ">unique</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[flower]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>

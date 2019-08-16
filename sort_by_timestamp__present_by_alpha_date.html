@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu_esoterica.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  <p>Occasionally you may wish to present an alpha data in your output such as "December 2015" but you wish to sort using the actual timestamp as sorting the alpha date will not sort correctly. You can do this easily using a <a href="https://technet.microsoft.com/en-US/library/ms191250(v=SQL.105).aspx" target="blank">computed column</a> as shown below.
+			  </p>
+			  <p>Unfortunately you cannot persist the computed column in this case because it is <a href="https://technet.microsoft.com/en-us/library/aa214775(v=sql.80).aspx" target="blank">non-deterministic</a>.
+			  </p>
+			  <hr class="in_chapter" />
+<font face="Courier New" size="2">
+<font color = "blue">declare</font>&nbsp;<font color = "#8000FF">@table</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "blue">table</font>
+<br/>&nbsp;&nbsp;<font color = "maroon">(</font>&nbsp;<font color = "maroon">[timestamp]</font>&nbsp;<font color = "black"><i>[date]</i></font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;<font color = "maroon">[yyyysmon]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "fuchsia"><i>Cast</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Year</i></font><font color = "maroon">(</font><font color = "maroon">[timestamp]</font><font color = "maroon">)</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[sysname]</i></font><font color = "maroon">)</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">+</font><font color = "red">N'&nbsp;'</font><font color = "silver">+</font><font color = "fuchsia"><i>left</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Datename</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "maroon">[timestamp]</font><font color = "maroon">)</font><font color = "silver">,</font>&nbsp;<font color = "black">3</font><font color = "maroon">)</font>
+<br/>&nbsp;&nbsp;<font color = "maroon">)</font><font color = "silver">;</font>
+<br/>
+<br/><font color = "blue">insert</font>&nbsp;<font color = "blue">into</font>&nbsp;<font color = "#8000FF">@table</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "maroon">[timestamp]</font><font color = "maroon">)</font>
+<br/><font color = "blue">values</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "silver">-</font><font color = "black">1</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "black">3</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "black">8</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "silver">-</font><font color = "black">13</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "black">12</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "silver">-</font><font color = "black">1</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">,</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "fuchsia"><i>Dateadd</i></font><font color = "maroon">(</font><font color = "maroon">month</font><font color = "silver">,</font>&nbsp;<font color = "black">4</font><font color = "silver">,</font>&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">;</font>
+<br/>
+<br/><font color = "blue">select</font>&nbsp;<font color = "maroon">[timestamp]</font>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font><font color = "maroon">[yyyysmon]</font>
+<br/><font color = "blue">from</font>&nbsp;&nbsp;&nbsp;<font color = "#8000FF">@table</font>
+<br/><font color = "blue">order</font>&nbsp;&nbsp;<font color = "blue">by</font>&nbsp;<font color = "maroon">[timestamp]</font><font color = "silver">;</font>&nbsp;
+</font>
+
+			  <hr class="in_chapter" />
+			  <h4>output</h4>
+<table>
+<tr color="blue"><td>[timestamp]</td><td>[yyyysmon]</td></tr>
+<tr><td>2014-06-16</td><td>2014 Jun</td></tr>
+<tr><td>2015-06-16</td><td>2015 Jun</td></tr>
+<tr><td>2015-06-16</td><td>2015 Jun</td></tr>
+<tr><td>2015-07-16</td><td>2015 Jul</td></tr>
+<tr><td>2015-10-16</td><td>2015 Oct</td></tr>
+<tr><td>2015-11-16</td><td>2015 Nov</td></tr>
+<tr><td>2016-03-16</td><td>2016 Mar</td></tr>
+<tr><td>2016-07-16</td><td>2016 Jul</td></tr>
+</table>
+			  
+
+			  <hr class="in_chapter" />
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>select&nbsp;[utility].[get_meta_data](@test_type_meta_data);
+<br/>
+<br/>*/</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@error_stack</span>&nbsp;<span style="color: black; font-style: italic; ">xml</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[xsc]</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@pass_meta_data</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[chamomile].[result].[default].[pass]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@fail_meta_data</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[chamomile].[result].[default].[fail]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid_meta_data</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[chamomile].[invalid].[meta_data]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid_prototype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[chamomile].[invalid].[prototype]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@utility_xsc_prototype</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[utility].[xsc].[stack].[prototype]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@test_prototype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">1000</span><span style="color: maroon; ">)</span><span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[chamomile].[test].[stack].[prototype]'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@pass</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@fail</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid_xml</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[xml]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@stack_builder</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[xml]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[xml]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@pass</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_meta_data]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@pass_meta_data</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@fail</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_meta_data]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@fail_meta_data</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_meta_data]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@invalid_meta_data</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@stack_builder</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_prototype]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@utility_xsc_prototype</span><span style="color: maroon; ">)</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">query</span><span style="color: maroon; ">(</span><span style="color: red; ">N'/*/*[2]'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[utility]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_prototype]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@test_prototype</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@error_stack</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">isnull</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@error_stack</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[data]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">query</span><span style="color: maroon; ">(</span><span style="color: red; ">N'/*/*[2]'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[repository]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get]</span><span style="color: maroon; ">(</span><span style="color: blue; ">null</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@utility_xsc_prototype</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;validate&nbsp;meta&nbsp;data&nbsp;and&nbsp;prototypes</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[invalid_data_finder]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[value]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[prototype]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: blue; ">values</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: #8000FF; ">@fail</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@fail_meta_data</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: fuchsia; font-style: italic; ">cast</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@invalid_xml</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@invalid_prototype</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[invalid_data]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[value]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[prototype]</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">coalesce</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@message</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N''</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N''</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: maroon; ">[prototype]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">N',&nbsp;'</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[invalid_data_finder]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[value]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">left</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@message</span><span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">len</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@message</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">-</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">else</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'no&nbsp;invalid&nbsp;data'</span><span style="color: silver; ">;</span>&nbsp;
+</span></div>
+
+
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

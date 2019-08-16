@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;synonym&nbsp;is&nbsp;a&nbsp;database&nbsp;object&nbsp;that&nbsp;serves&nbsp;the&nbsp;following&nbsp;purposes:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Provides&nbsp;an&nbsp;alternative&nbsp;name&nbsp;for&nbsp;another&nbsp;database&nbsp;object,&nbsp;referred&nbsp;to&nbsp;as&nbsp;the&nbsp;base&nbsp;object,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;can&nbsp;exist&nbsp;on&nbsp;a&nbsp;local&nbsp;or&nbsp;remote&nbsp;server.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Provides&nbsp;a&nbsp;layer&nbsp;of&nbsp;abstraction&nbsp;that&nbsp;protects&nbsp;a&nbsp;client&nbsp;application&nbsp;from&nbsp;changes&nbsp;made&nbsp;to&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;name&nbsp;or&nbsp;location&nbsp;of&nbsp;the&nbsp;base&nbsp;object.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Four-part&nbsp;names&nbsp;for&nbsp;function&nbsp;base&nbsp;objects&nbsp;are&nbsp;not&nbsp;supported.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;synonym&nbsp;cannot&nbsp;be&nbsp;the&nbsp;base&nbsp;object&nbsp;for&nbsp;another&nbsp;synonym,&nbsp;and&nbsp;a&nbsp;synonym&nbsp;cannot&nbsp;reference&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;user-defined&nbsp;aggregate&nbsp;function.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;binding&nbsp;between&nbsp;a&nbsp;synonym&nbsp;and&nbsp;its&nbsp;base&nbsp;object&nbsp;is&nbsp;by&nbsp;name&nbsp;only.&nbsp;All&nbsp;existence,&nbsp;type,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;permissions&nbsp;checking&nbsp;on&nbsp;the&nbsp;base&nbsp;object&nbsp;is&nbsp;deferred&nbsp;until&nbsp;run&nbsp;time.&nbsp;Therefore,&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base&nbsp;object&nbsp;can&nbsp;be&nbsp;modified,&nbsp;dropped,&nbsp;or&nbsp;dropped&nbsp;and&nbsp;replaced&nbsp;by&nbsp;another&nbsp;object&nbsp;that&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has&nbsp;the&nbsp;same&nbsp;name&nbsp;as&nbsp;the&nbsp;original&nbsp;base&nbsp;object.&nbsp;For&nbsp;example,&nbsp;consider&nbsp;a&nbsp;synonym,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyContacts,&nbsp;that&nbsp;references&nbsp;the&nbsp;Person.Contact&nbsp;table&nbsp;in&nbsp;Adventure&nbsp;Works.&nbsp;If&nbsp;the&nbsp;Contact&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;is&nbsp;dropped&nbsp;and&nbsp;replaced&nbsp;by&nbsp;a&nbsp;view&nbsp;named&nbsp;Person.Contact,&nbsp;MyContacts&nbsp;now&nbsp;references&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;Person.Contact&nbsp;view.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;References&nbsp;to&nbsp;synonyms&nbsp;are&nbsp;not&nbsp;schema-bound.&nbsp;Therefore,&nbsp;a&nbsp;synonym&nbsp;can&nbsp;be&nbsp;dropped&nbsp;at&nbsp;any&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However,&nbsp;by&nbsp;dropping&nbsp;a&nbsp;synonym,&nbsp;you&nbsp;run&nbsp;the&nbsp;risk&nbsp;of&nbsp;leaving&nbsp;dangling&nbsp;references&nbsp;to&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;synonym&nbsp;that&nbsp;was&nbsp;dropped.&nbsp;These&nbsp;references&nbsp;will&nbsp;only&nbsp;be&nbsp;found&nbsp;at&nbsp;run&nbsp;time.
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;CREATE&nbsp;SYNONYM&nbsp;(Transact-SQL)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms177544.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Synonyms&nbsp;(Database&nbsp;Engine)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms187552.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Introduction&nbsp;and&nbsp;Explanation&nbsp;to&nbsp;SYNONYM&nbsp;-&nbsp;http://blog.sqlauthority.com/2008/01/07/sql-server-2005-introduction-and-explanation-to-synonym-helpful-t-sql-feature-for-developer/
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'synonyms_demo'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;synonyms_demo'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[synonyms_demo].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">25</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[color]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'red'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'blue'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'test_01'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">object_schema_name</span><span style="color: maroon; ">(</span><span style="color: maroon; ">object_id</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'dbo'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: black; ">0</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: maroon; ">synonym</span>&nbsp;<span style="color: maroon; ">[dbo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: maroon; ">synonym</span>&nbsp;<span style="color: maroon; ">[dbo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: blue; ">for</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[synonyms_demo].[get_test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'FN'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[get_test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_test_01]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">)</span>
+<br/><span style="color: maroon; ">returns</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">25</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@color</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">25</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@color</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">return</span>&nbsp;<span style="color: #8000FF; ">@color</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_test_01]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>&nbsp;&nbsp;!!!&nbsp;the&nbsp;code&nbsp;below&nbsp;has&nbsp;NOT&nbsp;been&nbsp;updated&nbsp;to&nbsp;the&nbsp;naming&nbsp;structure&nbsp;above!&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[synonyms_demo].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'synonyms_demo'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;synonyms_demo'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">if</span><span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">servers</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: blue; ">name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'Test02'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: black; ">0</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">master</span><span style="color: silver; ">.</span><span style="color: maroon; ">dbo</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_dropserver</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@server</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'Test02'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">master</span><span style="color: silver; ">.</span><span style="color: maroon; ">dbo</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_addlinkedserver</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@server</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'Test02'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@srvproduct</span><span style="color: silver; ">=</span><span style="color: red; ">N'Other&nbsp;data&nbsp;source'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@provider</span>&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'SQLNCLI'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@datasrc</span>&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'DALLAP84705B0GR\TEST02'</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">test02</span><span style="color: silver; ">.</span><span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;It&nbsp;cannot&nbsp;be&nbsp;accessed&nbsp;across&nbsp;the&nbsp;linked&nbsp;server&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">test02</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">dbo</span><span style="color: silver; ">.</span><span style="color: maroon; ">sn_</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Even&nbsp;with&nbsp;openquery&nbsp;it&nbsp;cannot&nbsp;be&nbsp;accessed&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">openquery</span><span style="color: maroon; ">(</span><span style="color: maroon; ">test02</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'SELECT&nbsp;*&nbsp;
+<br/>FROM&nbsp;&nbsp;&nbsp;[test_01].dbo.sn_[test_01]'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;Even&nbsp;though&nbsp;it&nbsp;is&nbsp;there!&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">test02</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Functions&nbsp;cannot&nbsp;be&nbsp;accessed&nbsp;remotely&nbsp;either&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">test02</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_test_01]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Nor&nbsp;can&nbsp;tables&nbsp;including&nbsp;XML&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Msg&nbsp;9514,&nbsp;Level&nbsp;16,&nbsp;State&nbsp;1,&nbsp;Line&nbsp;3&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Xml&nbsp;data&nbsp;type&nbsp;is&nbsp;not&nbsp;supported&nbsp;in&nbsp;distributed&nbsp;queries.&nbsp;Remote&nbsp;object&nbsp;'Test02.[test_01].[synonyms_demo].[test_01]'&nbsp;has&nbsp;xml&nbsp;column(s).&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">test02</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[synonyms_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>&nbsp;
+</span></div>
+
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

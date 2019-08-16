@@ -1,0 +1,315 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+           <table class="content">
+            <tr>
+              <td>
+
+			  
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Performs&nbsp;insert,&nbsp;update,&nbsp;or&nbsp;delete&nbsp;operations&nbsp;on&nbsp;a&nbsp;target&nbsp;table&nbsp;based&nbsp;on&nbsp;the&nbsp;results&nbsp;of&nbsp;a&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;join&nbsp;with&nbsp;a&nbsp;source&nbsp;table.&nbsp;For&nbsp;example,&nbsp;you&nbsp;can&nbsp;synchronize&nbsp;two&nbsp;tables&nbsp;by&nbsp;inserting,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating,&nbsp;or&nbsp;deleting&nbsp;rows&nbsp;in&nbsp;one&nbsp;table&nbsp;based&nbsp;on&nbsp;differences&nbsp;found&nbsp;in&nbsp;the&nbsp;other&nbsp;table.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Applies&nbsp;to:&nbsp;SQL&nbsp;Server&nbsp;(SQL&nbsp;Server&nbsp;2008&nbsp;through&nbsp;current&nbsp;version),&nbsp;Windows&nbsp;Azure&nbsp;SQL&nbsp;Database&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Initial&nbsp;release&nbsp;through&nbsp;current&nbsp;release).
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;MERGE&nbsp;(Transact-SQL)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/bb510625.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Inserting,&nbsp;Updating,&nbsp;and&nbsp;Deleting&nbsp;Data&nbsp;by&nbsp;Using&nbsp;MERGE&nbsp;-&nbsp;http://technet.microsoft.com/en-us/library/bb522522(v=sql.105).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Merge&nbsp;(SQL)&nbsp;-&nbsp;http://en.wikipedia.org/wiki/Merge_(SQL)
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'presentation'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;merge_staging_into_target'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">objects</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[presentation].[merge_staging_into_target]'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">type</span>&nbsp;<span style="color: blue; ">in</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'PC'</span>&nbsp;<span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[presentation]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[merge_staging_into_target]</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">ansi_nulls</span>&nbsp;<span style="color: blue; ">on</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">quoted_identifier</span>&nbsp;<span style="color: blue; ">on</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[presentation]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[merge_staging_into_target]</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'##target&nbsp;-&nbsp;before'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'##staging&nbsp;-&nbsp;before'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##staging</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[animal]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">waitfor</span>&nbsp;<span style="color: maroon; ">delay</span>&nbsp;<span style="color: red; ">N'00:00:00.50'</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">current_timestamp</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@delete</span>&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">dateadd</span><span style="color: maroon; ">(</span><span style="color: maroon; ">day</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">0</span>&nbsp;<span style="color: silver; ">-</span>&nbsp;<span style="color: black; ">5</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">if</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##staging</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: black; ">0</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[records_to_update]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[id]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[action]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'archive_existing_no_source'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">in</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##staging</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: #8000FF; ">@delete</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'archive_existing_update'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">##staging</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[stg]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">or</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'insert_record_modification'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">##staging</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[stg]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">or</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>&nbsp;<span style="color: silver; ">!=</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'insert_record_new'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##staging</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[stg]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">in</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[records_to_retain]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[id]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[action]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'records_to_retain_active'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: blue; ">in</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##staging</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[stg]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">in</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[records_to_update]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'records_to_retain_archived'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tgt]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[tgt]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[action]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[records_to_update]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">merge</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">##target</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">target</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">using</span>&nbsp;<span style="color: maroon; ">[records_to_retain]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">source</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">target</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">source</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: maroon; ">matched</span>&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">update</span>&nbsp;<span style="color: blue; ">set</span>&nbsp;<span style="color: maroon; ">target</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">source</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">target</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">source</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: maroon; ">matched</span>&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">target</span>&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@timestamp</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: maroon; ">matched</span>&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">source</span>&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">delete</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">output</span>&nbsp;<span style="color: maroon; ">$action</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'deleted&nbsp;record->'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">deleted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">deleted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">deleted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">deleted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">deleted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'inserted&nbsp;record->'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">inserted</span><span style="color: silver; ">.</span><span style="color: maroon; ">[archive]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'##target&nbsp;-&nbsp;after'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[color]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[sound]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##target</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[animal]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[created]</span>&nbsp;<span style="color: blue; ">desc</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[archive]</span>&nbsp;<span style="color: blue; ">desc</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">::</span><span style="color: maroon; ">fn_listextendedproperty</span><span style="color: maroon; ">(</span><span style="color: red; ">N'description'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'SCHEMA'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'presentation'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'PROCEDURE'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'merge_staging_into_target'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_dropextendedproperty</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'description'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0type</span><span style="color: silver; ">=</span><span style="color: red; ">N'SCHEMA'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0name</span><span style="color: silver; ">=</span><span style="color: red; ">N'presentation'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1type</span><span style="color: silver; ">=</span><span style="color: red; ">N'PROCEDURE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1name</span><span style="color: silver; ">=</span><span style="color: red; ">N'merge_staging_into_target'</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">::</span><span style="color: maroon; ">fn_listextendedproperty</span><span style="color: maroon; ">(</span><span style="color: red; ">N'todo'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'SCHEMA'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'presentation'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'PROCEDURE'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'merge_staging_into_target'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_dropextendedproperty</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'todo'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0type</span><span style="color: silver; ">=</span><span style="color: red; ">N'SCHEMA'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0name</span><span style="color: silver; ">=</span><span style="color: red; ">N'presentation'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1type</span><span style="color: silver; ">=</span><span style="color: red; ">N'PROCEDURE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1name</span><span style="color: silver; ">=</span><span style="color: red; ">N'merge_staging_into_target'</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">::</span><span style="color: maroon; ">fn_listextendedproperty</span><span style="color: maroon; ">(</span><span style="color: red; ">N'todo'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'SCHEMA'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'presentation'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'PROCEDURE'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'merge_staging_into_target'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_addextendedproperty</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'todo'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@value</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'Modify&nbsp;logic&nbsp;to&nbsp;leave&nbsp;[id]&nbsp;the&nbsp;same&nbsp;for&nbsp;an&nbsp;existing&nbsp;unique&nbsp;constraint.'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0type</span><span style="color: silver; ">=</span><span style="color: red; ">N'SCHEMA'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0name</span><span style="color: silver; ">=</span><span style="color: red; ">N'presentation'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1type</span><span style="color: silver; ">=</span><span style="color: red; ">N'PROCEDURE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1name</span><span style="color: silver; ">=</span><span style="color: red; ">N'merge_staging_into_target'</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">::</span><span style="color: maroon; ">fn_listextendedproperty</span><span style="color: maroon; ">(</span><span style="color: red; ">N'description'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'SCHEMA'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'presentation'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'PROCEDURE'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'merge_staging_into_target'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">null</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">exec</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_addextendedproperty</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'description'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@value</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'expected&nbsp;actions:&nbsp;
+<br/>1.&nbsp;Insert&nbsp;new&nbsp;records&nbsp;from&nbsp;##staging&nbsp;when&nbsp;they&nbsp;are&nbsp;not&nbsp;found&nbsp;in&nbsp;##target.&nbsp;
+<br/>2.&nbsp;Perform&nbsp;no&nbsp;action&nbsp;when&nbsp;there&nbsp;are&nbsp;zero&nbsp;records&nbsp;in&nbsp;##staging.&nbsp;
+<br/>3.&nbsp;Update&nbsp;[created]&nbsp;on&nbsp;records&nbsp;in&nbsp;##target&nbsp;when&nbsp;there&nbsp;is&nbsp;a&nbsp;matching&nbsp;record&nbsp;in&nbsp;##staging.&nbsp;
+<br/>4.&nbsp;Delete&nbsp;records&nbsp;from&nbsp;##target&nbsp;that&nbsp;are&nbsp;older&nbsp;than&nbsp;[n]&nbsp;days.&nbsp;
+<br/>5.&nbsp;Archive&nbsp;records&nbsp;in&nbsp;##target&nbsp;not&nbsp;found&nbsp;in&nbsp;##staging.&nbsp;
+<br/>6.&nbsp;Archive&nbsp;records&nbsp;in&nbsp;##target&nbsp;prior&nbsp;to&nbsp;inserting&nbsp;update&nbsp;from&nbsp;##staging.&nbsp;
+<br/>7.&nbsp;De-archive&nbsp;records&nbsp;when&nbsp;a&nbsp;matching&nbsp;source&nbsp;record&nbsp;appears&nbsp;in&nbsp;##staging.&nbsp;
+<br/>8.&nbsp;Update&nbsp;[created]&nbsp;when&nbsp;de-archiving&nbsp;a&nbsp;record.&nbsp;
+<br/>9.&nbsp;De-archive&nbsp;only&nbsp;the&nbsp;most&nbsp;recent&nbsp;record&nbsp;if&nbsp;multiple&nbsp;archived&nbsp;records&nbsp;exist&nbsp;in&nbsp;##target.&nbsp;
+<br/>10.&nbsp;Update&nbsp;[created]&nbsp;on&nbsp;records&nbsp;in&nbsp;##target&nbsp;when&nbsp;there&nbsp;is&nbsp;a&nbsp;matching&nbsp;record&nbsp;in&nbsp;##source.&nbsp;
+<br/>11.&nbsp;Update&nbsp;create&nbsp;date&nbsp;for&nbsp;records&nbsp;older&nbsp;than&nbsp;[n]&nbsp;days&nbsp;rather&nbsp;than&nbsp;deleting&nbsp;them.&nbsp;
+<br/>12.&nbsp;Do&nbsp;not&nbsp;update&nbsp;[created]&nbsp;when&nbsp;archiving&nbsp;records.&nbsp;
+<br/>13.&nbsp;Maintain&nbsp;prior&nbsp;record&nbsp;entries&nbsp;when&nbsp;de-archiving&nbsp;a&nbsp;record.'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0type</span><span style="color: silver; ">=</span><span style="color: red; ">N'SCHEMA'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level0name</span><span style="color: silver; ">=</span><span style="color: red; ">N'presentation'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1type</span><span style="color: silver; ">=</span><span style="color: red; ">N'PROCEDURE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@level1name</span><span style="color: silver; ">=</span><span style="color: red; ">N'merge_staging_into_target'</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+			  
+			  
+              </td>
+            </tr>
+          </table>
+  </body>
+</html>

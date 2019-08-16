@@ -1,0 +1,61 @@
+USE [test];
+
+go
+
+IF schema_id(N'log') IS NULL
+    EXECUTE (N'CREATE SCHEMA log');
+
+go
+
+IF object_id(N'[log].[data]', N'U') IS NOT NULL
+    DROP TABLE [log].[data];
+
+go
+
+CREATE TABLE [log].[data]
+  (
+       [id]          BIGINT IDENTITY(1, 1)
+       , [timestamp] DATETIMEOFFSET NOT NULL -- DATETIME if timezone isn't needed
+         CONSTRAINT [log__data__timestamp__df] DEFAULT sysdatetimeoffset()
+       , [entry]     XML NOT NULL,
+       CONSTRAINT [log__data__id__pk] PRIMARY KEY CLUSTERED ([id])
+  );
+
+IF object_id(N'[log].[get_entry]', N'P') IS NOT NULL
+    DROP PROCEDURE [log].[get_entry];
+
+go
+
+CREATE PROCEDURE [log].[get_entry] @id      BIGINT
+                                   , @entry XML output
+                                   , @begin DATETIMEOFFSET
+                                   , @end   DATETIMEOFFSET
+AS
+    BEGIN
+        SELECT @entry
+        FROM   [log].[data]
+        WHERE  [id] = @id;
+    END;
+
+go
+
+IF object_id(N'[log].[set_entry]', N'P') IS NOT NULL
+    DROP PROCEDURE [log].[set_entry];
+
+go
+
+CREATE PROCEDURE [log].[set_entry] @entry       XML
+                                   , @timestamp DATETIMEOFFSET = NULL
+                                   , @id        BIGINT output
+AS
+    BEGIN
+        INSERT INTO [log].[entry]
+                    ([timestamp]
+                     , [entry])
+        VALUES      ( COALESCE(@timestamp, sysdatetimeoffset()),@entry );
+
+        SET @id = SCOPE_IDENTITY();
+
+    END;
+
+go 

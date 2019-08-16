@@ -1,0 +1,165 @@
+<html id="top">
+  <head>
+      <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+								<iframe src="./menu__tool.html" width="100%" height="50" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.katherinelightsey.com/#!license/cjlz)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Various&nbsp;methods&nbsp;to&nbsp;extract&nbsp;information&nbsp;about&nbsp;sql&nbsp;processes.
+<br/>
+<br/>
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;sys.sysprocesses</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;https://msdn.microsoft.com/en-us/library/ms179881.aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Contains&nbsp;information&nbsp;about&nbsp;processes&nbsp;that&nbsp;are&nbsp;running&nbsp;on&nbsp;an&nbsp;instance&nbsp;of&nbsp;SQL&nbsp;Server.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;These&nbsp;processes&nbsp;can&nbsp;be&nbsp;client&nbsp;processes&nbsp;or&nbsp;system&nbsp;processes.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[hostname]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[hostname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[database]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sql_text]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[text]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[sql_text]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sql_text]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[objectid]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[sql_object_id]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">suser_sname</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[owner_sid]</span><span style="color: maroon; ">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[database_owner]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[loginame]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[process_user_name]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[blocking_session_id]</span>&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[blocking_session_id]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[login_time]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[login_time]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[cpu_time]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[cpu_time]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[memory_usage]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[memory_usage]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[total_scheduled_time]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[total_scheduled_time]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[total_elapsed_time]</span>&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[total_elapsed_time]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[reads]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[reads]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[writes]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[writes]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">sysprocesses</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[sysprocesses]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">cross</span>&nbsp;<span style="color: maroon; ">apply</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">dm_exec_sql_text</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sql_handle]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_sql_text]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_exec_requests</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sql_handle]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sql_handle]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">databases</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[databases]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[database_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[dbid]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_exec_sessions</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[session_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[session_id]</span>
+<br/><span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[sysprocesses]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[hostname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;sys.dm_os_tasks</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;https://msdn.microsoft.com/en-us/library/ms174963(v=sql.110).aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Returns&nbsp;one&nbsp;row&nbsp;for&nbsp;each&nbsp;task&nbsp;that&nbsp;is&nbsp;active&nbsp;in&nbsp;the&nbsp;instance&nbsp;of&nbsp;SQL&nbsp;Server.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_os_tasks</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_os_tasks]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;sys.dm_os_threads</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;https://msdn.microsoft.com/en-us/library/ms187818(v=sql.110).asp</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;SQL&nbsp;Server&nbsp;Operating&nbsp;System&nbsp;threads&nbsp;that&nbsp;are&nbsp;running&nbsp;under&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;process.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_os_threads</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_os_threads]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>--
+<br/>--&nbsp;sys.dm_exec_requests
+<br/>--&nbsp;https://msdn.microsoft.com/en-us/library/ms177648.aspx
+<br/>--&nbsp;Returns&nbsp;information&nbsp;about&nbsp;each&nbsp;request&nbsp;that&nbsp;is&nbsp;executing&nbsp;within&nbsp;SQL&nbsp;Server.
+<br/>--&nbsp;
+<br/>--&nbsp;sys.dm_exec_sessions&nbsp;
+<br/>--&nbsp;https://msdn.microsoft.com/en-us/library/ms176013.aspx
+<br/>--
+<br/>&nbsp;&nbsp;Returns&nbsp;one&nbsp;row&nbsp;per&nbsp;authenticated&nbsp;session&nbsp;on&nbsp;SQL&nbsp;Server.&nbsp;sys.dm_exec_sessions&nbsp;is&nbsp;a&nbsp;
+<br/>&nbsp;&nbsp;server-scope&nbsp;view&nbsp;that&nbsp;shows&nbsp;information&nbsp;about&nbsp;all&nbsp;active&nbsp;user&nbsp;connections&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;internal&nbsp;tasks.&nbsp;This&nbsp;information&nbsp;includes&nbsp;client&nbsp;version,&nbsp;client&nbsp;program&nbsp;name,&nbsp;client&nbsp;
+<br/>&nbsp;&nbsp;login&nbsp;time,&nbsp;login&nbsp;user,&nbsp;current&nbsp;session&nbsp;setting,&nbsp;and&nbsp;more.&nbsp;Use&nbsp;sys.dm_exec_sessions&nbsp;
+<br/>&nbsp;&nbsp;to&nbsp;first&nbsp;view&nbsp;the&nbsp;current&nbsp;system&nbsp;load&nbsp;and&nbsp;to&nbsp;identify&nbsp;a&nbsp;session&nbsp;of&nbsp;interest,&nbsp;and&nbsp;then&nbsp;
+<br/>&nbsp;&nbsp;learn&nbsp;more&nbsp;information&nbsp;about&nbsp;that&nbsp;session&nbsp;by&nbsp;using&nbsp;other&nbsp;dynamic&nbsp;management&nbsp;views&nbsp;or&nbsp;
+<br/>&nbsp;&nbsp;dynamic&nbsp;management&nbsp;functions.
+<br/>&nbsp;&nbsp;The&nbsp;sys.dm_exec_connections,&nbsp;sys.dm_exec_sessions,&nbsp;and&nbsp;sys.dm_exec_requests&nbsp;dynamic&nbsp;management&nbsp;
+<br/>&nbsp;&nbsp;views&nbsp;map&nbsp;to&nbsp;the&nbsp;sys.sysprocesses&nbsp;system&nbsp;table.&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_exec_requests</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_exec_sessions</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[dm_exec_sessions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[session_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[dm_exec_requests]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[session_id]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br/><span style="color: #FF0080; font-weight: bold; ">sp_who2</span>&nbsp;
+</span></div>
+
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+		<iframe width="90%" src="./footer.html" seamless="" scrolling="no" frameborder="0"></iframe>
+  </body>
+</html>

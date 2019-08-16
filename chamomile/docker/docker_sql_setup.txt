@@ -1,0 +1,60 @@
+https://www.assistanz.com/change-default-installation-path-for-docker-folder/
+
+
+https://github.com/docker/labs/tree/master/windows/sql-server
+https://rominirani.com/docker-tutorial-series-a7e6ff90a023
+
+https://github.com/Microsoft/mssql-docker/issues
+
+https://www.red-gate.com/simple-talk/sysadmin/containerization/provisioning-sql-server-instances-docker
+https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017
+
+https://docs.docker.com/docker-for-windows/
+https://tomssl.com/2018/01/15/running-microsoft-sql-server-on-a-linux-container-in-docker/
+https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-2017
+https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-environment-variables?view=sql-server-2017
+https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf?view=sql-server-2017
+
+Manage and Share Docker Images  - https://runnable.com/docker/rails/manage-share-docker-images
+docker commit                   - https://docs.docker.com/engine/reference/commandline/commit/
+
+docker - Mount a host directory as data volume    
+                                - https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-2017#persist
+
+https://hub.docker.com/r/microsoft/mssql-server-linux/
+
+-- pull, spin up, and run SQL Server Linux
+docker search microsoft
+docker pull microsoft/mssql-server-linux:2017-latest
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<secure_password>' -p 1390:1433 -d --name=chamomile_00 microsoft/mssql-server-linux:2017-latest
+
+--
+-- mount d:/data as /data in the container
+-------------------------------------------------
+docker run -v d:/data:/data -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=<secure_password>' -p 1311:1433 -d --name=dmt_11 linux_with_agent
+
+
+-- Then connect as KELIGHTSEY\chamomile_00, 1390  
+
+-- create volume
+PS C:\Users\Katherine> docker -v f:\database:/app
+Docker version 18.06.0-ce, build 0ffa825
+PS C:\Users\Katherine>
+
+-- just copy the file into the container
+https://docs.docker.com/engine/reference/commandline/cp/
+PS F:\database\backup> docker cp WideWorldImporters-Full.bak chamomile_01:/var/opt/mssql/data/wwi.bak
+
+-- commit with change
+-- https://www.techrepublic.com/article/how-to-commit-changes-to-a-docker-image/
+docker commit --change='CMD "/opt/mssql/bin/sqlservr -m"' container dmt_00 kate/dmt_00__single_user_mode
+
+-- build with sql server agent
+https://github.com/dbafromthecold/SqlOnLinuxAgent/blob/master/dockerfile
+-- docker build -t sql_server_linux_with_agent f:\docker\builds\linux_with_agent
+https://docs.docker.com/engine/reference/builder/#format
+
+-- docker save -- Save one or more images to a tar archive (streamed to STDOUT by default)
+https://docs.docker.com/engine/reference/commandline/save/
+https://stackoverflow.com/questions/23935141/how-to-copy-docker-images-from-one-host-to-another-without-via-repository
+

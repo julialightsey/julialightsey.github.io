@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="..\..\..\source\common.css" target="blank">
+		<p class="header">built on <a href="http://www.katherinelightsey.com" target="blank">[chamomile]</a></p>
+	</head>
+<body>
+	<h1><a href="http://www.katherinelightsey.com/#!laws-of-software-design/c18vj">[laws_of_software_design]</a></h1>
+			
+			<p class="quote">I believe that most of the bad SQL queries in the world are the result of bad schema design. Joe Celko, SQL Programming Style.</p>
+		<ol>
+		<li><details><summary><u>[first_law]</u><i> - Well written software can be re-factored, poorly written software can only be tolerated.</i></summary>
+			<p>Well written software in a properly designed architecture with thorough tests can be re-factored for performance, its utility expanded and extended, and will continue to be used over many generations of implementations continuously improving its return on investment.</p>
+
+			<p class="quote">The quality, not the longevity, of one's life is what is important. Martin Luther King, Jr.</p>
+
+			<p>Poorly written software lacking in design and tests will rarely be re-factored, expanded or extended and will continue to demand increasing levels of support while being limited to its original vision or less, continuously costing additional time and money for ever decreasing utility.</p>
+
+			<p class="quote">It is the little, pathetic attempts at Quality that kill. Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.</p>
+			</details>
+		</li>
+		<li><details><summary><u>[second_law]</u><i> - There is no such thing as "bad" data.</i></summary>
+			<p>A well designed and executed program should handle both expected and unexpected data professionally and gracefully, using it, cleansing it, or reporting and rejecting it. The string <i>N'abc'</i> is neither good nor bad. It may be unexpected if it is being inserted into a column defined as <i>[col1] [int]</i>. But it is not bad. Data is just data. Similarly, tools are not inherently bad. Upholstery hammers aren't bad, but a carpenter who attempts to use one to drive a tenpenney nail into a wall joist will be disappointed in the result. To blame the hammer for the carpenters poor judgement is both idiotic and deceitful. </p>
+ 
+			<p class="quote">Steel can be any shape you want if you are skilled enough, and any shape but the one you want if you are not. Robert M. Pirsig.</p>
+			 
+			<p>The objective of virtually every software program ever written is and has been to manipulate data. Handling data is what a software program does!</p>
+			
+			<p class="quote">If you can't spot the sucker in the first half hour at the table, then you ARE the sucker. Matt Damon, Rounders.</p>
+			
+			<p>Bad data and bad tools are myths invented and promoted by bad software architects and bad developers who write bad programs using bad software development practices.</p>
+			 
+			<p class="quote">It is possible to fly without motors, but not without knowledge and skill. Wilbur Wright.</p>
+			</li> 
+		<li><details><summary><u>[third_law]</u><i> - If a method is too complex to effectively unit test, it is too complex.</i></summary>
+			<p>If you can't test it, it doesn't exist. Any thing else is supposition, postulation, conjecture, speculation, inference, theory, hypothesis, postulation, or a hunch, assumption, or presumption. Essentially; witchcraft. Some developers and managers believe they have fulfilled the obligations of testing by checking the "unit test" check box on a web page or entering "yes" in spreadsheet. Most believe that it is possible for them or their peers as individuals to determine by inspection that their work meets requirements. The problem is that <a href="http://www.afsinc.org/files/MC/stories/issuearchive/12-049.pdf" target="blank">100% inspection is estimated to be less than 80% efficient</a> according to <a href="http://en.wikipedia.org/wiki/Joseph_M._Juran" target="blank">Joseph M. Juran</a>.</p>
+			
+			<p class="quote">You can't fix stupid. Ron White.</p>
+			
+			<p>The only effective way to fully test that software meets requirements is through the use of programmatic tests. These are commonly referred to as <a href="http://en.wikipedia.org/wiki/Unit_testing" target="blank">unit tests</a>. You wouldn't buy a car, dishwasher, or computer that had not been extensively tested down to the individual component. Neither should you deliver software that hasn't been tested in like fashion. <a href="http://en.wikipedia.org/wiki/Hard_disk_drive_failure" target="blank">The mean time between failures (MTBF) of SATA drives</a> is usually specified to be about 1.2 million hours, and note that hard drives are highly complex components both mechanically and logically, with transactions running faster than the majority of software developed in custom business applications. Yet in the custom software world it is not uncommon to deliver software that has less than twenty four hours <a href="http://en.wikipedia.org/wiki/Mean_time_between_failures" target="blank">mtbf</a>, with developers on standby 24x7x365 to address bugs, but rarely to fix them.</p>
+ 
+			<p class="quote">In just six weeks from the time the design was started, we had the motor on the block testing its power. Orville Wright.</p>
+			
+			<p>When is the last time you've delivered software from which you could reasonably expect 137 years before failure? Do you think that a mass produced device such as a hard drive is an invalid comparison for custom business software? Have you ever been in a high rise building? If so, how concerned were you that it would simply collapse for no reason while you were in it? Unless you have issues for which you should seek professional help, you probably weren't concerned at all, yet that building was almost certainly unique among all high rise structures in the world, as most are. The differentiating factor is that buildings are constructed using common design patterns (see <a href="http://en.wikipedia.org/wiki/Software_design_patterns" target="blank">software design patterns</a>) and, during construction, components that are brought in are expected to have manifests showing test results. Many tests are conducted on site such as <a href="http://en.wikipedia.org/wiki/Concrete_slump_test" target="blank">slump tests</a> for concrete before it is poured. If you do not use design patterns in your software design and development, and if you do not perform rigorous testing on that software, it is not because those are not available; it is because you choose not to do so.</p>
+			
+			<p class="quote">Failure isn’t fatal, but failure to change might be. John Wooden</p>
+			 
+			<p>If the software under inspection is simply too complex to be unit tested, it should be refactored until the individual components may be unit tested. Unit testing serves in this manner to ensure both code compliance as well as code simplicity. Keep in mind that this is not an esoteric objective. Code which is too complex to unit test will be too complex to maintain and extend as well.</p>
+			 
+			<p class="quote">Simplicity is a great virtue but it requires hard work to achieve it and education to appreciate it. And to make matters worse: complexity sells better. Edsger Wybe Dijkstra.</p>
+			</li> 
+		<li><details><summary><u>[fourth_law]</u><i> - If you have no objectives, you will never meet them; if you have no principles, it won't matter if you do.</i></summary>
+			<p>Your time is better spent writing tests for and refactoring objects with known methods than it is chasing the oft encountered demand to <i>build it till I like it!</i> Insist on having clear and obtainable objectives before you begin a task, even if your only objective is simply to help the orderer define objectives!</p>
+ 
+			<p class="quote">It’s not enough to be busy, so are the ants. The question is, what are we busy about? Henry David Thoreau.</p>
+			 
+			<p>When in doubt, demand that you be provided with or be allowed to build unit tests which must be agreed on before beginning development. You won't be popular for insisting on this, at first. After you've proven that you can consistently hit deadlines within constraints you'll be a hero. Just keep in mind that hero's often die horrible deaths.</p>
+			 
+			<p class="quote">First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end. Aristotle.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[fifth_law]</u><i> - Normalization is not the normal state of a design, but it is the preferred state.</i></summary>
+			<p>No database should be built without being normalized. Exceptions should be made only when overwhelming evidence lobbies in its favor, and then only when the denormalized table is an extract only and will not be updated. </p>
+ 
+			<p class="quote">Normalization is about design, denormalization is about optimization. Peter Becker.</p>
+			 
+			<p>If a design requires denormalization you should first normalize it, then extract it to a denormalized state. There are valid reasons to build a denormalized relation; not understanding database normalization theory is not one of them.</p>
+			 
+			<p class="quote">The secret of all victory lies in the organization of the non-obvious. Marcus Aurelius.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[sixth_law]</u><i> - Good software should be self-documenting.</i></summary>
+			<p>The last thing you should do when writing software is to write in the "dead" comments, those comments which are not code and are embedded in the code as guides. Only after you have written the code and have formatted and structured it to be as legible as possible should you consider additional comments.</p>
+			 
+			<p class="quote">Children are remarkable for their intelligence and ardor, for their curiosity, their intolerance of shams, the clarity and ruthlessness of their vision. Aldous Huxley.</p>
+ 
+			<p>You should be able to present your code to a non-technical person and the person should be able to read and understand its basic functionality!</p>
+
+			<p class="quote">For me the greatest beauty always lies in the greatest clarity. Gotthold Ephraim Lessing.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[seventh_law]</u><i> - If it can't be measured, it doesn't exist.</i></summary>
+			<p>I understand the underlying architecture of SQL Server (and most modern relational databases) as well as the next geeky girl, but that doesn't mean that I believe that some esoteric technique that is appropriate for serving up terabytes of data hourly is appropriate for your tiny little database serving up megabytes per day. If you cannot show conclusively that a specific technique performs better on your application using relevant mathematical techniques, but still insist on using it, then you fall into the same category as teenagers who bolt huge racing tires and loud mufflers on their tiny little four cylinder eco-cars.</p>
+ 
+			<p class="quote">What are the facts? Shun wishful thinking, avoid opinion, --what are the facts, and to how many decimal places? Get the facts! Robert Heinlein.</p>
+			 
+			<p>Performance problems do occur in systems of any size, and typically occur due to structural issues. Design a system using encapsulation, asynchronous behavior, and loose coupling, and you'll be able to spot and address performance issues. That does not mean that performance modifications are a must have on every design.</p>
+			 
+			<p class="quote">If the facts don't fit the theory, change the facts. Albert Einstein.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[eighth_law]</u><i> - Complexity must justify itself.</i></summary>
+			<p>In the absence of compelling evidence to the contrary, the simplest solution is always preferable. <a href="http://en.wikipedia.org/wiki/You_aren't_gonna_need_it">YAGNI (You aren't going to need it)</a> is the principle behind the agile methodology practice of <i>do the simplest thing that could possibly work</i>. 
+			
+			<p class="quote">Beauty is not achieved by adding to a whole until there is room for no more, but rather by removing from the whole until all that is unnecessary is removed.</p>
+			
+			<p>Additional functionality is only added as the business requirement demands it. If you write code properly, with unit tests to validate required functionality, additional features can be added ad hoc in the future without fear that existing functionality will be compromised.</p>
+ 
+			<p class="quote">One day I will find the right words, and they will be simple. Jack Kerouac, The Dharma Bums.</p>
+			 
+			<p>An engineer should always seek to reduce complexity. We build things, software or physical, to meet a specific business need. The simplest possible code, properly unit tested, is always preferably. Unnecessarily adding complexity to an object is a preference, not a requirement.</p>
+			 
+			<p class="quote">Simplicity is the ultimate sophistication. Leonardo da Vinci.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[ninth_law]</u><i> - When dogma becomes an impediment to the achievement of your objectives, perhaps it is time to shoot your dog.</i></summary>
+			<p>The engineering equivalent of dogma are specifications and standards. The religious equivalent is orthodoxy. All have their place in education and as a storehouse for knowledge. All have their failing in a universal resistance to change, growth, evolution, and improvement.</p>
+			
+			<p class="quote">It is not we carry that defines us, but that which we let go.</p>
+			
+			<p>As an engineer the most important part of the design and build process is the test. In nature, the test is that of survival. In religion the test is ones ability to commune with God. In software the test is the <a href="http://www.katherinelightsey.com/#!unit-test/cl7o">unit test</a>, a programmatic testing of all interfaces and boundary conditions of an object.</p>
+ 
+			<p class="quote">Hell, there are no rules here - we're trying to accomplish something. Thomas A. Edison.</p>
+			 
+			<p>Standards have their place in the specification of best practice and in the initial phase of a design, but when they impede the achievement of business objectives they should be scrutinized critically.</p>
+			 
+			<p class="quote">At some point you have to shoot the engineers and start production.</p>
+			</details>
+			</li> 
+		<li><details><summary><u>[tenth_law]</u><i> - You can't miss fast enough to win a gunfight. </i></summary>
+			<p>Why is there never enough time to do it right, but always enough time to do it over? Not being familiar with a technology isn't an excuse for misusing it. The Tacoma Narrows bridge is often given as the first example of aeroelastic flutter and little thought is given to the errors in its design. But the bridge was nicknamed <i>Galloping Gertie</i> during construction by workers. It was clearly known that the bridge exhibited unpredicted behaviour, but construction went on.</p>
+ 
+			<p class="quote">Slow is smooth, smooth is fast. Navy SEALS.</p>
+			 
+			<p>Similarly, the Challenger disaster could have been avoided by a desire to do a good job rather than an acceptance of doing a bad job delivered on time. History is replete with examples of failures due to attempts to rush to be the first, to meet an arbitrary schedule, or simply due to the arrogance of believing that the responsible parties could not be wrong.</p>
+			 
+			<p class="quote">You only get one opportunity to get it right the first time.</p>
+			
+			<p>Sadly, all of the mistakes made and lies told by management were the result of a bad design decision; the decision to use a non-standard o-ring design. Had the o-ring joint be designed properly management would never have had the opportunity to lie and to make ill informed decision. As a young Product Engineer I was actually working on a design for a hub oil seal at the time for Stemco, a division of Colt Industries. The design was for an experimental variation of their standard product which would use an o-ring rather than a flat gasket. When it became known that the failure was precipitated by a failure in the design of an o-ring, I remember pulling my o-ring design manual down from my bookshelf to verify that I wasn't remembering incorrectly. I wasn't. There in clear words and diagrams were simple instructions on how to design a cavity for an o-ring.</p>
+ 
+			<p>The failure of the engineers at NASA to follow this simple, commonly known and readily available best practice had resulted in the deaths of seven American heroes and led to mourning throughout the nation.</p>
+			 
+			<p class="quote">My men are not expendable. And I don't do this kind of work. - Arnold Schwarzenegger (Dutch), Predator.</p>
+			</details>
+			</li> 
+		</ol>
+
+
+
+
+		<!---------------------------------------------------------------------------------------->
+		<!-- footer -->
+		<p class="footer">copyright 2014 <a href="http://www.katherinelightsey.com" target="blank">Katherine Elizabeth Lightsey</a></p>
+</body>
+</html>

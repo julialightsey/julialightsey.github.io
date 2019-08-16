@@ -1,0 +1,31 @@
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+	font-size:85%;
+}
+li.menu  {
+    float: left;
+    display: inline;
+}
+a:link,
+a:visited {
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #336633;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #5CAE80;
+}
+a:active {
+    background-color: #7A991A;
+}
+hr.in_menu {
+	width:90%;
+}

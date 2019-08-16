@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href="./source/image/chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href="./source/common.css" />
+	</head>
+	<body id="top">
+		<table style="border-collapse: collapse; margin-top:0px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td >
+								<iframe src="./header.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0; margin:0 auto; display:block;" height="325" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-bottom:0px; margin-top:-25px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="content">
+						<tr>
+							<td class="content">
+								<iframe src="./menu__home.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0;" height="50" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__laws_of_software_design.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="75" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-top:0px; margin-top:-15px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table -->
+					<table class="content">
+						<tr>
+							<td>
+						<tr>
+							<td>
+								<img style="float:right; padding-left:35px; width:450px;" src="./source/image/rules_of_normalization.png" alt="rules_of_normalization" />
+								<h3>[5th_law__normalization]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content" style="text-align:center;">Normalization is not the normal state of a design, but it is the preferred state.</p>
+								<p class="quote">Normalization is about design, denormalization is about optimization. Peter Becker.</p>
+								<p class="content">No database should be built without being normalized. Exceptions should be made only when overwhelming evidence lobbies in its favor, and then only when the denormalized table is an extract only and will not be updated.</p>
+								<p class="quote">Normal is over rated, and so is spelling.You want perfection? Go out and buy a spell check, but know this: Spellcheck won't keep you warm at night or love you unconditionaly. I will stick to being abnormal and a bad speller. Makes life more interesting. After all, what fun is there in being normal or perfect? Cristina Marrero.</p>
+								<p class="content">If a design requires denormalization you should first normalize it, then extract it to a denormalized state.</p>
+								<p class="content">There are valid reasons to build a denormalized relation; not understanding database normalization theory is not one of them.</p>
+								<p class="quote">The secret of all victory lies in the organization of the non-obvious. Marcus Aurelius.</p>
+								<p class="quote"><a href="http://en.wikipedia.org/wiki/Database_normalization" target="blank">Database normalization</a> is the process of organizing the fields and tables of a relational database to minimize redundancy. Normalization usually involves dividing large tables into smaller (and less redundant) tables and defining relationships between them. The objective is to isolate data so that additions, deletions, and modifications of a field can be made in just one table and then propagated through the rest of the database using the defined relationships.</p>
+								<p class="quote">Edgar F. Codd, the inventor of the relational model, introduced the concept of normalization and what we now know as the First Normal Form (1NF) in 1970. Codd went on to define the Second Normal Form (2NF) and Third Normal Form (3NF) in 1971, and Codd and Raymond F. Boyce defined the Boyce-Codd Normal Form (BCNF) in 1974. Informally, a relational database table is often described as "normalized" if it is in the Third Normal Form. Most 3NF tables are free of insertion, update, and deletion anomalies.</p>
+								<p class="content">A standard piece of database design guidance is that the designer should first create a fully normalized design; then selective denormalization can be performed for performance reasons.</p>
+								<p class="content">A relational database is built on the relational theory developed by E.F. Codd in the 1960's. The relational theory is based on mathematics; set theory. Virtually all modern databases are built in relational databases (RDMS) using relational theory. The reason for this is that the design is robust and ensures data integrity. There are a number of ways you can normalize a design. You can use meta-data (catalog) tables or data constraints for example. Typically, I will use a data constraint on a column if there are only a few values and those values are not expected to change. For example; there might be only two types of order, sell, or buy. In that case, a simple constraint on the column will ensure that the data is constrained and meet the rules of normalization while introducing the minimum of complexity. Conversely, there may be an extended list of fund names, so a meta-data (catalog) table that can be extended is called for.</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse; margin:0 auto; width:100%; margin-top:-25px;" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td > 
+								<iframe src="./footer.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="200" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

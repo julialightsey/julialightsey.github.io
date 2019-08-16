@@ -1,0 +1,16 @@
+
+
+USE [master];
+go
+/*
+-- AxDB_Master_20181204.bak
+This is the master config environment.  This is the starting point before any data migration entities are imported.
+*/
+ALTER DATABASE [AxDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+GO
+RESTORE DATABASE [AxDB] FROM DISK = 'J:\MSSQL_BACKUP\AxDB\AxDB_Master_20181210.bak' WITH NORECOVERY, REPLACE;
+go
+RESTORE DATABASE [AxDB] FROM DISK = 'J:\MSSQL_BACKUP\AxDB\AxDB_Master_20181210.bak' WITH RECOVERY, REPLACE;
+go 
+ALTER DATABASE [AxDB] SET MULTI_USER WITH ROLLBACK IMMEDIATE;
+Go

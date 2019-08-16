@@ -1,0 +1,24 @@
+
+Should I add the Visual Studio 2015 .vs folder to source control?
+https://stackoverflow.com/questions/31878901/should-i-add-the-visual-studio-2015-vs-folder-to-source-control
+	No, you should not add it to source control. The purpose of this folder is to move machine- and user-specific files to a central location. The explanation on the Visual Studio User Voice issue explains it well:
+
+	So far, we have moved the .SUO file and the VB/C# compiler IntelliSense database files to the new location. All new project specific, machine local files will be added to the new location too. We plan on taking this even further in future releases and are investigating how to improve the directory structure of build output and other existing files that can clutter the source tree.
+
+	These are all files that you would never check in, since they are generated from a build or contain machine-specific information.
+
+How to remove a directory from git repository?
+https://stackoverflow.com/questions/6313126/how-to-remove-a-directory-from-git-repository
+	git rm -r one-of-the-directories
+	git commit -m "Remove duplicated directory"
+	git push origin <your-git-branch> (typically 'master', but not always)
+	
+create a new local repository from a remot
+	git init
+	git clone <repo_url>
+	-- cd to created repo directory
+	-- add files
+	git add -A -- add all the files
+	git commit -a -m "commit message"
+	git push
+	

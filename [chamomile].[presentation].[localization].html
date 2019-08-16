@@ -1,0 +1,420 @@
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Demonstrate&nbsp;a&nbsp;mechanism&nbsp;to&nbsp;handle&nbsp;multiple&nbsp;languages&nbsp;without&nbsp;the&nbsp;requirement&nbsp;to&nbsp;refactor&nbsp;code.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Existing&nbsp;mechanism&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Uses&nbsp;a&nbsp;separate&nbsp;column&nbsp;for&nbsp;each&nbsp;language.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Requires&nbsp;a&nbsp;change&nbsp;to&nbsp;both&nbsp;the&nbsp;schema&nbsp;and&nbsp;the&nbsp;code&nbsp;for&nbsp;each&nbsp;new&nbsp;language.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Numerous&nbsp;columns&nbsp;in&nbsp;a&nbsp;table&nbsp;can&nbsp;obscure&nbsp;its&nbsp;purpose&nbsp;-&nbsp;clutter.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;XML&nbsp;mechanism&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;XML&nbsp;method&nbsp;uses&nbsp;a&nbsp;single&nbsp;XML&nbsp;column&nbsp;to&nbsp;contain&nbsp;all&nbsp;languages&nbsp;in&nbsp;a&nbsp;typed&nbsp;XML&nbsp;object.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Addition&nbsp;of&nbsp;new&nbsp;languages&nbsp;is&nbsp;done&nbsp;ad&nbsp;hoc,&nbsp;they&nbsp;are&nbsp;simply&nbsp;added&nbsp;to&nbsp;the&nbsp;XML&nbsp;that&nbsp;is&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;entered&nbsp;into&nbsp;the&nbsp;table.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;language&nbsp;type&nbsp;can&nbsp;be&nbsp;constrained&nbsp;so&nbsp;that&nbsp;only&nbsp;allowed&nbsp;languages&nbsp;are&nbsp;entered&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;(this&nbsp;requires&nbsp;drop&nbsp;and&nbsp;add&nbsp;of&nbsp;the&nbsp;table,&nbsp;a&nbsp;simple&nbsp;dba&nbsp;operation,&nbsp;but&nbsp;it&nbsp;must&nbsp;be&nbsp;considered).&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Neither&nbsp;the&nbsp;code&nbsp;nor&nbsp;the&nbsp;schema&nbsp;need&nbsp;be&nbsp;changed&nbsp;for&nbsp;addition&nbsp;of&nbsp;new&nbsp;languages&nbsp;(assuming&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;the&nbsp;language&nbsp;value&nbsp;is&nbsp;not&nbsp;constrained).&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;XML&nbsp;indexes&nbsp;can&nbsp;be&nbsp;used&nbsp;for&nbsp;performance&nbsp;considerations;&nbsp;1&nbsp;primary&nbsp;and&nbsp;up&nbsp;to&nbsp;256&nbsp;secondary.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Data&nbsp;can&nbsp;be&nbsp;validated&nbsp;using&nbsp;regular&nbsp;expressions&nbsp;(see&nbsp;ex:&nbsp;language_type,&nbsp;sysname).&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Regardless&nbsp;of&nbsp;how&nbsp;many&nbsp;languages&nbsp;implemented,&nbsp;the&nbsp;table&nbsp;only&nbsp;has&nbsp;one&nbsp;name&nbsp;column&nbsp;-&nbsp;clean.
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;----------------------------------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL/XML&nbsp;-&nbsp;http://en.wikipedia.org/wiki/SQL/XML
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;xml&nbsp;(Transact-SQL)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms187339.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;XQuery&nbsp;Language&nbsp;Reference&nbsp;(SQL&nbsp;Server)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms189075.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;XQuery&nbsp;Functions&nbsp;against&nbsp;the&nbsp;xml&nbsp;Data&nbsp;Type&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms189254.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Introduction&nbsp;to&nbsp;XQuery&nbsp;in&nbsp;SQL&nbsp;Server&nbsp;2005&nbsp;-&nbsp;http://technet.microsoft.com/en-us/library/ms345122(v=sql.90).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;XQuery&nbsp;in&nbsp;SQL&nbsp;Server,&nbsp;some&nbsp;examples&nbsp;-&nbsp;http://blogs.msdn.com/b/spike/archive/2009/09/21/xquery-in-sql-server-some-examples.aspx
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'account'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;account'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">/********************************************************************************************************&nbsp;
+<br/>&nbsp;&nbsp;Existing&nbsp;Mechanism
+<br/>*********************************************************************************************************/</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[varchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>&nbsp;<span style="color: black; font-style: italic; ">[varchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>&nbsp;<span style="color: black; font-style: italic; ">[varchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">constraint</span>&nbsp;<span style="color: maroon; ">[account.management_type.id.primary_key_clustered]</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">asc</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[namespanish]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'door'</span><span style="color: silver; ">,</span><span style="color: red; ">N'puerto'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'cat'</span><span style="color: silver; ">,</span><span style="color: red; ">N'gato'</span><span style="color: silver; ">,</span><span style="color: red; ">N'pet'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'water'</span><span style="color: silver; ">,</span><span style="color: red; ">N'agua'</span><span style="color: silver; ">,</span><span style="color: red; ">N'drink'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>Procedure&nbsp;designed&nbsp;to&nbsp;pull&nbsp;back&nbsp;data&nbsp;regardless&nbsp;of&nbsp;which&nbsp;value&nbsp;is&nbsp;passed&nbsp;in.&nbsp;
+<br/>For&nbsp;demonstration&nbsp;purposes&nbsp;only.&nbsp;It&nbsp;is&nbsp;obvious&nbsp;that&nbsp;certain&nbsp;techniques&nbsp;are&nbsp;not&nbsp;highly&nbsp;efficient.&nbsp;
+<br/>For&nbsp;high&nbsp;speed&nbsp;or&nbsp;high&nbsp;volume&nbsp;applications&nbsp;the&nbsp;method&nbsp;would&nbsp;need&nbsp;to&nbsp;be&nbsp;refactored.&nbsp;
+<br/>This&nbsp;procedure&nbsp;is&nbsp;simply&nbsp;a&nbsp;demonstration&nbsp;of&nbsp;the&nbsp;technique&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[get_management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[get_management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@spanish_name</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[get_by_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@name</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_spanish_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[namespanish]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@spanish_name</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[result]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_spanish_name]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[namespanish]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[result]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: silver; ">=</span><span style="color: black; ">2</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span><span style="color: silver; ">=</span><span style="color: red; ">N'cat'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@spanish_name</span><span style="color: silver; ">=</span><span style="color: red; ">N'gato'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/********************************************************************************************************&nbsp;
+<br/>&nbsp;&nbsp;XML&nbsp;Method
+<br/>*********************************************************************************************************/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">xml_schema_collections</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">schemas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">s</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">c</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">quotename</span><span style="color: maroon; ">(</span><span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'.'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">quotename</span><span style="color: maroon; ">(</span><span style="color: maroon; ">c</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[account].[xsc_management_type]'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: maroon; ">xml</span>&nbsp;<span style="color: blue; ">schema</span>&nbsp;<span style="color: maroon; ">collection</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[xsc_management_type]</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">xml_schema_collections</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">schemas</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">s</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">c</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">quotename</span><span style="color: maroon; ">(</span><span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">'.'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">quotename</span><span style="color: maroon; ">(</span><span style="color: maroon; ">c</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'[account].[xsc_management_type]'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">create</span>&nbsp;<span style="color: maroon; ">xml</span>&nbsp;<span style="color: blue; ">schema</span>&nbsp;<span style="color: maroon; ">collection</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[xsc_management_type]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">N'&#60;xsd:schema&nbsp;xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;targetNamespace=&quot;http://www.noeticpartners.com/&quot;>
+<br/>&nbsp;&nbsp;&#60;xsd:element&nbsp;name=&quot;name&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:complexType>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:choice&nbsp;minOccurs=&quot;0&quot;&nbsp;maxOccurs=&quot;unbounded&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:element&nbsp;name=&quot;value&quot;&nbsp;nillable=&quot;false&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:complexType>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:simpleContent>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:extension&nbsp;base=&quot;xsd:string&quot;>&nbsp;
+<br/>&#60;xsd:attribute&nbsp;name=&quot;language&quot;&nbsp;type=&quot;noetic:language_type&quot;&nbsp;/>&nbsp;
+<br/>&#60;xsd:attribute&nbsp;name=&quot;type&quot;&nbsp;type=&quot;noetic:sysname&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:extension>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:simpleContent>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:complexType>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:element>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:choice>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:complexType>&nbsp;
+<br/>&nbsp;&nbsp;&#60;/xsd:element>&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&#60;xsd:simpleType&nbsp;name=&quot;sysname&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:restriction&nbsp;base=&quot;xsd:string&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:pattern&nbsp;value=&quot;[a-zA-Z]{1}[a-zA-Z_]{0,128}&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:restriction>&nbsp;
+<br/>&nbsp;&nbsp;&#60;/xsd:simpleType>&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&#60;xsd:simpleType&nbsp;name=&quot;language_type&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:restriction&nbsp;base=&quot;xsd:NMTOKEN&quot;>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:enumeration&nbsp;value=&quot;english&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:enumeration&nbsp;value=&quot;spanish&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#60;xsd:enumeration&nbsp;value=&quot;pig_latin&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&#60;/xsd:restriction>&nbsp;
+<br/>&nbsp;&nbsp;&#60;/xsd:simpleType>&nbsp;
+<br/>&#60;/xsd:schema>'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">xml</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[xsc_management_type]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>&nbsp;<span style="color: black; font-style: italic; ">[varchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">250</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">constraint</span>&nbsp;<span style="color: maroon; ">[account.management_type.id.primary_key_clustered]</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: blue; ">asc</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>&nbsp;&nbsp;Note&nbsp;that&nbsp;I&nbsp;have&nbsp;not&nbsp;written&nbsp;a&nbsp;setter,&nbsp;I&nbsp;have&nbsp;only&nbsp;include&nbsp;a&nbsp;prototype&nbsp;for&nbsp;reference.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;A&nbsp;setter&nbsp;would&nbsp;use&nbsp;a&nbsp;merge&nbsp;statement&nbsp;to&nbsp;update&nbsp;where&nbsp;there&nbsp;is&nbsp;a&nbsp;match&nbsp;on&nbsp;the&nbsp;english&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;name&nbsp;(or&nbsp;whatever&nbsp;is&nbsp;decided),&nbsp;or&nbsp;on&nbsp;the&nbsp;id.&nbsp;It&nbsp;would&nbsp;insert&nbsp;where&nbsp;there&nbsp;is&nbsp;no&nbsp;match.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;I&nbsp;have&nbsp;also&nbsp;often&nbsp;used&nbsp;a&nbsp;delete&nbsp;flag&nbsp;(@delete&nbsp;bit=0)&nbsp;in&nbsp;the&nbsp;setter.&nbsp;So&nbsp;the&nbsp;setter&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;covers&nbsp;the&nbsp;CUD&nbsp;of&nbsp;CRUD.&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[set_management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[set_management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[set_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">xml</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[xsc_management_type]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@description</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@delete</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">bit</span><span style="color: silver; ">=</span><span style="color: black; ">0</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'prototype&nbsp;method'</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;english&quot;&nbsp;type=&quot;something&quot;>door&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;spanish&quot;&nbsp;type=&quot;something&quot;>puerto&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;something&quot;>oorday&#60;/value>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;english&quot;&nbsp;type=&quot;something&quot;>cat&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;spanish&quot;&nbsp;type=&quot;something&quot;>gato&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;something&quot;>atcay&#60;/value>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'pet'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;english&quot;&nbsp;type=&quot;something&quot;>water&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;spanish&quot;&nbsp;type=&quot;something&quot;>agua&#60;/value>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;something&quot;>aterway&#60;/value>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'drink'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>Procedure&nbsp;designed&nbsp;to&nbsp;pull&nbsp;back&nbsp;data&nbsp;regardless&nbsp;of&nbsp;which&nbsp;value&nbsp;is&nbsp;passed&nbsp;in.&nbsp;
+<br/>For&nbsp;demonstration&nbsp;purposes&nbsp;only.&nbsp;It&nbsp;is&nbsp;obvious&nbsp;that&nbsp;certain&nbsp;techniques&nbsp;are&nbsp;not&nbsp;highly&nbsp;efficient.&nbsp;
+<br/>For&nbsp;high&nbsp;speed&nbsp;or&nbsp;high&nbsp;volume&nbsp;applications&nbsp;the&nbsp;method&nbsp;would&nbsp;need&nbsp;to&nbsp;be&nbsp;refactored.&nbsp;
+<br/>This&nbsp;procedure&nbsp;is&nbsp;simply&nbsp;a&nbsp;demonstration&nbsp;of&nbsp;the&nbsp;technique&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[account].[get_management_type]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[get_management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>&nbsp;&nbsp;Note&nbsp;that:&nbsp;
+<br/>&nbsp;&nbsp;-&nbsp;You&nbsp;can&nbsp;pass&nbsp;in&nbsp;either&nbsp;an&nbsp;id&nbsp;or&nbsp;an&nbsp;english&nbsp;language&nbsp;name&nbsp;and&nbsp;get&nbsp;a&nbsp;result&nbsp;back.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;-&nbsp;The&nbsp;procedure&nbsp;defaults&nbsp;to&nbsp;english,&nbsp;but&nbsp;you&nbsp;can&nbsp;pass&nbsp;in&nbsp;any&nbsp;language&nbsp;name.&nbsp;
+<br/>&nbsp;&nbsp;-&nbsp;No&nbsp;modifications&nbsp;are&nbsp;required&nbsp;either&nbsp;to&nbsp;the&nbsp;code&nbsp;or&nbsp;to&nbsp;the&nbsp;schema&nbsp;to&nbsp;add&nbsp;additional&nbsp;languages!&nbsp;
+<br/>&nbsp;&nbsp;-&nbsp;The&nbsp;xml&nbsp;data&nbsp;can&nbsp;be&nbsp;fully&nbsp;typed,&nbsp;requiring&nbsp;it&nbsp;to&nbsp;meet&nbsp;expectations&nbsp;so&nbsp;that&nbsp;garbage&nbsp;data&nbsp;cannot&nbsp;be&nbsp;loaded.&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@language</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: black; ">50</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'english'</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[get_by_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">value</span><span style="color: maroon; ">(</span><span style="color: red; ">'declare&nbsp;namespace&nbsp;noetic=&quot;http://www.noeticpartners.com/&quot;;&nbsp;(//noetic:name/value[@language=sql:variable(&quot;@language&quot;)])[1]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'[nvarchar](max)'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">value</span><span style="color: maroon; ">(</span><span style="color: red; ">'declare&nbsp;namespace&nbsp;noetic=&quot;http://www.noeticpartners.com/&quot;;&nbsp;(//noetic:name/value[@language=sql:variable(&quot;@language&quot;)])[1]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'[nvarchar](max)'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">value</span><span style="color: maroon; ">(</span><span style="color: red; ">'declare&nbsp;namespace&nbsp;noetic=&quot;http://www.noeticpartners.com/&quot;;&nbsp;(//noetic:name/value[@language=&quot;english&quot;])[1]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'nvarchar(255)'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@name</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[result]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">union</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[get_by_name]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[description]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[result]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>&nbsp;&nbsp;run&nbsp;tests&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************&nbsp;
+<br/>*********************************************************************************************************/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;correctly&nbsp;returns&nbsp;'cat'&nbsp;as&nbsp;the&nbsp;english&nbsp;name&nbsp;for&nbsp;entry&nbsp;2&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@id</span><span style="color: silver; ">=</span><span style="color: black; ">2</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;correctly&nbsp;returns&nbsp;the&nbsp;spanish&nbsp;name&nbsp;for&nbsp;cat&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'cat'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@language</span><span style="color: silver; ">=</span><span style="color: red; ">N'spanish'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;note&nbsp;that&nbsp;this&nbsp;returns&nbsp;an&nbsp;invalid&nbsp;value!&nbsp;I'd&nbsp;write&nbsp;a&nbsp;unit&nbsp;test&nbsp;then&nbsp;refactor&nbsp;the&nbsp;method&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'cat'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@language</span><span style="color: silver; ">=</span><span style="color: red; ">N'pig&nbsp;latin'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;correctly&nbsp;returns&nbsp;the&nbsp;pig&nbsp;latin&nbsp;value&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">N'cat'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@language</span><span style="color: silver; ">=</span><span style="color: red; ">N'pig_latin'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;correctly&nbsp;returns&nbsp;a&nbsp;null&nbsp;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[get_management_type]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">/****&nbsp;
+<br/>&nbsp;&nbsp;Data&nbsp;validation&nbsp;examples.&nbsp;
+<br/>*****/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'standard&nbsp;entry'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;english&quot;&nbsp;type=&quot;something&quot;>cat&#60;/value>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'a&nbsp;blank&nbsp;entry&nbsp;is&nbsp;allowed'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;english&quot;&nbsp;type=&quot;something&quot;&nbsp;/>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'pig_latin&nbsp;is&nbsp;an&nbsp;allowed&nbsp;language'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;something&quot;&nbsp;/>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'hungarian&nbsp;is&nbsp;not&nbsp;an&nbsp;allowed&nbsp;language'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;hungarian&quot;&nbsp;type=&quot;something&quot;&nbsp;/>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'type&nbsp;must&nbsp;be&nbsp;an&nbsp;alpha&nbsp;followed&nbsp;by&nbsp;0-128&nbsp;alpha&nbsp;or&nbsp;underscore&nbsp;characters'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;something_special&quot;&nbsp;/>&nbsp;
+<br/>&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@test</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'type&nbsp;must&nbsp;be&nbsp;an&nbsp;alpha&nbsp;followed&nbsp;by&nbsp;0-128&nbsp;alpha&nbsp;or&nbsp;underscore&nbsp;characters'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[account]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[management_type]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[description]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'&#60;noetic:name&nbsp;xmlns:noetic=&quot;http://www.noeticpartners.com/&quot;&nbsp;>&nbsp;
+<br/>&nbsp;&nbsp;	&nbsp;&#60;value&nbsp;language=&quot;pig_latin&quot;&nbsp;type=&quot;_something&quot;&nbsp;/>&nbsp;
+<br/>&nbsp;&nbsp;	&nbsp;&#60;/noetic:name>'</span><span style="color: silver; ">,</span><span style="color: red; ">N'entry'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'fail:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">try</span>
+<br/><span style="color: blue; ">begin</span>&nbsp;<span style="color: maroon; ">catch</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">N'pass:&nbsp;'</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: #8000FF; ">@test</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">end</span>&nbsp;<span style="color: maroon; ">catch</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>

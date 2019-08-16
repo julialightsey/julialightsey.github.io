@@ -1,0 +1,102 @@
+--
+-- Defragment all indexes in a database
+-- Defaults to REORGANIZE, which is an online operation (does not block existing processes) but only works for indexes fragmented below @reorganize_demarcation
+-- To enable REBUILD, which is an offline operation (blocks existing processes), set @rebuild__on to 1
+-------------------------------------------------
+set quoted_identifier on;
+
+go
+
+declare @rebuild__on                    [bit] = 0
+        , @maximum_fragmentation        [int] = 10
+        , @minimum_page_count           [int] = 100
+        , @fillfactor                   [int] = null
+        , @reorganize_demarcation       [int] = 25
+        , @defrag_count_limit           [int] = 1000
+        , @output                       [xml] = null
+        , @schema                       [sysname]
+        , @table                        [sysname]
+        , @index                        [sysname]
+        , @average_fragmentation_before decimal(10, 2)
+        , @average_fragmentation_after  decimal(10, 2)
+        , @sql                          [nvarchar](max)
+        , @xml_builder                  [xml]
+        , @defrag_count                 [int] = 0
+        , @start                        datetime2
+        , @complete                     datetime2
+        , @elapsed                      decimal(10, 2)
+        --
+        , @timestamp                    datetime = current_timestamp
+        , @application                  [sysname] = N'defragment';
+--
+-------------------------------------------
+declare [table_cursor] cursor for
+  select [schemas].[name]                                              as [schema]
+         , [tables].[name]                                             as [table]
+         , [indexes].[name]                                            as [index]
+         , [dm_db_index_physical_stats].[avg_fragmentation_in_percent] as [avg_fragmentation_in_percent]
+  from   [sys].[dm_db_index_physical_stats](db_id(), null, null, null, 'LIMITED') as [dm_db_index_physical_stats]
+         join [sys].[indexes] as [indexes]
+           on [dm_db_index_physical_stats].[object_id] = [indexes].[object_id]
+              and [dm_db_index_physical_stats].[index_id] = [indexes].[index_id]
+         join [sys].[tables] as [tables]
+           on [tables].[object_id] = [dm_db_index_physical_stats].[object_id]
+         join [sys].[schemas] as [schemas]
+           on [schemas].[schema_id] = [tables].[schema_id]
+  where  [indexes].[name] is not null
+         and [dm_db_index_physical_stats].[avg_fragmentation_in_percent] > @maximum_fragmentation
+         and [dm_db_index_physical_stats].[page_count] > @minimum_page_count
+  order  by [dm_db_index_physical_stats].[avg_fragmentation_in_percent] desc
+            , [schemas].[name]
+            , [tables].[name];
+
+--
+-------------------------------------------
+begin
+    open [table_cursor];
+
+    fetch next from [table_cursor] into @schema, @table, @index, @average_fragmentation_before;
+
+    while @@fetch_status = 0
+          and ( ( @defrag_count < @defrag_count_limit )
+                 or ( @defrag_count_limit = 0 ) )
+      begin
+          if @average_fragmentation_before > @reorganize_demarcation
+             and @rebuild__on = 1
+            begin
+                set @sql = 'alter index [' + @index + N'] on [' + @schema + N'].[' + @table + '] rebuild ';
+
+                if @fillfactor is not null
+                  begin
+                      set @sql = @sql + ' with (fillfactor=' + cast(@fillfactor as [sysname]) + ')';
+                  end;
+
+                set @sql = @sql + ' ; ';
+            end;
+          else if @average_fragmentation_before <= @reorganize_demarcation
+            begin
+                set @sql = 'alter index [' + @index + N'] on [' + @schema + N'].[' + @table + '] reorganize';
+            end;
+
+          --
+          -------------------------------
+          if @sql is not null
+            begin
+                execute (@sql);
+            end;
+
+          set @defrag_count = @defrag_count + 1;
+
+          fetch next from [table_cursor] into @schema, @table, @index, @average_fragmentation_before;
+      end;
+
+    close [table_cursor];
+
+    deallocate [table_cursor];
+end;
+
+go
+
+execute sp_updatestats;
+
+go 

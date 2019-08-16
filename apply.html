@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;APPLY&nbsp;operator&nbsp;allows&nbsp;you&nbsp;to&nbsp;invoke&nbsp;a&nbsp;table-valued&nbsp;function&nbsp;for&nbsp;each&nbsp;row&nbsp;returned&nbsp;by&nbsp;an&nbsp;outer&nbsp;table&nbsp;expression&nbsp;of&nbsp;a&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;query.&nbsp;The&nbsp;table-valued&nbsp;function&nbsp;acts&nbsp;as&nbsp;the&nbsp;right&nbsp;input&nbsp;and&nbsp;the&nbsp;outer&nbsp;table&nbsp;expression&nbsp;acts&nbsp;as&nbsp;the&nbsp;left&nbsp;input.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;right&nbsp;input&nbsp;is&nbsp;evaluated&nbsp;for&nbsp;each&nbsp;row&nbsp;from&nbsp;the&nbsp;left&nbsp;input&nbsp;and&nbsp;the&nbsp;rows&nbsp;produced&nbsp;are&nbsp;combined&nbsp;for&nbsp;the&nbsp;final&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;output.&nbsp;The&nbsp;list&nbsp;of&nbsp;columns&nbsp;produced&nbsp;by&nbsp;the&nbsp;APPLY&nbsp;operator&nbsp;is&nbsp;the&nbsp;set&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;left&nbsp;input&nbsp;followed&nbsp;by&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;list&nbsp;of&nbsp;columns&nbsp;returned&nbsp;by&nbsp;the&nbsp;right&nbsp;input.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;There&nbsp;are&nbsp;two&nbsp;forms&nbsp;of&nbsp;APPLY:&nbsp;CROSS&nbsp;APPLY&nbsp;and&nbsp;OUTER&nbsp;APPLY.&nbsp;CROSS&nbsp;APPLY&nbsp;returns&nbsp;only&nbsp;rows&nbsp;from&nbsp;the&nbsp;outer&nbsp;table&nbsp;that&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;produce&nbsp;a&nbsp;result&nbsp;set&nbsp;from&nbsp;the&nbsp;table-valued&nbsp;function.&nbsp;OUTER&nbsp;APPLY&nbsp;returns&nbsp;both&nbsp;rows&nbsp;that&nbsp;produce&nbsp;a&nbsp;result&nbsp;set,&nbsp;and&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;rows&nbsp;that&nbsp;do&nbsp;not,&nbsp;with&nbsp;NULL&nbsp;values&nbsp;in&nbsp;the&nbsp;columns&nbsp;produced&nbsp;by&nbsp;the&nbsp;table-valued&nbsp;function.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Using&nbsp;APPLY&nbsp;-&nbsp;http://technet.microsoft.com/en-us/library/ms175156(v=sql.105).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;APPLY&nbsp;Basics&nbsp;-&nbsp;https://www.simple-talk.com/sql/t-sql-programming/sql-server-apply-basics/
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;CROSS&nbsp;APPLY&nbsp;and&nbsp;OUTER&nbsp;APPLY&nbsp;-&nbsp;http://www.mssqltips.com/sqlservertip/1958/sql-server-cross-apply-and-outer-apply/
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;power&nbsp;of&nbsp;T-SQL's&nbsp;APPLY&nbsp;operator&nbsp;-&nbsp;http://sqlblog.com/blogs/rob_farley/archive/2011/04/13/the-power-of-t-sql-s-apply-operator.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.dm_exec_query_stats&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/ms189741.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.dm_exec_sql_text&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/ms181929.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.dm_exec_plan_attributes&nbsp;(Transact-SQL):&nbsp;http://msdn.microsoft.com/en-us/library/ms189472.aspx&nbsp;
+<br/>
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'apply_demo'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;apply_demo'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[apply_demo].[test_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_01]</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: black; ">25</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_02]</span>&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span>&nbsp;<span style="color: black; font-style: italic; ">[decimal]</span><span style="color: maroon; ">(</span><span style="color: black; ">5</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">2</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[value_01]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[value_02]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[value_03]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'jan'</span><span style="color: silver; ">,</span><span style="color: red; ">N'2013-01-01'</span><span style="color: silver; ">,</span><span style="color: black; ">1.11</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'feb'</span><span style="color: silver; ">,</span><span style="color: red; ">N'2013-02-01'</span><span style="color: silver; ">,</span><span style="color: black; ">2.22</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'mar'</span><span style="color: silver; ">,</span><span style="color: red; ">N'2013-03-01'</span><span style="color: silver; ">,</span><span style="color: black; ">3.33</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'apr'</span><span style="color: silver; ">,</span><span style="color: red; ">N'2013-04-01'</span><span style="color: silver; ">,</span><span style="color: black; ">4.44</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[apply_demo].[test_02]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_02]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_02]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_02]</span>&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span>&nbsp;<span style="color: black; font-style: italic; ">[decimal]</span><span style="color: maroon; ">(</span><span style="color: black; ">5</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">2</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_02]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[value_02]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[value_03]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'2013-01-01'</span><span style="color: silver; ">,</span><span style="color: black; ">10</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'2013-01-01'</span><span style="color: silver; ">,</span><span style="color: black; ">15</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'2013-02-01'</span><span style="color: silver; ">,</span><span style="color: black; ">20</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'2013-02-01'</span><span style="color: silver; ">,</span><span style="color: black; ">25</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[apply_demo].[calculate_offset]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'TF'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[calculate_offset]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Creates&nbsp;one&nbsp;record&nbsp;for&nbsp;each&nbsp;match&nbsp;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[calculate_offset]</span><span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@value_02</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@value_03</span>&nbsp;<span style="color: black; font-style: italic; ">[decimal]</span><span style="color: maroon; ">(</span><span style="color: black; ">5</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">2</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/><span style="color: maroon; ">returns</span>&nbsp;<span style="color: #8000FF; ">@table</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[value_02]</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span>&nbsp;<span style="color: black; font-style: italic; ">[decimal]</span><span style="color: maroon; ">(</span><span style="color: black; ">5</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">2</span><span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">[offset_list]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[value_02]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_02]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[value_02]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@value_02</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: #8000FF; ">@table</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[value_02]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[value_03]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">dateadd</span><span style="color: maroon; ">(</span><span style="color: maroon; ">day</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@value_02</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[value_03]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[offset_list]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">return</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;CROSS&nbsp;APPLY&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;CROSS&nbsp;APPLY&nbsp;is&nbsp;like&nbsp;an&nbsp;inner&nbsp;join,&nbsp;returning&nbsp;only&nbsp;those&nbsp;records&nbsp;that&nbsp;match&nbsp;both&nbsp;the&nbsp;inner/right&nbsp;recordset&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;(the&nbsp;table&nbsp;valued&nbsp;function)&nbsp;and&nbsp;the&nbsp;outer/left&nbsp;recordset&nbsp;(the&nbsp;outer&nbsp;table).&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_02]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_03]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[calculated_value]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">cross</span>&nbsp;<span style="color: maroon; ">apply</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[calculate_offset]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_02]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_03]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[calculated_value]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;OUTER&nbsp;APPLY&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;OUTER&nbsp;APPLY&nbsp;is&nbsp;like&nbsp;a&nbsp;LEFT&nbsp;JOIN,&nbsp;returning&nbsp;all&nbsp;records&nbsp;from&nbsp;the&nbsp;left&nbsp;recordset&nbsp;(the&nbsp;outer&nbsp;table),&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;even&nbsp;where&nbsp;they&nbsp;do&nbsp;not&nbsp;match&nbsp;a&nbsp;record&nbsp;in&nbsp;the&nbsp;right&nbsp;recordset&nbsp;(the&nbsp;table&nbsp;valued&nbsp;function).&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_02]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_03]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[calculated_value]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[test_01]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[test_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">outer</span>&nbsp;<span style="color: maroon; ">apply</span>&nbsp;<span style="color: maroon; ">[apply_demo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[calculate_offset]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_02]</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[test_01]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[value_03]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[calculated_value]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;EXAMPLE:&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;sys.dm_exec_sql_text&nbsp;is&nbsp;a&nbsp;table&nbsp;valued&nbsp;function&nbsp;that&nbsp;returns&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;SQL&nbsp;batch&nbsp;that&nbsp;is&nbsp;identified&nbsp;by&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;specified&nbsp;sql_handle.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;sys.dm_exec_plan_attributes&nbsp;returns&nbsp;one&nbsp;row&nbsp;per&nbsp;plan&nbsp;attribute&nbsp;for&nbsp;the&nbsp;plan&nbsp;specified&nbsp;by&nbsp;the&nbsp;plan&nbsp;handle.&nbsp;You&nbsp;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;can&nbsp;use&nbsp;this&nbsp;table-valued&nbsp;function&nbsp;to&nbsp;get&nbsp;details&nbsp;about&nbsp;a&nbsp;particular&nbsp;plan,&nbsp;such&nbsp;as&nbsp;the&nbsp;cache&nbsp;key&nbsp;values&nbsp;or&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;number&nbsp;of&nbsp;current&nbsp;simultaneous&nbsp;executions&nbsp;of&nbsp;the&nbsp;plan.&nbsp;&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[dm_exec_query_stats]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[dm_exec_sql_text]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[dm_exec_plan_attributes]</span><span style="color: silver; ">.</span><span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">[dm_exec_query_stats]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_query_stats]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">cross</span>&nbsp;<span style="color: maroon; ">apply</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[dm_exec_sql_text]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[dm_exec_query_stats]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sql_handle]</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_sql_text]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">outer</span>&nbsp;<span style="color: maroon; ">apply</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[dm_exec_plan_attributes]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[dm_exec_query_stats]</span><span style="color: silver; ">.</span><span style="color: maroon; ">plan_handle</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_exec_plan_attributes]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/>
+</span></div>
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+		  <table class="content">
+			<tr>
+				<td>
+					<hr class="in_chapter" />
+
+					
+					
+					<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;references&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>*/</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomilesql]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate_test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;kate_test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[kate_test].[table_valued_function]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'TF'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_valued_function]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">function</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[table_valued_function]</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@object</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: maroon; ">returns</span>&nbsp;<span style="color: #8000FF; ">@objectlist</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[type_desc]</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[object_id]</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[create_date]</span>&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: #8000FF; ">@objectlist</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[type_desc]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[object_id]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[create_date]</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[type_desc]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[object_id]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[create_date]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">objects</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[name]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@object</span><span style="color: silver; ">;</span>
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">return</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[kate_test].[sample_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sample_01]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[sample_01]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[color]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[name]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[type_desc]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[object_id]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[create_date]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[table_valued_function]</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'sample_01'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+
+
+					<hr class="in_chapter" />
+				
+				</td>
+			</tr>
+		  </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

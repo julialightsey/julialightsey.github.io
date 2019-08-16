@@ -1,0 +1,4 @@
+<test_stack subject="[73ee32b4fbaf].[73ee32b4fbaf].[default].[chamomile].[math__test].[divide__test_00]" object="[math].[divide]" test_count="1" error_count="1" pass_count="0" return_code="1">
+  <test test_sequence="1" test_name="check_for_target_method_exist" expected="pass" actual="fail">
+    <description />Target function does not exist. No further testing will be performed.</test>
+</test_stack>

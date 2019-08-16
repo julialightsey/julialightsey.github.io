@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href="./source/image/chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href="./source/common.css" />
+	</head>
+	<body id="top">
+		<table style="border-collapse: collapse; margin-top:0px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td >
+								<iframe src="./header.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0; margin:0 auto; display:block;" height="325" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-bottom:0px; margin-top:-25px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="content">
+						<tr>
+							<td class="content">
+								<iframe src="./menu__home.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0;" height="50" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__best_practice.html" style="border-collapse: collapse; width:100%; border:0;" height="75" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-top:0px; margin-top:-15px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--&nbsp;todo&nbsp;-&nbsp;check&nbsp;http://stackoverflow.com/questions/442503/bind-a-column-default-value-to-a-function-in-sql-2005
+<br/>&nbsp;&nbsp;--&nbsp;IF&nbsp;someone&nbsp;wants&nbsp;to&nbsp;do&nbsp;it&nbsp;using&nbsp;the&nbsp;interface,&nbsp;typing
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[dbo].[NEWDOC_Order]()
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;does&nbsp;the&nbsp;trick.&nbsp;You&nbsp;apparently&nbsp;need&nbsp;all&nbsp;brackets&nbsp;or&nbsp;it&nbsp;will&nbsp;reject&nbsp;your&nbsp;input.
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[verbose].[lower_case].[english_grammar].[bracketed].[separated_by_underscore].[consistent]
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[verbose]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Use&nbsp;of&nbsp;abbreviations&nbsp;is&nbsp;avoided&nbsp;except&nbsp;in&nbsp;cases&nbsp;where&nbsp;the&nbsp;abbreviation
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;in&nbsp;common&nbsp;usage&nbsp;such&nbsp;as&nbsp;[id]&nbsp;in&nbsp;place&nbsp;of&nbsp;[identity],&nbsp;[us]&nbsp;in&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;place&nbsp;of&nbsp;[united_states],&nbsp;etc.&nbsp;Company&nbsp;specific&nbsp;abbreviations&nbsp;are
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avoided.&nbsp;Industry&nbsp;specific&nbsp;abbreviations&nbsp;are&nbsp;used&nbsp;as&nbsp;long&nbsp;as&nbsp;they
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;standard&nbsp;outside&nbsp;the&nbsp;company,&nbsp;such&nbsp;that&nbsp;new&nbsp;team&nbsp;members&nbsp;will
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;familiar&nbsp;with&nbsp;them&nbsp;if&nbsp;they&nbsp;have&nbsp;industry&nbsp;experience.&nbsp;A&nbsp;good&nbsp;test
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;this&nbsp;is&nbsp;an&nbsp;online&nbsp;search.&nbsp;If&nbsp;an&nbsp;online&nbsp;search&nbsp;does&nbsp;not&nbsp;turn&nbsp;up
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;abbreviation&nbsp;in&nbsp;the&nbsp;first&nbsp;page&nbsp;of&nbsp;results,&nbsp;don't&nbsp;use&nbsp;it.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[lower_case]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Use&nbsp;of&nbsp;all&nbsp;lower&nbsp;case&nbsp;letters&nbsp;removes&nbsp;the&nbsp;complexity&nbsp;involved&nbsp;in&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;systems&nbsp;that&nbsp;are&nbsp;case&nbsp;sensitive&nbsp;such&nbsp;as&nbsp;case&nbsp;sensitive&nbsp;sql&nbsp;collations.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;case&nbsp;specific&nbsp;naming&nbsp;is&nbsp;used,&nbsp;the&nbsp;developer&nbsp;must&nbsp;remember&nbsp;which
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;letters&nbsp;were&nbsp;capitalized;&nbsp;was&nbsp;it&nbsp;[Id],&nbsp;[id],&nbsp;or&nbsp;[ID]?&nbsp;[Database]&nbsp;or&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DataBase]?&nbsp;Using&nbsp;all&nbsp;lower&nbsp;case&nbsp;allows&nbsp;you&nbsp;to&nbsp;run&nbsp;your&nbsp;code&nbsp;through&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;through&nbsp;lower(@sql_code)&nbsp;prior&nbsp;to&nbsp;execution&nbsp;to&nbsp;ensure&nbsp;you&nbsp;do&nbsp;not
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;experience&nbsp;failures&nbsp;due&nbsp;to&nbsp;case&nbsp;sensitivity.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[english_grammar]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Use&nbsp;of&nbsp;standard&nbsp;english&nbsp;grammar&nbsp;syntax&nbsp;simplifies&nbsp;the&nbsp;naming&nbsp;of&nbsp;objects.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You&nbsp;"get&nbsp;data"&nbsp;rather&nbsp;than&nbsp;"data&nbsp;get",&nbsp;and&nbsp;"generate&nbsp;extended
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties"&nbsp;rather&nbsp;than&nbsp;"extended&nbsp;properties&nbsp;generate".&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[bracketed]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[separated_by_underscore]&nbsp;&nbsp;-&nbsp;The&nbsp;underscore&nbsp;"_"&nbsp;is&nbsp;one&nbsp;of&nbsp;the&nbsp;few&nbsp;characters&nbsp;other&nbsp;than&nbsp;[a-zA-Z0-9]
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;is&nbsp;acceptable&nbsp;in&nbsp;the&nbsp;naming&nbsp;of&nbsp;objects&nbsp;in&nbsp;virtually&nbsp;every
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programming&nbsp;language.&nbsp;(Even&nbsp;then,&nbsp;as&nbsp;with&nbsp;numeric&nbsp;characters,&nbsp;it&nbsp;should
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;be&nbsp;used&nbsp;as&nbsp;the&nbsp;first&nbsp;character&nbsp;in&nbsp;an&nbsp;object&nbsp;name).
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;[consistent]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Use&nbsp;of&nbsp;common&nbsp;constructs&nbsp;simplifies&nbsp;the&nbsp;task&nbsp;of&nbsp;the&nbsp;developer.&nbsp;Knowing&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;there&nbsp;will&nbsp;(virtually)&nbsp;always&nbsp;be&nbsp;an&nbsp;[id]&nbsp;column&nbsp;on&nbsp;a&nbsp;table
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;is&nbsp;the&nbsp;primary&nbsp;key&nbsp;of&nbsp;the&nbsp;table&nbsp;and&nbsp;an&nbsp;anchor&nbsp;for&nbsp;foreign&nbsp;key
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;references&nbsp;simplifies&nbsp;the&nbsp;developers&nbsp;job&nbsp;dramatically.&nbsp;Similarly,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;a&nbsp;[<schema>].[data]&nbsp;construct&nbsp;as&nbsp;the&nbsp;primary&nbsp;data&nbsp;repository
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;business&nbsp;data&nbsp;in&nbsp;the&nbsp;specified&nbsp;schema,&nbsp;and&nbsp;[<schema>].[set_data]
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;[<schema>].[get_data]&nbsp;as&nbsp;the&nbsp;primary&nbsp;mutator&nbsp;and&nbsp;accessor&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simplifies&nbsp;the&nbsp;job&nbsp;of&nbsp;the&nbsp;developer.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[address].[data].[id]&nbsp;fully&nbsp;specifies&nbsp;the&nbsp;primary&nbsp;key&nbsp;of&nbsp;the&nbsp;primary
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;repository&nbsp;for&nbsp;addresses.&nbsp;[person].[data].[id]&nbsp;fully&nbsp;specifies
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;primary&nbsp;key&nbsp;of&nbsp;the&nbsp;primary&nbsp;data&nbsp;repository&nbsp;for&nbsp;persons.&nbsp;Use&nbsp;of&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nomenclature&nbsp;such&nbsp;as&nbsp;[person].[individual_information].[individual_id]
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unnecessarily&nbsp;complicates&nbsp;code&nbsp;and&nbsp;serves&nbsp;no&nbsp;purpose.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Complexity&nbsp;must&nbsp;justify&nbsp;itself&nbsp;(http://www.katherinelightsey.com/#!8thlaw-complexity/cc4u)
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Using&nbsp;SQL&nbsp;Server&nbsp;Collations&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms144260(v=sql.105).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Selecting&nbsp;a&nbsp;SQL&nbsp;Server&nbsp;Collation&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms144250(v=sql.105).aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SERVERPROPERTY&nbsp;(Transact-SQL)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms174396.aspx
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;Collation&nbsp;Fundamentals
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Microsoft®&nbsp;SQL&nbsp;Server™&nbsp;2000&nbsp;supports&nbsp;several&nbsp;collations.&nbsp;A&nbsp;collation&nbsp;encodes&nbsp;the&nbsp;rules&nbsp;governing&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;proper&nbsp;use&nbsp;of&nbsp;characters&nbsp;for&nbsp;either&nbsp;a&nbsp;language,&nbsp;such&nbsp;as&nbsp;Greek&nbsp;or&nbsp;Polish,&nbsp;or&nbsp;an&nbsp;alphabet,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;such&nbsp;as&nbsp;Latin1_General&nbsp;(the&nbsp;Latin&nbsp;alphabet&nbsp;used&nbsp;by&nbsp;western&nbsp;European&nbsp;languages).
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Each&nbsp;SQL&nbsp;Server&nbsp;collation&nbsp;specifies&nbsp;three&nbsp;properties:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;sort&nbsp;order&nbsp;to&nbsp;use&nbsp;for&nbsp;Unicode&nbsp;data&nbsp;types&nbsp;(nchar,&nbsp;nvarchar,&nbsp;and&nbsp;ntext).&nbsp;A&nbsp;sort&nbsp;order&nbsp;defines&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;sequence&nbsp;in&nbsp;which&nbsp;characters&nbsp;are&nbsp;sorted,&nbsp;and&nbsp;the&nbsp;way&nbsp;characters&nbsp;are&nbsp;evaluated&nbsp;in&nbsp;comparison&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operations.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;sort&nbsp;order&nbsp;to&nbsp;use&nbsp;for&nbsp;non-Unicode&nbsp;character&nbsp;data&nbsp;types&nbsp;(char,&nbsp;varchar,&nbsp;and&nbsp;text).
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;code&nbsp;page&nbsp;used&nbsp;to&nbsp;store&nbsp;non-Unicode&nbsp;character&nbsp;data.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Note&nbsp;&nbsp;You&nbsp;cannot&nbsp;specify&nbsp;the&nbsp;equivalent&nbsp;of&nbsp;a&nbsp;code&nbsp;page&nbsp;for&nbsp;the&nbsp;Unicode&nbsp;data&nbsp;types&nbsp;(nchar,&nbsp;nvarchar,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;ntext).&nbsp;The&nbsp;double-byte&nbsp;bit&nbsp;patterns&nbsp;used&nbsp;for&nbsp;Unicode&nbsp;characters&nbsp;are&nbsp;defined&nbsp;by&nbsp;the&nbsp;Unicode&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;standard&nbsp;and&nbsp;cannot&nbsp;be&nbsp;changed.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;2000&nbsp;collations&nbsp;can&nbsp;be&nbsp;specified&nbsp;at&nbsp;many&nbsp;levels.&nbsp;When&nbsp;you&nbsp;install&nbsp;an&nbsp;instance&nbsp;of&nbsp;SQL&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Server&nbsp;2000,&nbsp;you&nbsp;specify&nbsp;the&nbsp;default&nbsp;collation&nbsp;for&nbsp;that&nbsp;instance.&nbsp;Each&nbsp;time&nbsp;you&nbsp;create&nbsp;a&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;database,&nbsp;you&nbsp;can&nbsp;specify&nbsp;the&nbsp;default&nbsp;collation&nbsp;used&nbsp;for&nbsp;the&nbsp;database.&nbsp;If&nbsp;you&nbsp;do&nbsp;not&nbsp;specify&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;collation,&nbsp;the&nbsp;default&nbsp;collation&nbsp;for&nbsp;the&nbsp;database&nbsp;is&nbsp;the&nbsp;default&nbsp;collation&nbsp;for&nbsp;the&nbsp;instance.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Whenever&nbsp;you&nbsp;define&nbsp;a&nbsp;character&nbsp;column,&nbsp;you&nbsp;can&nbsp;specify&nbsp;its&nbsp;collation.&nbsp;If&nbsp;you&nbsp;do&nbsp;not&nbsp;specify&nbsp;a&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collation,&nbsp;the&nbsp;column&nbsp;is&nbsp;created&nbsp;with&nbsp;the&nbsp;default&nbsp;collation&nbsp;of&nbsp;the&nbsp;database.&nbsp;You&nbsp;cannot&nbsp;specify&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;collation&nbsp;for&nbsp;character&nbsp;variables&nbsp;and&nbsp;parameters;&nbsp;they&nbsp;are&nbsp;always&nbsp;created&nbsp;with&nbsp;the&nbsp;default&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collation&nbsp;of&nbsp;the&nbsp;database.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;all&nbsp;of&nbsp;the&nbsp;users&nbsp;of&nbsp;your&nbsp;instance&nbsp;of&nbsp;SQL&nbsp;Server&nbsp;speak&nbsp;the&nbsp;same&nbsp;language,&nbsp;you&nbsp;should&nbsp;pick&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;collation&nbsp;that&nbsp;supports&nbsp;that&nbsp;language.&nbsp;For&nbsp;example,&nbsp;if&nbsp;all&nbsp;of&nbsp;the&nbsp;users&nbsp;speak&nbsp;French,&nbsp;choose&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;French&nbsp;collation.
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'collation_test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;collation_test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[master]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">distinct</span>&nbsp;<span style="color: maroon; ">[objects]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[all_objects]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[objects]</span>
+<br/><span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[objects]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;use&nbsp;of&nbsp;case&nbsp;in&nbsp;naming&nbsp;conventions&nbsp;means&nbsp;you&nbsp;have&nbsp;to&nbsp;KNOW&nbsp;how&nbsp;items&nbsp;are&nbsp;named!&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Is&nbsp;it&nbsp;"ID",&nbsp;"id",&nbsp;"Id",&nbsp;or&nbsp;"iD"?&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[collation_test].[table_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[firstname]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[lastname]</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">[firstname]</span><span style="color: silver; ">,</span><span style="color: maroon; ">[lastname]</span><span style="color: maroon; ">)</span>
+<br/><span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'Bob'</span><span style="color: silver; ">,</span><span style="color: red; ">N'Campbell'</span><span style="color: maroon; ">)</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'Mary'</span><span style="color: silver; ">,</span><span style="color: red; ">N'Oconnel'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[firstname]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[lastname]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[firstname]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[lastname]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;use&nbsp;of&nbsp;lower&nbsp;case&nbsp;names&nbsp;for&nbsp;schema&nbsp;objects&nbsp;allows&nbsp;you&nbsp;to&nbsp;pass&nbsp;your&nbsp;sql&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;through&nbsp;the&nbsp;lower()&nbsp;function&nbsp;and&nbsp;avoid&nbsp;errors.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[collation_test].[table_01]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">primary</span>&nbsp;<span style="color: blue; ">key</span>&nbsp;<span style="color: blue; ">clustered</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[first_name]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[last_name]</span>&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@sql</span>&nbsp;<span style="color: black; font-style: italic; ">[nvarchar]</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: red; ">N'insert&nbsp;into&nbsp;[collation_test].[table_01]&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([First_name],[Last_name])'</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: red; ">N'&nbsp;
+<br/>values&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(''Bob'',''Campbell''),&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(''Mary'',''Oconnel'');'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@sql</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[first_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[last_name]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[collation_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[table_01]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;use&nbsp;of&nbsp;lower&nbsp;case&nbsp;names&nbsp;is&nbsp;easier&nbsp;to&nbsp;read&nbsp;when&nbsp;you&nbsp;need&nbsp;to&nbsp;normalize&nbsp;it&nbsp;with&nbsp;lower()&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;note&nbsp;how&nbsp;much&nbsp;more&nbsp;difficult&nbsp;it&nbsp;is&nbsp;to&nbsp;read&nbsp;Pascal&nbsp;Case&nbsp;and&nbsp;Hungarian&nbsp;notation&nbsp;if&nbsp;you&nbsp;have&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;to&nbsp;normalize&nbsp;them&nbsp;through&nbsp;the&nbsp;lower()&nbsp;function.&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@oracle_case</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'THIS_IS_AN_EXAMPLE_OF_ORACLE_CASE'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@lower_oracle_case</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">=</span><span style="color: red; ">N'this_is_an_example_of_lower_oracle_case'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@pascalcase</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'ThisIsAnExampleOfPascalCase'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@ntnhungarian</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">=</span><span style="color: red; ">N'ntnThisIsAnExampleOfHungarianNotation'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: #8000FF; ">@oracle_case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@oracle_case</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@lower_oracle_case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@lower_oracle_case</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@pascalcase</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@pascalcase</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@ntnhungarian</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">lower</span><span style="color: maroon; ">(</span><span style="color: #8000FF; ">@ntnhungarian</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse; margin:0 auto; width:100%; margin-top:-25px;" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td > 
+								<iframe src="./footer.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="200" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

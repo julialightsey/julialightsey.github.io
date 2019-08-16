@@ -1,0 +1,54 @@
+ Volume in drive C is Windows
+ Volume Serial Number is 8E0A-A596
+
+ Directory of C:\Users\KELIGHTSEY\Dropbox\public\chamomile\presentation
+
+08/15/2014  12:31 PM    <DIR>          .
+08/15/2014  12:31 PM    <DIR>          ..
+08/15/2014  12:31 PM                 0 out.txt
+07/12/2014  03:52 PM            20,350 [chamomile].[presentation].[analytic_functions].sql
+07/12/2014  03:51 PM             7,437 [chamomile].[presentation].[apply].sql
+08/14/2014  02:02 PM            12,438 [chamomile].[presentation].[case_isnull_coalesce].sql
+07/12/2014  03:50 PM            16,138 [chamomile].[presentation].[change_data_capture].sql
+07/12/2014  03:49 PM             6,439 [chamomile].[presentation].[common_table_expression].sql
+07/03/2014  12:39 PM             1,003 [chamomile].[presentation].[create_merge_list].sql
+07/12/2014  03:48 PM             3,497 [chamomile].[presentation].[cross_database_referential_integrity].sql
+07/12/2014  03:48 PM            22,496 [chamomile].[presentation].[design_pattern].[command].sql
+07/12/2014  03:48 PM             3,497 [chamomile].[presentation].[design_pattern].[connector].sql
+07/12/2014  03:48 PM             2,921 [chamomile].[presentation].[design_pattern].[facade].sql
+07/12/2014  03:47 PM             1,990 [chamomile].[presentation].[design_pattern].[strategy].sql
+08/13/2014  10:47 AM           217,391 [chamomile].[presentation].[extended_properties].sql
+08/02/2014  08:37 AM             1,583 [chamomile].[presentation].[get_latest_record].sql
+07/16/2014  08:39 AM            11,558 [chamomile].[presentation].[grouping_sets].sql
+07/29/2014  10:19 AM            20,645 [chamomile].[presentation].[indexed_views].sql
+07/12/2014  03:45 PM            17,667 [chamomile].[presentation].[localization].sql
+07/12/2014  03:44 PM             6,402 [chamomile].[presentation].[merge].sql
+07/12/2014  03:44 PM            11,601 [chamomile].[presentation].[merge_staging_into_target].sql
+07/12/2014  03:43 PM             2,395 [chamomile].[presentation].[merge_with_persistent_record]s.sql
+07/12/2014  03:43 PM             6,182 [chamomile].[presentation].[method_complexity].sql
+07/15/2014  03:34 PM             9,683 [chamomile].[presentation].[naming_convention].sql
+07/12/2014  03:41 PM             3,983 [chamomile].[presentation].[normalization].sql
+07/12/2014  03:42 PM            12,821 [chamomile].[presentation].[no_bad_data].sql
+07/12/2014  03:41 PM             5,651 [chamomile].[presentation].[pivot_unpivot].sql
+07/12/2014  03:40 PM             9,308 [chamomile].[presentation].[ranking_functions].sql
+07/13/2014  01:00 PM             5,153 [chamomile].[presentation].[sp_addmessage].sql
+07/12/2014  03:40 PM            11,810 [chamomile].[presentation].[sp_executesql].sql
+07/24/2014  07:08 AM             1,049 [chamomile].[presentation].[sql_server_agent_job].sql
+07/12/2014  03:57 PM             5,338 [chamomile].[presentation].[synonyms].sql
+07/12/2014  03:56 PM             6,614 [chamomile].[presentation].[temp_table_caching_issue].sql
+07/26/2014  09:25 AM             6,802 [chamomile].[presentation].[trigger].sql
+08/13/2014  02:22 PM             1,540 [chamomile].[presentation].[trigger_insert_log].sql
+07/13/2014  01:14 PM             2,586 [chamomile].[presentation].[try_catch_and_throw_vs_raiserror].sql
+07/13/2014  12:48 AM             1,570 [chamomile].[presentation].[unbreakable_code].[flower].sql
+07/15/2014  02:39 PM             5,952 [chamomile].[presentation].[unbreakable_code].[set_flower].sql
+07/24/2014  07:08 AM            22,860 [chamomile].[presentation].[unbreakable_code_test].[set_flower].sql
+08/05/2014  09:06 AM            43,966 [chamomile].[presentation].[unit_test].sql
+08/06/2014  11:09 AM             1,301 [chamomile].[presentation].[unit_test].[innner_method_demonstration].sql
+07/24/2014  07:08 AM             2,080 [chamomile].[presentation].[values_clause].sql
+07/12/2014  03:35 PM             8,876 [chamomile].[presentation].[writing_clean_code].sql
+08/04/2014  08:41 AM            66,457 [chamomile].[presentation].[xquery].sql
+07/24/2014  07:08 AM             6,736 [chamomile].[presentation].[xquery].[returning_text_from_typed_xml].sql
+08/03/2014  05:05 PM             4,995 [chamomile].[presentation].[xquery_order_sample].sql
+08/03/2014  02:18 PM             2,793 [chamomile].[presentation].[xquery_typed_data].sql
+              45 File(s)        643,554 bytes
+               2 Dir(s)  140,385,406,976 bytes free

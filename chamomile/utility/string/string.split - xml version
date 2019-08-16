@@ -1,0 +1,36 @@
+--
+-- other techiques
+-- https://www.mssqltips.com/sqlservertip/1771/splitting-delimited-strings-using-xml-in-sql-server/
+---------------------------------------------
+
+IF schema_id(N'string') IS NULL
+  EXECUTE (N'CREATE SCHEMA string');
+
+go
+
+IF object_id(N'[string].[split]', N'TF') IS NOT NULL
+  DROP FUNCTION [string].[split];
+
+go
+
+CREATE FUNCTION [string].[split] (@stringList  AS varchar(max)
+                                  , @delimiter varchar(5)
+)
+RETURNS @table TABLE (
+  [value] nvarchar(max) NOT NULL)
+AS
+  BEGIN
+      DECLARE @xml xml = cast(( '<X>' + replace(@stringList, @delimiter, '</X><X>') + '</X>' ) AS xml);
+
+      INSERT INTO @table
+                  ([value])
+        SELECT C.value('.', 'nvarchar(max)')
+        FROM   @xml.nodes('X') AS [X](C);
+
+      RETURN;
+  END
+
+go
+
+SELECT *
+FROM   [string].[split](N'split this dawg', N' '); 

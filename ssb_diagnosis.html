@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sql&nbsp;service&nbsp;broker&nbsp;diagnosis
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validate&nbsp;Infrastructure&nbsp;Objects&nbsp;-&nbsp;Service&nbsp;Broker&nbsp;is&nbsp;dependent&nbsp;on&nbsp;five&nbsp;of&nbsp;infrastructure&nbsp;objects&nbsp;in&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order&nbsp;to&nbsp;operate&nbsp;properly.&nbsp;&nbsp;As&nbsp;such,&nbsp;once&nbsp;you&nbsp;have&nbsp;created&nbsp;your&nbsp;Service&nbsp;Broker&nbsp;objects,&nbsp;it&nbsp;is&nbsp;wise&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;validate&nbsp;that&nbsp;all&nbsp;of&nbsp;the&nbsp;objects&nbsp;have&nbsp;been&nbsp;created.&nbsp;&nbsp;The&nbsp;queries&nbsp;below&nbsp;would&nbsp;validate&nbsp;that&nbsp;the&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects&nbsp;exist.&nbsp;&nbsp;These&nbsp;queries&nbsp;should&nbsp;be&nbsp;issued&nbsp;in&nbsp;both&nbsp;the&nbsp;initiator&nbsp;and&nbsp;target&nbsp;databases&nbsp;to&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validate&nbsp;that&nbsp;the&nbsp;objects&nbsp;exist&nbsp;in&nbsp;both&nbsp;SQL&nbsp;Server&nbsp;environments.
+<br/>
+<br/>
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;http://www.mssqltips.com/sqlservertip/1197/service-broker-troubleshooting/
+<br/>&nbsp;&nbsp;http://www.sqlteam.com/article/how-to-troubleshoot-service-broker-problems
+<br/>
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;ssbdiagnose&nbsp;-E&nbsp;-d&nbsp;chamomile&nbsp;-S&nbsp;MCK790L8159\INSTANCE_2014_01&nbsp;CONFIGURATION&nbsp;FROM&nbsp;SERVICE&nbsp;//chamomile.katherinelightsey.com/workflow/initiator_service&nbsp;TO&nbsp;SERVICE&nbsp;//chamomile.katherinelightsey.com/workflow/target_service;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;ssbdiagnose&nbsp;-E&nbsp;-d&nbsp;oltp&nbsp;-S&nbsp;MCK790L8159\INSTANCE_2014_01&nbsp;CONFIGURATION&nbsp;FROM&nbsp;SERVICE&nbsp;//chamomile.katherinelightsey.com/workflow/initiator_service&nbsp;TO&nbsp;SERVICE&nbsp;//chamomile.katherinelightsey.com/workflow/target_service;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;ssbdiagnose&nbsp;CONFIGURATION&nbsp;FROM&nbsp;SERVICE&nbsp;//InstDB/2InstSample/InitiatorService&nbsp;-S&nbsp;MCK790L8159\CHAMOMILE_OLTP&nbsp;-d&nbsp;InstInitiatorDB&nbsp;TO&nbsp;SERVICE&nbsp;//TgtDB/2InstSample/TargetService&nbsp;-S&nbsp;MCK790L8159\CHAMOMILE&nbsp;-d&nbsp;InstTargetDB&nbsp;ON&nbsp;CONTRACT&nbsp;//BothDB/2InstSample/SimpleContract</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;ssbdiagnose&nbsp;runtime&nbsp;connect&nbsp;to&nbsp;-S&nbsp;MCK790L8159\CHAMOMILE_OLTP&nbsp;connect&nbsp;to&nbsp;-S&nbsp;MCK790L8159\CHAMOMILE</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_message_types</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Contracts</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_contracts</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Services</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">services</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Endpoints</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">endpoints</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;Troubleshooting&nbsp;the&nbsp;Service&nbsp;Broker&nbsp;Queues&nbsp;-&nbsp;Once&nbsp;you&nbsp;start&nbsp;adding&nbsp;messages&nbsp;to&nbsp;your&nbsp;queues&nbsp;
+<br/>&nbsp;&nbsp;and&nbsp;receiving&nbsp;data&nbsp;from&nbsp;your&nbsp;queues,&nbsp;it&nbsp;is&nbsp;necessary&nbsp;to&nbsp;ensure&nbsp;you&nbsp;are&nbsp;not&nbsp;having&nbsp;any&nbsp;issues&nbsp;
+<br/>&nbsp;&nbsp;with&nbsp;your&nbsp;endpoints,&nbsp;services&nbsp;and&nbsp;contracts.&nbsp;&nbsp;If&nbsp;you&nbsp;are&nbsp;experiencing&nbsp;issues,&nbsp;then&nbsp;this&nbsp;query&nbsp;
+<br/>&nbsp;&nbsp;may&nbsp;identify&nbsp;the&nbsp;conversations&nbsp;that&nbsp;are&nbsp;having&nbsp;issues&nbsp;and&nbsp;additional&nbsp;research&nbsp;may&nbsp;be&nbsp;necessary&nbsp;
+<br/>&nbsp;&nbsp;to&nbsp;troubleshoot&nbsp;the&nbsp;issues&nbsp;further.
+<br/>&nbsp;&nbsp;http://www.mssqltips.com/sqlservertip/1197/service-broker-troubleshooting/
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">conversation_handle</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">is_initiator</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'local&nbsp;service'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">far_service</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">sc</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;<span style="color: red; ">'contract'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">state_desc</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">conversation_endpoints</span>&nbsp;<span style="color: maroon; ">ce</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">services</span>&nbsp;<span style="color: maroon; ">s</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">ce</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">s</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_contracts</span>&nbsp;<span style="color: maroon; ">sc</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">ce</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_contract_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">sc</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_contract_id</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;Another&nbsp;key&nbsp;queue&nbsp;to&nbsp;keep&nbsp;in&nbsp;mind&nbsp;when&nbsp;troubleshooting&nbsp;Service&nbsp;Broker&nbsp;is&nbsp;the&nbsp;sys.transmission_queue.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;queue&nbsp;that&nbsp;receives&nbsp;any&nbsp;records&nbsp;that&nbsp;are&nbsp;not&nbsp;written&nbsp;to&nbsp;the&nbsp;user&nbsp;defined&nbsp;queue&nbsp;appropriately.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;If&nbsp;your&nbsp;overall&nbsp;Service&nbsp;Broker&nbsp;infrastructure&nbsp;is&nbsp;setup&nbsp;properly,&nbsp;then&nbsp;this&nbsp;may&nbsp;be&nbsp;the&nbsp;next&nbsp;logical&nbsp;place&nbsp;
+<br/>&nbsp;&nbsp;to&nbsp;start&nbsp;troubleshooting&nbsp;the&nbsp;issue.&nbsp;&nbsp;You&nbsp;are&nbsp;able&nbsp;to&nbsp;validate&nbsp;the&nbsp;conversation&nbsp;as&nbsp;well&nbsp;as&nbsp;take&nbsp;a&nbsp;peek&nbsp;at&nbsp;
+<br/>&nbsp;&nbsp;the&nbsp;xml&nbsp;(message_body)&nbsp;and&nbsp;find&nbsp;out&nbsp;the&nbsp;error&nbsp;message&nbsp;(transmission_status)&nbsp;for&nbsp;the&nbsp;record.
+<br/>&nbsp;&nbsp;http://www.mssqltips.com/sqlservertip/1197/service-broker-troubleshooting/
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Error&nbsp;messages&nbsp;in&nbsp;the&nbsp;queue</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;An&nbsp;error&nbsp;occurred&nbsp;while&nbsp;receiving&nbsp;data:&nbsp;'10054(An&nbsp;existing&nbsp;connection&nbsp;was&nbsp;forcibly&nbsp;closed&nbsp;by&nbsp;the&nbsp;remote&nbsp;host.)'.</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">transmission_queue</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;Removing&nbsp;all&nbsp;records&nbsp;from&nbsp;the&nbsp;sys.transmission_queue&nbsp;-&nbsp;Odds&nbsp;are&nbsp;that&nbsp;if&nbsp;your&nbsp;Service&nbsp;Broker&nbsp;infrastructure&nbsp;
+<br/>&nbsp;&nbsp;is&nbsp;setup&nbsp;properly&nbsp;and&nbsp;records&nbsp;are&nbsp;in&nbsp;the&nbsp;sys.transmission_queue,&nbsp;they&nbsp;probably&nbsp;need&nbsp;to&nbsp;be&nbsp;removed&nbsp;to&nbsp;continue&nbsp;
+<br/>&nbsp;&nbsp;to&nbsp;build&nbsp;and&nbsp;test&nbsp;the&nbsp;application.&nbsp;&nbsp;As&nbsp;such,&nbsp;the&nbsp;END&nbsp;CONVERSATION&nbsp;command&nbsp;should&nbsp;be&nbsp;issued&nbsp;with&nbsp;the&nbsp;conversation&nbsp;
+<br/>&nbsp;&nbsp;handle&nbsp;and&nbsp;the&nbsp;'WITH&nbsp;CLEANUP'&nbsp;parameter.&nbsp;&nbsp;Below&nbsp;is&nbsp;an&nbsp;example&nbsp;command:
+<br/>&nbsp;&nbsp;http://www.mssqltips.com/sqlservertip/1197/service-broker-troubleshooting/
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;END&nbsp;CONVERSATION&nbsp;'conversation&nbsp;handle'&nbsp;WITH&nbsp;CLEANUP;</span>
+<br/><span style="color: green; font-style: italic; ">/*
+<br/>SQL&nbsp;Server&nbsp;Error&nbsp;Log
+<br/>
+<br/>The&nbsp;next&nbsp;place&nbsp;that&nbsp;should&nbsp;be&nbsp;researched&nbsp;when&nbsp;troubleshooting&nbsp;Service&nbsp;Broker&nbsp;is&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;error&nbsp;log.&nbsp;&nbsp;Some&nbsp;of&nbsp;
+<br/>the&nbsp;issues&nbsp;may&nbsp;not&nbsp;be&nbsp;written&nbsp;to&nbsp;the&nbsp;views&nbsp;above,&nbsp;so&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;error&nbsp;log&nbsp;is&nbsp;another&nbsp;valuable&nbsp;source&nbsp;of&nbsp;information.&nbsp;&nbsp;
+<br/>Below&nbsp;outlines&nbsp;two&nbsp;examples,&nbsp;although&nbsp;based&nbsp;on&nbsp;the&nbsp;issue,&nbsp;the&nbsp;errors&nbsp;could&nbsp;differ:
+<br/>Date&nbsp;1/1/2007&nbsp;00:00:00&nbsp;AM&nbsp;
+<br/>Log&nbsp;SQL&nbsp;Server&nbsp;(Current&nbsp;-&nbsp;1/1/2007&nbsp;00:00:00&nbsp;AM&nbsp;
+<br/>Source&nbsp;spid62
+<br/>Message&nbsp;Service&nbsp;Broker&nbsp;needs&nbsp;to&nbsp;access&nbsp;the&nbsp;master&nbsp;key&nbsp;in&nbsp;the&nbsp;database&nbsp;'YourDatabaseName'.&nbsp;Error&nbsp;code:25.&nbsp;The&nbsp;master&nbsp;
+<br/>key&nbsp;has&nbsp;to&nbsp;exist&nbsp;and&nbsp;the&nbsp;service&nbsp;master&nbsp;key&nbsp;encryption&nbsp;is&nbsp;required
+<br/>
+<br/>Date&nbsp;1/1/2007&nbsp;00:00:00&nbsp;AM&nbsp;
+<br/>Log&nbsp;SQL&nbsp;Server&nbsp;(Current&nbsp;-&nbsp;1/1/2007&nbsp;00:00:00&nbsp;AM&nbsp;
+<br/>Source&nbsp;spid16
+<br/>
+<br/>Message&nbsp;The&nbsp;Service&nbsp;Broker&nbsp;protocol&nbsp;transport&nbsp;is&nbsp;disabled&nbsp;or&nbsp;not&nbsp;configured
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;returns&nbsp;a&nbsp;row&nbsp;for&nbsp;each&nbsp;Service&nbsp;Broker&nbsp;network&nbsp;connection.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_broker_connections</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;returns&nbsp;a&nbsp;row&nbsp;for&nbsp;each&nbsp;Service&nbsp;Broker&nbsp;message&nbsp;that&nbsp;an&nbsp;instance&nbsp;of&nbsp;SQL&nbsp;Server&nbsp;is&nbsp;in&nbsp;the&nbsp;process&nbsp;of&nbsp;forwarding.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_broker_forwarded_messages</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;http://technet.microsoft.com/en-us/library/ms166044(v=sql.105).aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">is_broker_enabled</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">databases</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">database_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">db_id</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Contains&nbsp;a&nbsp;row&nbsp;for&nbsp;each&nbsp;object&nbsp;in&nbsp;the&nbsp;database&nbsp;that&nbsp;is&nbsp;a&nbsp;service&nbsp;queue,&nbsp;with&nbsp;sys.objects.type&nbsp;=&nbsp;SQ</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;http://technet.microsoft.com/en-us/library/ms166102(v=sql.105).aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[service_queues]</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;returns&nbsp;a&nbsp;row&nbsp;for&nbsp;each&nbsp;stored&nbsp;procedure&nbsp;activated&nbsp;by&nbsp;Service&nbsp;Broker.&nbsp;It&nbsp;can&nbsp;be&nbsp;joined&nbsp;to&nbsp;dm_exec_sessions.session_id&nbsp;via&nbsp;the&nbsp;spid&nbsp;column.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;http://technet.microsoft.com/en-us/library/ms175029(v=sql.105).aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_broker_activated_tasks</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Make&nbsp;sure&nbsp;that&nbsp;activation&nbsp;stored&nbsp;procedures&nbsp;are&nbsp;correctly&nbsp;started.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;returns&nbsp;a&nbsp;row&nbsp;for&nbsp;each&nbsp;queue&nbsp;monitor&nbsp;in&nbsp;the&nbsp;instance.&nbsp;A&nbsp;queue&nbsp;monitor&nbsp;manages&nbsp;activation&nbsp;for&nbsp;a&nbsp;queue.</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;http://technet.microsoft.com/en-us/library/ms166102(v=sql.105).aspx</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;ALTER&nbsp;QUEUE&nbsp;[target_queue]&nbsp;WITH&nbsp;STATUS&nbsp;=&nbsp;ON</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[database]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[service_queues]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[queue]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[service_queues]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[activation_procedure]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[activation_procedure]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[service_queues]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[is_activation_enabled]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[is_activation_enabled]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[state]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[state]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tasks_waiting]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tasks_waiting]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[last_activated_time]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[last_activated_time]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[dm_broker_queue_monitors]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[service_queues]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[service_queues]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[service_queues]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[queue_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[databases]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[databases]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[databases]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[database_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[dm_broker_queue_monitors]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[database_id]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">t1</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[service_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">t3</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schema_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">t2</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[queue_name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">state</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">'Not&nbsp;available'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">else</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">state</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[queue_state]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">tasks_waiting</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">'--'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">else</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">convert</span><span style="color: maroon; ">(</span><span style="color: black; font-style: italic; ">varchar</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">tasks_waiting</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">tasks_waiting</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">last_activated_time</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">'--'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">else</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">convert</span><span style="color: maroon; ">(</span><span style="color: black; font-style: italic; ">varchar</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">last_activated_time</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">last_activated_time</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: blue; ">case</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">when</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">last_empty_rowset_time</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">then</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red; ">'--'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">else</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: fuchsia; font-style: italic; ">convert</span><span style="color: maroon; ">(</span><span style="color: black; font-style: italic; ">varchar</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">last_empty_rowset_time</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">last_empty_rowset_time</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">count</span><span style="color: maroon; ">(</span><span style="color: silver; ">*</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">transmission_queue</span>&nbsp;<span style="color: maroon; ">t6</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">t6</span><span style="color: silver; ">.</span><span style="color: maroon; ">from_service_name</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">t1</span><span style="color: silver; ">.</span><span style="color: blue; ">name</span>&nbsp;<span style="color: maroon; ">)</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tran_message_count]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">services</span>&nbsp;<span style="color: maroon; ">t1</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_queues</span>&nbsp;<span style="color: maroon; ">t2</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">t1</span><span style="color: silver; ">.</span><span style="color: maroon; ">service_queue_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">t2</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">schemas</span>&nbsp;<span style="color: maroon; ">t3</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">t2</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">t3</span><span style="color: silver; ">.</span><span style="color: maroon; ">schema_id</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">left</span>&nbsp;<span style="color: blue; ">outer</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">dm_broker_queue_monitors</span>&nbsp;<span style="color: maroon; ">t4</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">t2</span><span style="color: silver; ">.</span><span style="color: maroon; ">object_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">queue_id</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">t4</span><span style="color: silver; ">.</span><span style="color: maroon; ">database_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">db_id</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">sys</span><span style="color: silver; ">.</span><span style="color: maroon; ">databases</span>&nbsp;<span style="color: maroon; ">t5</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: maroon; ">t5</span><span style="color: silver; ">.</span><span style="color: maroon; ">database_id</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">db_id</span><span style="color: maroon; ">(</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>&nbsp;
+</span></div>
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

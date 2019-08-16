@@ -1,0 +1,22 @@
+<test_stack subject="[73ee32b4fbaf].[73ee32b4fbaf].[default].[chamomile].[math__test].[divide__test_00]" object="[math].[divide]" test_count="7" error_count="5" pass_count="2" return_code="">
+  <test test_sequence="0" test_name="check_for_target_method_exist" expected="pass" actual="pass">
+    <description>Check to see if the target method exists.</description>
+  </test>
+  <test test_sequence="1" test_name="return_value_is_numeric" expected="pass" actual="pass">
+    <description>Normal operation, white box test, return value must be numeric</description>
+  </test>
+  <test test_sequence="2" test_name="divide_by_zero_returns_0" expected="pass" actual="fail">
+    <description>Divide by zero returns 0. This may not be what you think would be the correct answer, but we are assuming it is what the business needs for this test.</description>
+  </test>
+  <test test_sequence="3" test_name="null_denominator_returns_0" expected="pass" actual="fail">
+    <description>A NULL denominator returns 0. This may not be what you think would be the correct answer, but we are assuming it is what the business needs for this test.</description>
+  </test>
+  <test test_sequence="4" test_name="null_numerator_returns_0" expected="pass" actual="fail">
+    <description>A NULL numerator returns 0. This may not be what you think would be the correct answer, but we are assuming it is what the business needs for this test.</description>
+  </test>
+  <test test_sequence="5" test_name="zero_numerator_returns_0" expected="pass" actual="fail">
+    <description>A zero numerator returns 0. This may not be what you think would be the correct answer, but we are assuming it is what the business needs for this test.</description>
+  </test>
+  <test test_sequence="6" test_name="returns_value_rounded" expected="pass" actual="fail">
+    <description>The returned value is rounded upwards to six places.</description>expected 3.142857, actual value returned was 1</test>
+</test_stack>

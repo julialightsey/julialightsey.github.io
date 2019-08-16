@@ -1,0 +1,329 @@
+<!--
+
+How to transfer logins and passwords between instances of SQL Server -- https://support.microsoft.com/en-us/help/918992/how-to-transfer-logins-and-passwords-between-instances-of-sql-server
+Script to export the configuration of SQL Server -- https://blogs.msdn.microsoft.com/john_daskalakis/2014/10/27/script-to-export-the-configuration-of-sql-server/
+How to migrate the logins of a database to a different server -- https://www.sqlshack.com/migrate-logins-database-different-server/
+Importing and Exporting SQL Server Data Using Other Methods -- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.Snapshots.html
+Transfer SQL logins for users with a large number of SQL-authenticated logins -- https://solutioncenter.apexsql.com/transfer-sql-logins-for-users-with-a-large-number-of-sql-authenticated-logins/
+
+
+Configure SQL Server on Linux with the mssql-conf tool -- https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-mssql-conf?view=sql-server-2017
+
+reclaim space:
+	https://alexpnt.github.io/2017/08/15/docker-cleanup/
+	https://lebkowski.name/docker-volumes/
+	https://medium.com/@katopz/how-to-clean-up-docker-5gb-junk-919541ce5dfc
+	https://stackoverflow.com/questions/37518096/cleanup-disk-space-occupied-by-docker-images
+
+run Hyper-V prior to installation
+
+remove a file from within a container -- container is running -- 
+docker exec -it <container_name> sh
+rm <path_to/file>
+exit
+
+Configure SQL Server container images on Docker -- https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-2017
+
+
+-->
+
+<html id="top">
+	<head>
+	 	<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href=".\source\common.css" />
+	</head>
+	<body>
+		<table width="100%" style="border-collapse: collapse;">
+			<tr>
+				<td colspan="2" style="padding-left:25px; padding-right:25px;">
+					<iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+				</td>
+			</tr>
+		</table>
+		<table width="100%" style="border-collapse: collapse;">
+			<tr>
+				<td colspan="2" style="padding-left:25px; padding-right:25px;">
+					<table class="content" width="98%" style="border-collapse: collapse;">
+						<tr class="menu">
+							<td colspan="2" style="padding-left:25px; padding-right:25px;">
+								<iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+							</td>
+						</tr>
+						<tr class="menu">
+							<td colspan="2" style="padding-left:25px; padding-right:25px;"> 
+								<iframe src="./menu__presentation.html" width="100%" height="50" seamless="" frameborder="0"></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table width="100%" style="border-collapse: collapse;">
+			<tr>
+				<td colspan="2" style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table -->
+					<table class="content">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img src="./source/image/docker.jpg" title="Learn the differences between a container and a container platform and the key requirements around security, operations and orchestration that organizations should be looking for in an enterprise-grade platform." width="35%" align="right" valign="top" />
+								</a>
+								<h3>[sql_linux_on_docker]</h3>
+								<p class="content">
+									I use <a href="https://www.docker.com/" target="blank">Docker</a> to deploy virtual environments. <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/" target="blank"><i>Container</i></a> is the correct term for what Docker does, but it is a <i>virtual</i> environment, with a lower case "v". I use Linux containers and run <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/" target="blank"><i>mssql-server-linux</i></a> rather than the Windows containers running SQL for Windows because I do not have to deal with client licensing for every single container I spin up. That may seem petty, and perhaps it is. For me it is just easier. I am running development instances of SQL Server, so I do not have to worry about SQL Server licensing. This prevents licensing issues with the client OS.
+								</p>
+								<p class="content">Additionally, installing <i>mssql-server-linux</i> in a Linux container is fast! 
+								</p>
+								<p class="content">This presentation focuses on:
+								<ol>
+									<li>Installing Docker on Windows 10,</li>
+									<li>Using Linux containers,</li>
+									<li>Installing <a href="https://hub.docker.com/r/microsoft/mssql-server-linux/" target="blank"><i>mssql-server-linux</i></a>,</li>
+									<li>Using a custom build of <i>mssql-server-linux</i> that includes SQL Server Agent, and,</li>
+									<li>Copying created container/images to other machines to share them with colleagues or store them off for future use.</li>
+								</ol>
+								</p>
+								<p class="content">Linux is cool, and it is fast. Step through the process outlined here and be amazed at how fast and easy it is to create a new build of SQL Server with additional features (<a href="https://dbafromthecold.com/2017/10/25/running-sql-on-linux-containers-with-the-agent-installed/" target="blank">SQL Server Agent</a> in this case). I have always been fascinated by Linux. Unfortunately, the time to use it as a desktop was lost when no one managed to build a standard desktop from the literally dozens of competing desktops. Besides, I make a living on Windows and the majority of my applications and code run on Windows. Perhaps that will change in the future, but for now I work on Windows boxes. That does not prevent me from taking advantage of tools like Docker running <i>mssql-server-linux</i> however.
+								</p>
+								<p class="quote">You try to be yourself, do only what you've always done and like to do, and right away, you're tagged as an oddball. James Dean.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="jump_menu" width="100%">
+						<tr class="menu" width="100%">
+							<td width="100%">  
+								<a class="menu" href="#install_docker">[install_docker]</a>
+								<a class="menu" href="#configure_docker">[configure_docker]</a>
+								<a class="menu" href="#relocate_the_docker_image">[relocate_the_docker_image]</a>
+								<a class="menu" href="#build_sql_server_with_agent">[build_sql_server_with_agent]</a>
+								<a class="menu" href="#start_a_sql_container">[start_a_sql_container]</a>
+								<a class="menu" href="#connect_to_instance">[connect_to_instance]</a>
+								<a class="menu" href="#inspect_instance_in_ssms">[inspect_instance_in_ssms]</a>
+								<a class="menu" href="#connect_to_instance_with_mapped_drive">[connect_to_instance_with_mapped_drive]</a>
+								<a class="menu" href="#commit_and_load_a_container">[commit_and_load_a_container]</a>
+								<a class="menu" href="#restore_master_database">[restore_master_database]</a>
+								<a class="menu" href="#errors">[errors]</a>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="install_docker">
+						<tr>
+							<td class="content">
+								<a href="./source/image/docker__version.jpg" target="blank"><img src="./source/image/docker__version.jpg" title="Docker Community Edition." width="25%" align="left"/>
+								</a>
+								<h3>[install_docker]</h3>
+								<p class="content">I am not an expert or even an experienced user with Docker. I am a casual user. This presentation is meant to be a simple process allowing other Windows/SQL Server users to get <i>mssql-server-linux</i> up and running easily in Docker. It also is a way for me to document what I have done so that, a few weeks or months from now I can refer to my notes. There is a lot of information and support online for Docker. See the <a href="#reference">Reference</a> list below. Unfortunately for the new user, such as myself, there is also a lot of information for versions of Docker going back several years and on multiple platforms and for multiple products.
+								</p>
+								<p class="content">
+									This process is based on the versions listed here and specifically for Windows 10 Professional with the intent of using <i>mssql-server-linux</i>. 
+								</p>
+								<p class="content">Download and install Docker CE. Towards the end of the install process you might get an error, a run time error I believe, with an option to quit or continue. I have always selected continue and things seem to work fine afterwards. I have not thought to capture an image of that, yet.
+								</p>
+								<p class="content">Restart your computer. I have seen nothing in the documentation that says you have to restart your computer, but I have seen a few other bug reports from people who, like me, have found that following the install you have to restart your computer before you will be able to access Docker from within PowerShell. Just do it.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="configure_docker">
+						<tr>
+							<td class="content">
+								<a href="./source/image/docker__enable_shared_drive.jpg" target="blank"><img src="./source/image/docker__enable_shared_drive.jpg" title="Docker Community Edition." width="25%" align="right"/>
+								</a>
+								<h3>[configure_docker]</h3>
+								<p class="content">
+									In your system tray, context click the Docker icon and select <i>Settings</i>. Select <i>Shared Drives</i> and enable access to the drives you wish to have available to Docker.
+								</p>
+								<a href="./source/image/docker__move_image.jpg" target="blank"><img src="./source/image/docker__move_image.jpg" title="Docker Community Edition." width="25%" align="left"/>
+								</a>
+								<h3 id="relocate_the_docker_image">[relocate_the_docker_image]</h3>
+								<p class="content"> 
+									Select <i>Advanced</i> and move the image to a reasonable location. It defaults to an obscure subdirectory on the C drive and it gets very, very big. Best to move it off the OS drive if you can.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="build_sql_server_with_agent">
+						<tr>
+							<td class="content">
+								<a href="./source/image/sql_linux_with_agent__image_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__image_ls.jpg" title="The image list now shows the Linux with SQL Server Agent build."  width="45%" align="right" /></a>
+								<h3>[build_sql_server_with_agent]</h3>
+								<p class="content"><u>Buid SQL Server Linux with SQL Server Agent</u>. Build provided, or build new just to be sure.
+								</p>
+								<p class="code">docker build -t sql_server_linux_with_agent f:\docker\builds\linux_with_agent
+								</p>
+								<p class="content"><u>References</u>:
+								</p>
+								<ul style="list-style-type:none">
+									<li><a href="https://dbafromthecold.com/2017/10/25/running-sql-on-linux-containers-with-the-agent-installed/" target="blank">Enabling SQL Server Agent in Linux Containers</a>
+									</li>
+									<li><a href="https://github.com/dbafromthecold/SqlOnLinuxAgent/blob/master/dockerfile" target="blank">dockerfile</a>
+									</li>
+									<li><a href="https://docs.docker.com/engine/reference/builder/#format" target="blank">builder file format</a>
+									</li>
+									<li><a href="./sql_linux_with_agent__build_output.txt" target="blank">sample build output</a>
+									</li>
+								</ul>
+								<a href="./source/image/sql_linux_with_agent__container_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__container_ls.jpg" title="The container list now shows the Linux with SQL Server Agent build." width="45%" align="left" /></a>
+								<h3 id="start_a_sql_container">[start_a_sql_container]</h3>
+								<li>
+									<u>Create a container with the SQL Linux with Agent image</u>.
+									<p class="code">docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1390:1433 -d --name=sql_00 sql_linux_with_agent
+									</p>
+									<p>
+									</p>
+								</li>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="connect_to_instance">
+						<tr>
+							<td class="content">
+								<a href="./source/image/connect_to_instance.jpg" target="blank"><img src="./source/image/connect_to_instance.jpg" title="Connect to the new SQL Server Instance." width="35%" align="right" /></a>
+								<h3>[connect_to_instance]</h3>
+								<p class="content">Connect to the SQL Server Instance using SSMS. The connection string is;
+								</p>
+								<p class="code">&lt;host_name&gt;\&lt;container_name&gt;,&lt;port_number&gt;
+								</p>
+								<p>You created these credentials in <a href="#start_a_sql_container">[start_a_sql_container]</a> earlier.
+								</p>
+								<a href="./source/image/sql_linux_with_agent__instance.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__instance.jpg" title="Connect to the new SQL Server Instance." width="25%" align="left" /></a>
+								<h3 id="inspect_instance_in_ssms">[inspect_instance_in_ssms]</h3>
+								<p class="content">The instance is now available in SSMS for use. You can use it just as you would any SQL Server instance. Note the <i>@@version</i>.
+								</p>
+								<p class="code">Microsoft SQL Server 2017 (RTM-CU9-GDR) (KB4293805) - 14.0.3035.2 (X64)   Jul  6 2018 18:24:36   Copyright (C) 2017 Microsoft Corporation  Developer Edition (64-bit) on Linux (Ubuntu 16.04.5 LTS)
+								</p>
+								<a href="./source/image/docker__mssql_server_linux__version.jpg" target="blank"><img src="./source/image/docker__mssql_server_linux__version.jpg" title="Connect to the new SQL Server Instance." width="55%" align="right" valign="bottom"/></a>
+							</td>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="connect_to_instance_with_mapped_drive">
+						<tr>
+							<td class="content">
+								<!-- -->
+								<a href="./source/image/sql_linux_with_agent__mapped_drive__container_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__mapped_drive__container_ls.jpg" title="The container list now shows the Linux with SQL Server Agent build." width="45%" align="right" /></a>
+								<h3>[connect_to_instance_with_mapped_drive]</h3>
+								<p class="content">Create a container with the SQL Linux with Agent image mapped to a local drive.
+								</p>
+								<p class="code">docker run -v d:/data:/data -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1391:1433 -d --name=sql_01 sql_linux_with_agent
+								</p>
+								<!-- -->
+								<a href="./source/image/both_containers__only_one_with_mapped_drive.jpg" target="blank"><img src="./source/image/both_containers__only_one_with_mapped_drive.jpg" title="Both SQL Server Instances are connected, but only one has a mapped drive." width="35%" align="left" /></a> 
+								<p clas="content">Both SQL Server Instances are connected, but only one has a mapped drive.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<!-- -->
+								<a href="./source/image/bak_files.jpg" target="blank"><img src="./source/image/bak_files.jpg" title="Database backup files available on D drive." width="45%" align="right"/></a>
+								<p class="content" >Database backup files available on D drive.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<a href="./source/image/no_drive_mapped.jpg" target="blank"><img src="./source/image/no_drive_mapped.jpg" title="The instance with no drive mapped has no data to restore." width="45%" align="left"/></a>
+								<p class="content">The instance with no drive mapped has no data to restore.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<a href="./source/image/mapped_drive_available_in_instance.jpg" target="blank"><img src="./source/image/mapped_drive_available_in_instance.jpg" title="The instance with the drive mapped has access to the external data on D drive." width="45%" align="right" /></a>
+								<p>The instance with the drive mapped has access to the external data on D drive.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<a href="./source/image/file_location.jpg" target="blank"><img src="./source/image/file_location.jpg" title="Note that the file locations for the recovered files are in the Linux schema." width="45%" align="left" /></a>
+								<p>Note that the file locations for the recovered files are in the Linux schema.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="commit_and_load_a_container">
+						<tr>
+							<td class="content">
+							<a href="./source/image/commit_container__ls.jpg" target="blank"><img src="./source/image/commit_container__ls.jpg" title="Commit the container with changes." width="45%" align="right" /></a>
+							
+								<h3>[commit_and_load_a_container]</h3>
+								<p class="content">You will probably want to save a container after you've set it up. You create and load stored procedures, functions, tables, data, etc. You can of course just script everything out, save it, and rerun it every time you restart, but saving off and sharing images makes more sense. First you have to <i>commit</i> your container to create an image of it.
+								</p>
+								<p class="code" >docker commit sql_01 sql_linux_with_agent__mapped_d_drive
+								</p>
+								<p class="content">Then you save your image to a <a href="https://en.wikipedia.org/wiki/Tar_(computing)" target="blank">tar file</a>.
+								</p>
+								<p class="code" >docker save -o f:/docker/data/sql_00.tar sql_00
+								</p>
+								
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								 <a href="./source/image/loaded_tar_file.jpg" target="blank"><img src="./source/image/loaded_tar_file.jpg" title="The tar file is loaded into the new Docker instance." width="45%" align="left" /></a>
+								 <p class="content">You can then copy the tar file to another computer with Docker and load it there (or load it back into your instance of Docker later on).
+								 </p>
+								<p class="code" >docker load -i f:/docker/data/sql_00.tar</p>
+								 
+								
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<a href="./source/image/saved_tar_file.jpg" target="blank"><img src="./source/image/saved_tar_file.jpg" title="The tar file is saved to the target directory." width="45%" align="right" /></a>
+								 <p class="content">The saved tar file (container/image)</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<p><a href="./source/image/connect_to_loaded_image_in_container.jpg" target="blank"><img src="./source/image/connect_to_loaded_image_in_container.jpg" title="You can now connect to the running container created from the loaded image." width="400" /></a>
+								</p>
+								<u>Stop the container</u>. Notice that a stopped container still exists.
+								<p><a href="./source/image/stopped_container_still_exists.jpg" target="blank"><img src="./source/image/stopped_container_still_exists.jpg" title="Notice that a stopped container still exists." width="400" /></a>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="restore_master_database">
+						<tr>
+							<td class="content">
+							<a href="./source/image/start_in_single_user_mode.jpg" target="blank"><img src="./source/image/start_in_single_user_mode.jpg" title="To restore the [master] database, you first have to start the instance in single user mode." width="45%" align="right"/></a>
+								<u>Restore the [master] database</u>. To restore the [master] database, you first have to start the instance in single user mode.
+								<p class="code">docker run -v d:/data:/data -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1392:1433 -d --name=sql_02 sql_linux_with_agent__mapped_d_drive "/opt/mssql/bin/sqlservr" "-m"
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="errors">
+						<tr>
+							<td class="content">
+								<a href="./source/image/docker__connection_attempt_failed.jpg" target="blank"><img src="./source/image/docker__connection_attempt_failed.jpg" title="Bang!" width="25%" align="left" /></a>
+								<a href="./source/image/docker__restart.jpg" target="blank"><img src="./source/image/docker__restart.jpg" title="Bang!" width="25%" align="left" /></a>
+								<h3>[docker__connection_attempt_failed]</h3>
+								<p class="content">Bang!
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="reference">
+						<tr>
+							<td class="content">
+								<h3>[reference]</h3>
+								<p class="content"><a href="https://docs.docker.com/engine/reference/commandline/commit/" target="blank">docker commit</a>
+								</p> 
+								<p class="content"> 
+									TODO
+								</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<iframe width="90%" src="./footer.html" seamless="" scrolling="no" frameborder="0"></iframe>
+	</body>
+</html>

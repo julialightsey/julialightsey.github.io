@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Stores&nbsp;a&nbsp;new&nbsp;user-defined&nbsp;error&nbsp;message&nbsp;in&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;Database&nbsp;Engine.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messages&nbsp;stored&nbsp;by&nbsp;using&nbsp;sp_addmessage&nbsp;can&nbsp;be&nbsp;viewed&nbsp;by&nbsp;using&nbsp;the&nbsp;sys.messages&nbsp;catalog&nbsp;view.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Applies&nbsp;to:&nbsp;SQL&nbsp;Server&nbsp;(SQL&nbsp;Server&nbsp;2008&nbsp;through&nbsp;current&nbsp;version).
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sp_addmessage&nbsp;[&nbsp;@msgnum=&nbsp;]&nbsp;msg_id&nbsp;,&nbsp;[&nbsp;@severity=&nbsp;]&nbsp;severity&nbsp;,&nbsp;[&nbsp;@msgtext=&nbsp;]&nbsp;'msg'&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;,&nbsp;[&nbsp;@lang=&nbsp;]&nbsp;'language'&nbsp;]&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;,&nbsp;[&nbsp;@with_log=&nbsp;]&nbsp;{&nbsp;'TRUE'&nbsp;|&nbsp;'FALSE'&nbsp;}&nbsp;]&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;,&nbsp;[&nbsp;@replace=&nbsp;]&nbsp;'replace'&nbsp;]&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arguments
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@msgnum=&nbsp;]&nbsp;msg_id
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;the&nbsp;ID&nbsp;of&nbsp;the&nbsp;message.&nbsp;msg_id&nbsp;is&nbsp;int&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;NULL.&nbsp;msg_id&nbsp;for&nbsp;user-defined&nbsp;error&nbsp;messages&nbsp;can&nbsp;be&nbsp;an&nbsp;integer&nbsp;between&nbsp;50,001&nbsp;and&nbsp;2,147,483,647.&nbsp;The&nbsp;combination&nbsp;of&nbsp;msg_id&nbsp;and&nbsp;language&nbsp;must&nbsp;be&nbsp;unique;&nbsp;an&nbsp;error&nbsp;is&nbsp;returned&nbsp;if&nbsp;the&nbsp;ID&nbsp;already&nbsp;exists&nbsp;for&nbsp;the&nbsp;specified&nbsp;language.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@severity&nbsp;=&nbsp;]severity
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;the&nbsp;severity&nbsp;level&nbsp;of&nbsp;the&nbsp;error.&nbsp;severity&nbsp;is&nbsp;smallint&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;NULL.&nbsp;Valid&nbsp;levels&nbsp;are&nbsp;from&nbsp;1&nbsp;through&nbsp;25.&nbsp;For&nbsp;more&nbsp;information&nbsp;about&nbsp;severities,&nbsp;see&nbsp;Database&nbsp;Engine&nbsp;Error&nbsp;Severities.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@msgtext&nbsp;=&nbsp;]&nbsp;'msg'
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;error&nbsp;message.&nbsp;msg&nbsp;is&nbsp;nvarchar(255)&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;NULL.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@lang&nbsp;=&nbsp;]&nbsp;'language'
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;the&nbsp;language&nbsp;for&nbsp;this&nbsp;message.&nbsp;language&nbsp;is&nbsp;sysname&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;NULL.&nbsp;Because&nbsp;multiple&nbsp;languages&nbsp;can&nbsp;be&nbsp;installed&nbsp;on&nbsp;the&nbsp;same&nbsp;server,&nbsp;language&nbsp;specifies&nbsp;the&nbsp;language&nbsp;in&nbsp;which&nbsp;each&nbsp;message&nbsp;is&nbsp;written.&nbsp;When&nbsp;language&nbsp;is&nbsp;omitted,&nbsp;the&nbsp;language&nbsp;is&nbsp;the&nbsp;default&nbsp;language&nbsp;for&nbsp;the&nbsp;session.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@with_log&nbsp;=&nbsp;]&nbsp;{&nbsp;'TRUE'&nbsp;|&nbsp;'FALSE'&nbsp;}
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is&nbsp;whether&nbsp;the&nbsp;message&nbsp;is&nbsp;to&nbsp;be&nbsp;written&nbsp;to&nbsp;the&nbsp;Windows&nbsp;application&nbsp;log&nbsp;when&nbsp;it&nbsp;occurs.&nbsp;@with_log&nbsp;is&nbsp;varchar(5)&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;FALSE.&nbsp;If&nbsp;TRUE,&nbsp;the&nbsp;error&nbsp;is&nbsp;always&nbsp;written&nbsp;to&nbsp;the&nbsp;Windows&nbsp;application&nbsp;log.&nbsp;If&nbsp;FALSE,&nbsp;the&nbsp;error&nbsp;is&nbsp;not&nbsp;always&nbsp;written&nbsp;to&nbsp;the&nbsp;Windows&nbsp;application&nbsp;log&nbsp;but&nbsp;can&nbsp;be&nbsp;written,&nbsp;depending&nbsp;on&nbsp;how&nbsp;the&nbsp;error&nbsp;was&nbsp;raised.&nbsp;Only&nbsp;members&nbsp;of&nbsp;the&nbsp;sysadmin&nbsp;server&nbsp;role&nbsp;can&nbsp;use&nbsp;this&nbsp;option.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note&nbsp;-&nbsp;If&nbsp;a&nbsp;message&nbsp;is&nbsp;written&nbsp;to&nbsp;the&nbsp;Windows&nbsp;application&nbsp;log,&nbsp;it&nbsp;is&nbsp;also&nbsp;written&nbsp;to&nbsp;the&nbsp;Database&nbsp;Engine&nbsp;error&nbsp;log&nbsp;file.
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;@replace&nbsp;=&nbsp;]&nbsp;'replace'
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;specified&nbsp;as&nbsp;the&nbsp;string&nbsp;replace,&nbsp;an&nbsp;existing&nbsp;error&nbsp;message&nbsp;is&nbsp;overwritten&nbsp;with&nbsp;new&nbsp;message&nbsp;text&nbsp;and&nbsp;severity&nbsp;level.&nbsp;replace&nbsp;is&nbsp;varchar(7)&nbsp;with&nbsp;a&nbsp;default&nbsp;of&nbsp;NULL.&nbsp;This&nbsp;option&nbsp;must&nbsp;be&nbsp;specified&nbsp;if&nbsp;msg_id&nbsp;already&nbsp;exists.&nbsp;If&nbsp;you&nbsp;replace&nbsp;a&nbsp;U.S.&nbsp;English&nbsp;message,&nbsp;the&nbsp;severity&nbsp;level&nbsp;is&nbsp;replaced&nbsp;for&nbsp;all&nbsp;messages&nbsp;in&nbsp;all&nbsp;other&nbsp;languages&nbsp;that&nbsp;have&nbsp;the&nbsp;same&nbsp;msg_id.
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_addmessage&nbsp;(Transact-SQL)&nbsp;&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms178649.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sys.messages&nbsp;(Transact-SQL)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms187382.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_altermessage&nbsp;(Transact-SQL)&nbsp;&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms175094.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;sp_dropmessage&nbsp;(Transact-SQL)&nbsp;&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms174369.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;FORMATMESSAGE&nbsp;(Transact-SQL)&nbsp;&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms186788.aspx
+<br/>
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'sp_addmessage'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;sp_addmessage'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;50,001&nbsp;and&nbsp;2,147,483,647</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;meta&nbsp;data&nbsp;was&nbsp;not&nbsp;found&nbsp;for&nbsp;the&nbsp;object&nbsp;fqn&nbsp;provided&nbsp;-&nbsp;65</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: blue; ">exists</span>
+<br/>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[messages]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[message_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">200065</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[dbo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[sp_dropmessage]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@msgnum</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">200065</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[dbo]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[sp_addmessage]</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@msgnum</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">200065</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@severity</span><span style="color: silver; ">=</span><span style="color: black; ">11</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@msgtext</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'meta&nbsp;data&nbsp;was&nbsp;not&nbsp;found&nbsp;for&nbsp;the&nbsp;object&nbsp;fqn&nbsp;provided&nbsp;(%s).&nbsp;Additional&nbsp;information&nbsp;{if&nbsp;available}&nbsp;(%s).'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@lang</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@with_log</span><span style="color: silver; ">=</span><span style="color: red; ">N'TRUE'</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@replace</span>&nbsp;<span style="color: silver; ">=</span><span style="color: red; ">'replace'</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[messages]</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[message_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">200065</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: black; ">2048</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">formatmessage</span><span style="color: maroon; ">(</span><span style="color: black; ">200065</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'First&nbsp;string'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">throw</span>&nbsp;<span style="color: black; ">200065</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@message</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@message</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: black; ">2048</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">formatmessage</span><span style="color: maroon; ">(</span><span style="color: black; ">200065</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'First&nbsp;string'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'optional&nbsp;message'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">throw</span>&nbsp;<span style="color: black; ">200065</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@message</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/>
+</span></div>
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+
+bcp [address].[sample_data] format nul -c -x -f address.sample_data.xml -t, -d chamomile_oltp -T -S MCK790L8159\CHAMOMILE
+bcp [address].[sample_data] in chamomile.presentation.xquery_sample_data.pdv -d chamomile_oltp -T -F 2 -f address.sample_data.xml -S MCK790L8159\CHAMOMILE
+
+2014 format:
+bcp [<database>].[dbo].[MainTest] format nul -c -x -f dbo.MainTest.xml -t, -T -S <hostname>\SQL_2014_01

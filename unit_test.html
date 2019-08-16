@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href="./source/image/chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href="./source/common.css" />
+	</head>
+	<body>
+		<table style="border-collapse: collapse; margin-top:0px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td >
+								<iframe src="./header.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0; margin:0 auto; display:block;" height="325" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-bottom:0px; margin-top:-25px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="content">
+						<tr>
+							<td class="content">
+								<iframe src="./menu__home.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0;" height="45" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__presentation.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="45" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__unit_test__in_page.html" style="border-collapse: collapse; width:100%; border:0;" height="75" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-top:0px; margin-top:-15px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table --> 
+					<table class="content" id="unit_test_framework">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:right; padding-left:25px; width:350px;" src="./source/image/panama_canal.jpg" title="Building the Panama canal." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[unit_test_framework]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p>
+									While <a href="https://en.wikipedia.org/wiki/Unit_testing" target="blank">Unit Testing</a> is a common practice in most modern programming languages, SQL practitioners do not commonly create or use Unit Tests, nor there does not seem to be an accepted standard practice for creating and using Unit Tests in the SQL Development community. A great part of the reason for this is the difficulty involved in creating and maintaining <a href="https://blog.scottlogic.com/2016/02/08/data-mocking.html" target="blank">Mock Data</a>.
+								</p>
+								<p class="quote">"There’s so much talk about the system. And so little understanding." - Robert M. Pirsig, Zen and the Art of Motorcycle Maintenance.</p>
+								<p class="content"><u>This Article Introduces</u>:</p>
+								<ol>
+									<li>Techniques and a framework for Unit Testing using SQL stored procedures and transactions with no external framework or Mock Data required.
+									</li>
+									<br />
+									<li>A mechanism for utilizing unit tests as a test harness for production code.
+									</li>
+									<br />
+									<li>A method of programmatically running unit tests and aggregating the results as a means of <a href="https://en.wikipedia.org/wiki/Integration_testing" target="blank">integration testing</a>.
+									</li>
+								</ol>
+								<p class="quote">In computer programming, unit testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use. <a href="https://en.wikipedia.org/wiki/Unit_testing" target="blank">wikipedia</a>.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="why_unit_test">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:left; padding-right:25px; width:450px;" src="./source/image/tacoma_narrows_bridge.jpg" title="Building the Panama canal." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[why_unit_test]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p>
+									Unit Testing objects accomplishes several important tasks:
+								</p>
+								<ol>
+									<li>
+										<p class="content"><u>A well written Unit Test serves as an <a href="http://testobsessed.com/2008/12/acceptance-test-driven-development-atdd-an-overview/" target="blank">acceptance test</a> for an object</u>. If the object passes the (properly written and approved) unit test, it can be said with some certaintly that the object meets requirements.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>A well written Unit Test allows the object under test to be readily <a href="https://en.wikipedia.org/wiki/Code_refactoring" target="blank">refactored</a></u>. The ability to refactor objects almost at will is a core tenet of modern programming. However, without a unit test to validate existing functionality, and that the existing functionality is not compromised by the refactoring, refactoring is rarely performed. Unit tests allow an object to be written as simply as possible (see <a href="https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it" target="blank">YAGNI</a>) to meet the current requirements, with the knowledge that it can easily be refactored in the future to meet additional requirements as long as the existing unit tests continue to pass.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>Creating Unit Tests for procedures limits complexity without artificial constraints</u>.  If it is too complex to Unit Test, it is too complex. I've often worked on teams where artificial constraints on complexity such as number of lines of code are implemented. These are invariably flawed.
+										</p>
+										<p class="content">For example; consider the single line SQL statement:
+										</p>
+										<p class="content">
+											<font face="Courier New" size="2">
+											<font color = "blue">select</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[first_name]</font><font color = "silver">,</font><font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[last_name]</font><font color = "silver">,</font><font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[id]</font>&nbsp;<font color = "blue">from</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[data]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[person]</font>
+											&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[join]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[person_account]</font>
+											&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[person_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[id]</font>&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[account]</font><font color = "silver">.</font><font color = "maroon">[data]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[account]</font>&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[account]</font><font color = "silver">.</font><font color = "maroon">[id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[account_id]</font><font color = "silver">;</font>&nbsp;</font>
+										</p> 
+										<p class="content">This can be reformatted into a more readable but eight times more lengthy form as:</p>
+										<p class="content">
+											<font face="Courier New" size="2">
+											<font color = "blue">select</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[first_name]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[last_name]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[id]</font>
+											<br/><font color = "blue">from</font>&nbsp;&nbsp;&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[data]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[person]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[join]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[person_account]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[person_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[person]</font><font color = "silver">.</font><font color = "maroon">[id]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[account]</font><font color = "silver">.</font><font color = "maroon">[data]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[account]</font>
+											<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[account]</font><font color = "silver">.</font><font color = "maroon">[id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[person_account]</font><font color = "silver">.</font><font color = "maroon">[account_id];</font>
+											</font>
+										</p>
+										<p class="content">Clearly the second format is (typically) more legible, but an artificial constraint on the number of lines of code in a procedure to limit complexity would force developers to favor the first format. This would actually create MORE complexity! Rather than use artificial constraints, a Unit Test effectively reduces the complexity in a target method (procedure, function, view, etc.) by reducing the amount of functionality that it may contain before it becomes overly difficult to Unit Test. My experience is that this is NOT a linear increase!
+										</p>
+										<p class="content">If you are making an effort to unit test all your methods, you automatically begin thinking of them in terms of functional modules and simplicity or your unit tests grow increasingly to consume the major of your development time. Conversely, methods that are specific and modular are relatively easy to test, especially if you use a template and framework for testing as is presented here.
+										</p>
+									</li>
+								</ol>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="best_practice">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:right; padding-left:25px; width:350px;" src="./source/image/test.jpg" title="If a method is too complex to effectively unit test, it is too complex."  />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[best_practice]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">There are some generally accepted best practices for unit tests. Some of these make sense for use with SQL, some we might take some liberty with. I generally try to follow best practices unless I have a clear argument for doing something different.
+								</p>
+								<p class="content"><i>"We've always done it that way,"</i> is not a clear argument.
+								</p>
+								<p class="quote">
+									<a href="3rd_law__simplicity.html" target="_top">[3rd_law__simplicity]</a> - If a method is too complex to effectively unit test, it is too complex.
+								</p>
+								<ol> 
+									<li>
+										<p class="content"><u>Unit tests are a contract between the business unit and operations</u>. As such, the business unit and its representatives should be fully aware of the unit tests and, preferably, should approve the individual tests in the same manner that a purchaser would approve a contract from a seller.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>Once the tested object for a unit test is promoted into production, the unit test itself must never be modified</u>. Additional functionality should be tested using additional tests. The only exception to this is when the business requirement changes such that the test itself is no longer testing for a valid condition. In the case where a unit test is modified, all tests within that test method must be re-verified. Because of this it is generally best to limit the number of individual tests within a unit test method.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>Unit tests should not accept parameters that indicate state</u>.  Tests should not depend on data passed in. They should be consistent and declarative. The only parameters a unit test should accept are those which output the results of the test. The test output should be in a form that allows programmatic evaluation, i.e.; no human intervention should be required to determine if a test passed or failed. Additionally, the output should be in a form that can be stored in whole part such that it may serve as a documented event for the purposes of compliance, auditing, fault or performance analysis, etc. The only parameters a unit test should accept are those which output the results of the test. The test output should be in a form that allows programmatic evaluation, i.e.; no human intervention should be required to determine if a test passed or failed. Additionally, the output should be in a form that can be stored in whole part such that it may serve as a documented event for the purposes of compliance, auditing, fault or performance analysis, etc.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>All required business functionality should be evaluated thoroughly by a unit test.</u> If a method is a <a href="http://en.wikipedia.org/wiki/Big_ball_of_mud" target="blank">big ball of mud</a>, <a href="http://en.wikipedia.org/wiki/God_object" target="blank">God object</a>, or <a href="http://en.wikipedia.org/wiki/Spaghetti_code" target="blank">spaghetti code</a>, and it is excessively difficult or impossible to unit test, it should be refactored into objects which can be tested.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>Data repositories such as tables should not be tested, rather the methods that access these should be tested</u>. This allows the data repository to be refactored to meet business and technical requirements and to scale or evolve to adapt to these changing requirements. In this respect, a series of unit tests that succeed if a repository object in a "secure tier" cannot be accessed from a "public tier" would be appropriate. These tests would fail if the secure tier is accessible directly from the public tier. Only specific accessor and mutator methods should typically have access to the secure tier, and these should be used for public access. (see; <a href="http://en.wikipedia.org/wiki/Facade_pattern" target="blank">facade pattern</a>, <a href="http://en.wikipedia.org/wiki/Adapter_pattern" target="blank">adapter pattern</a>)
+										</p>
+									</li>  
+									<li>
+										<p class="content"><u>All required business functionality should be evaluated thoroughly by a unit test.</u> If a method is a <a href="http://en.wikipedia.org/wiki/Big_ball_of_mud" target="blank">big ball of mud</a>, <a href="http://en.wikipedia.org/wiki/God_object" target="blank">God object</a>, or <a href="http://en.wikipedia.org/wiki/Spaghetti_code" target="blank">spaghetti code</a>, and it is excessively difficult or impossible to unit test, it should be refactored into objects which can be tested.
+										</p>
+									</li> 
+									<li>
+										<p class="content"><u>One test per unit test</u>. Each test object should only contain one test</u>. I've found this to be a burdensome requirement when you have a lot of little things you want to test for. As long as the test object itself is clear I don't mind grouping a few things in a single test. I'll cover reporting with the <i>@output</i> parameter.
+										</p>
+										<p class="content">Regardless, if I test for multiple items in the same unit test procedure, those items will be closely related and, as noted, will be clear in the reporting.
+										</p>
+									</li> 
+									<p class="quote">At some point you have to shoot the engineers and start production.</p>
+								</ol>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="building_a_unit_test">
+						<tr>
+							<td class="content"> 
+								<img style="float:left; padding-right:25px; width:650px;" src="./source/image/tsavo_bridge.jpg" title="tsavo_bridge" /> 
+								<a href="./sql.html" target="_top">
+									<h3>[building_a_unit_test]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								
+								<p class="content"><a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transactions-transact-sql?view=sql-server-2017" target="blank">SQL transactions</a>.
+								</p>
+								<p class="content"> Do you trust SQL? Before you begin unit testing with SQL, you should understand it well enough to trust it. This method of testing relies on <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/transactions-transact-sql?view=sql-server-2017" target="blank">SQL transactions</a>. If you do not understand SQL transactions you will not understand nor will you trust this test mechanism.
+								</p>
+								<p class="quote">Note:</p>
+								<p class="quote">Normal error handling techniques are not included in the test objects for clarity.</p>
+								<p class="quote">The process demonstrated here assumes implementation by an experienced professional aware of the application on which it is implemented. Examples include, but are not limited to, avoiding external access such as sending objects to a queue or via smtp. In other words; common sense is assumed to prevail.
+								</p>
+								
+								<p class="content"><a href="./naming_convention.html" target="_top">Naming Convention</a></u>.
+								</p>
+								<p class="content">By convention, I prefer to name the test procedure as;
+								</p>
+								<p class="code">[&lt;schema&gt;__test].[&lt;object&gt;_test__&lt;meaningful_designator&gt;]</p>
+								<p class="content">where the object to be tested is;
+								</p>
+								<p class="code">[&lt;schema&gt;].[&lt;object&gt;] 
+								</p>
+								<p class="content">For example, to test a procedure <i>[account].[get_primary]</i> I may create test procedures named;</p>
+								<p class="code">[account__test].[get_primary__test_by_id]</i></p>
+								<p class="code">[account__test].[get_primary__test_by_name]</i></p>
+								<p class="content">This technique of grouping the tests by convention in schemas named with the &quot;<i>__test</i>&quot; extension facilitates automated testing (see <a href="#automated_unit_testing">automated unit testing</a> below). The <i>"__test_&lt;meaningful_designator&gt;]"</i> in the object name allows multiple tests to be created for a single object but still grouped by the schema and object name. This will become more apparent in the section on <a href="#automated_unit_testing">automated unit testing</a>.
+								</p> 
+								
+								<p class="content"><a href="" target="_top">Aggregation of results using XML</a>
+								</p>
+								<p class="content">I am an avid user of XML and the <a href="https://en.wikipedia.org/wiki/XQuery" target="blank">XQuery language</a> for building ad hoc, heterogenous data. It can be bulky, overly complex, and the implementation leaves a lot to be desired, but used well it can still be a powerful tool. I am relatively sure that <a href="https://en.wikipedia.org/wiki/JSON" target="blank">JSON</a> use is in my future now that, as of SQL Server 2016, SQL Server allows the use of JSON, and JSON seems to be rapidly overtaking the use of XML as a common interchange format.
+								</p>
+								<p class="content">For now, this unit test mechanism uses XML and XQuery heavily to achieve the desired result.
+								</p>
+								<p class="quote">You build bridges, John. You have to go where the rivers are. Helena Patterson, The Ghost and The Darkness.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="documentation__execute_as">
+						<tr>
+							<td class="content" colspan="2">
+								<a href="./sql.html" target="_top">
+								<img style="float:right; padding-left:25px; width:650px;" src="./source/image/extended_properties_documentation.jpg" title="See [sys].[extended_properties] Microsoft documentation." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[documentation__execute_as]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">Note the code here, which is all that is in the static comments in the header of the stored procedure. Running it extracts the documentation for the stored procedure from <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/extended-properties-catalog-views-sys-extended-properties?view=sql-server-2017" target="blank">extended properties</a>.
+								</p>
+								<p class="content">Documenting your objects in this manner allows the documentation to be queried or extracted programmatically. Additionally, as it is part of the object, it is more likely to get updated than documentation out on the network somewhere. This is my preferred manner of documenting objects.
+								</p>
+								<p class="quote">The secret of all victory lies in the organization of the non-obvious. Marcus Aurelius.</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="code">
+									<font face="Courier New" size="2">
+									<font color = "green"><i>&#45;&#45;</i></font>
+									<br/><font color = "green"><i>&#45;&#45;&nbsp;RUN&nbsp;SCRIPT&nbsp;FOR&nbsp;DOCUMENTATION</i></font>
+									<br/><font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</i></font>
+									<br/><font color = "blue">declare</font>&nbsp;<font color = "#8000FF">@schema</font>&nbsp;<font color = "black"><i>[SYSNAME]</i></font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "red">N'math__test'</font><font color = "silver">,</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "#8000FF">@object</font>&nbsp;<font color = "black"><i>[SYSNAME]</i></font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "red">N'divide__test_00'</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "blue">select</font>&nbsp;<font color = "fuchsia"><i>Quotename</i></font><font color = "maroon">(</font><font color = "#FF0080"><b>object_schema_name</b></font><font color = "maroon">(</font><font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[major_id]</font><font color = "maroon">)</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">+</font>&nbsp;<font color = "red">N'.'</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "blue">case</font>&nbsp;<font color = "blue">when</font>&nbsp;<font color = "fuchsia"><i>Object_name</i></font><font color = "maroon">(</font><font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[parent_object_id]</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>&nbsp;<font color = "blue">then</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "fuchsia"><i>Quotename</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Object_name</i></font><font color = "maroon">(</font><font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[parent_object_id]</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "red">N'.'</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "fuchsia"><i>Quotename</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Object_name</i></font><font color = "maroon">(</font><font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[object_id]</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "blue">else</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "fuchsia"><i>Quotename</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Object_name</i></font><font color = "maroon">(</font><font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[object_id]</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "silver">+</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">case</font>&nbsp;<font color = "blue">when</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[parameter_id]</font>&nbsp;<font color = "silver">&gt;</font>&nbsp;<font color = "black">0</font>&nbsp;<font color = "blue">then</font>&nbsp;<font color = "red">N'&nbsp;'</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "fuchsia"><i>coalesce</i></font><font color = "maroon">(</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[name]</font><font color = "silver">,</font>&nbsp;<font color = "red">N''</font><font color = "maroon">)</font>&nbsp;<font color = "blue">else</font>&nbsp;<font color = "red">N''</font>&nbsp;<font color = "blue">end</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "blue">case</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">when</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "#FF0080"><b>columnproperty</b></font>&nbsp;<font color = "maroon">(</font><font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[object_id]</font><font color = "silver">,</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[name]</font><font color = "silver">,</font>&nbsp;<font color = "red">N'IsOutParam'</font><font color = "maroon">)</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">1</font>&nbsp;<font color = "blue">then</font>&nbsp;<font color = "red">N'&nbsp;output'</font>&nbsp;<font color = "blue">else</font>&nbsp;<font color = "red">N''</font>&nbsp;<font color = "blue">end</font>&nbsp;<font color = "blue">end</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">[object]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "blue">case</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">when</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[minor_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font>&nbsp;<font color = "blue">then</font>&nbsp;<font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[type_desc]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">else</font>&nbsp;<font color = "red">N'PARAMETER'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[type]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[name]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[property]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[value]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[value]</font>
+									<br/><font color = "blue">from</font>&nbsp;&nbsp;&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[extended_properties]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[extended_properties]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[objects]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[objects]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[object_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[major_id]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[schemas]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[schemas]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[schemas]</font><font color = "silver">.</font><font color = "maroon">[schema_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[schema_id]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">left</font>&nbsp;<font color = "blue">join</font>&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[parameters]</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "maroon">[parameters]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">on</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[major_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[object_id]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">and</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[parameter_id]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "maroon">[extended_properties]</font><font color = "silver">.</font><font color = "maroon">[minor_id]</font>
+									<br/><font color = "blue">where</font>&nbsp;&nbsp;<font color = "maroon">[schemas]</font><font color = "silver">.</font><font color = "maroon">[name]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "#8000FF">@schema</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">and</font>&nbsp;<font color = "maroon">[objects]</font><font color = "silver">.</font><font color = "maroon">[name]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "#8000FF">@object</font>
+									<br/><font color = "blue">order</font>&nbsp;&nbsp;<font color = "blue">by</font>&nbsp;<font color = "maroon">[parameters]</font><font color = "silver">.</font><font color = "maroon">[parameter_id]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[object]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[type]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[property]</font><font color = "silver">;</font>&nbsp;
+									</font>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="math__test__divide__test_00">
+						<tr>
+							<td class="content" style="width:750px">
+								<h3>[math__test__divide__test_00]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content"><i>[math__test].[divide__test_00]</i> will be used as the test to guide our development of the desired business procedure, <i>[math].[divide]</i>. This is an example of <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="blank">Test Driven Development</a>.
+								</p>
+								<p class="content">Before you go any further, take a look at the test <a href="./presentation/unit_test/math__test__divide__test_00.sql" target="blank"><i>[math__test].[divide__test_00]</i></a>. The first test is in the code snippet below. Inspect each of the tests in the test procedure.
+								</p>
+								<p class="content"><u>Note</u>:
+								</p>
+								<ol>
+									<li>I am assuming that you can read code such as "<font face="Courier New" size="2"><font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font></font>" and understand that the code is doing exactly what this test states it is for (based on <i>@test_name</i>), "<font face="Courier New" size="2"><font color = "red">N'check_for_target_method_exist'</font></font>". This is an example of <i><a href="./6th_law__manifest.html" target="_top">[6th_law__manifest]</a> - Good software should be self-documenting</i>.
+									</li>
+									<li>Refer to the presentation on <a href="./xquery.html" target="_top">XQuery</a> if you have questions on how the data is being aggregated for the output parameter <i>@test_stack</i>. However, again, I have attempted to write the software in such a way that it should be apparent what is being done without necessarily understanding the mechanics of the language. Try reading the code as if it were an English language sentence and see if you can identify what is being accomplished.
+									</li>
+									<li>The demonstration method <i>[math].[divide]</i> does not necessarily perform in a mathematically correct manner. I am only using it here to demonstrate how a developer would use a unit test which the business has approved to develop a method which passes those requirements. Don't get all caught up in the technical details and miss the point! Instead, take the techniques demonstrated here and build a series of tests for a method that you are working with, implementing tests that test for required behavior.
+									</li>
+								</ol>
+								<p class="content"><u>Ask yourself some questions</u>:
+								</p>
+								<ol>
+									<li>Without viewing the actual business method proposed, <i>[math].[divide]</i>, can you tell what business functionality <i>[math].[divide]</i> is required to exhibit by only looking at this test, <a href="./presentation/unit_test/math__test__divide__test_00.sql" target="blank"><i>[math__test].[divide__test_00]</i></a>?
+									</li>
+									<li>Is this test a clear and consistent definition of what is required in the business method?
+									</li>
+									<li>What things are NOT required by this test?
+									</li>
+									<li>Are you required to implement large numbers?
+									</li>
+									<li>If you write a method, <i>[math].[divide]</i>, which meets the requirements of this test (all tests pass), have you done your job as a developer, and have the business requirements been met?
+									</li>
+								</ol>
+								<p class="content">If you are working through this presentation you should copy the code to your development database and created it now. Note that the script has a <i>use [&lt;database_name&gt;]</i> statement to keep you from inadvertently creating it in <i>[master]</i> (ask me how I know that can happen...). Just change the database name to an appropriate test database.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "green"><i>&#45;&#45;</i></font>
+									<br/><font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</i></font>
+									<br/><font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">select</font>&nbsp;<font color = "#8000FF">@test_sequence</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@test_name</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "red">N'check_for_target_method_exist'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@test_description</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "red">N'Check&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;target&nbsp;method&nbsp;exists.'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@test</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "#8000FF">@test_prototype</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'replace&nbsp;value&nbsp;of&nbsp;(/*/@test_sequence)[1]&nbsp;with&nbsp;sql:variable(&quot;@test_sequence&quot;)'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'replace&nbsp;value&nbsp;of&nbsp;(/*/@test_name)[1]&nbsp;with&nbsp;sql:variable(&quot;@test_name&quot;)'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "maroon">(</font><font color = "blue">select</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>value</b></font><font color = "maroon">(</font><font color = "red">N'(/*/description/text())[1]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'[nvarchar](max)'</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'insert&nbsp;text{sql:variable(&quot;@test_description&quot;)}&nbsp;as&nbsp;first&nbsp;into&nbsp;(/*/description)[1]'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">else</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'replace&nbsp;value&nbsp;of&nbsp;(/*/description/text())[1]&nbsp;with&nbsp;sql:variable(&quot;@test_description&quot;)'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">select</font>&nbsp;<font color = "#8000FF">@message</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "red">N'Target&nbsp;function&nbsp;does&nbsp;not&nbsp;exist.&nbsp;No&nbsp;further&nbsp;testing&nbsp;will&nbsp;be&nbsp;performed.'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@return_code</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">1</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'insert&nbsp;text&nbsp;{sql:variable(&quot;@message&quot;)}&nbsp;as&nbsp;last&nbsp;into&nbsp;(/*)[1]'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test_stack</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'insert&nbsp;sql:variable(&quot;@test&quot;)&nbsp;as&nbsp;last&nbsp;into&nbsp;(/*)[1]'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test_stack</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'replace&nbsp;value&nbsp;of&nbsp;(/*/@return_code)[1]&nbsp;with&nbsp;sql:variable(&quot;@return_code&quot;)'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">else</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;the&nbsp;target&nbsp;method&nbsp;existed,&nbsp;so&nbsp;include&nbsp;that&nbsp;as&nbsp;the&nbsp;first&nbsp;test&nbsp;in&nbsp;the&nbsp;stack</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'replace&nbsp;value&nbsp;of&nbsp;(/*/@actual)[1]&nbsp;with&nbsp;sql:variable(&quot;@pass&quot;)'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@test_stack</font><font color = "silver">.</font><font color = "#FF0080"><b>modify</b></font><font color = "maroon">(</font><font color = "red">N'insert&nbsp;sql:variable(&quot;@test&quot;)&nbsp;as&nbsp;last&nbsp;into&nbsp;(/*)[1]'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/><font color = "blue">end</font><font color = "silver">;</font>&nbsp;
+									</font>
+
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content">
+								<h3>[running__math__test__divide__test_00]</h3> 
+								<p class="content">Refer to the section on <a href="#documentation__execute_as">documentation</a> to get the <i>execute_as</i> documentation for the test.
+								</p>
+								<p class="content">Running <i>[math__test].[divide__test_00]</i> now will give <a href="./presentation/unit_test/math__test.divide__test_00.output_00.xml" target="blank">this output</a>. It may seem odd running a test when the method under test does not even exist, but that will become important later, in the section on <a href="#automated_unit_testing">automated unit testing</a>. With careful consideration, it makes perfect sense for a test to first determine if the method to be tested even exists!
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content" >
+								<h3>[create__math__divide]</h3> 
+								<p class="content">Create <i>[math].[divide]</i> using this code and rerun <i>[math__test].[divide__test_00]</i>. You should now get <a href="./presentation/unit_test/math__test.divide__test_00.output_01.xml" target="blank">this output</a>. You have now passed two of seven required tests.
+								</p>
+								<ol>
+									<li>Your target method exists.
+									</li>
+									<li>Your target method returns a numeric value.
+									</li>
+								</ol>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "maroon">[divide]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[divide]</b></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "black"><i>[int]</i></font><font color = "maroon">)</font>
+									<br/><font color = "maroon">returns</font>&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/><font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">return</font>&nbsp;<font color = "black">1</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>&nbsp;
+									</font>								
+								</p>
+							</td>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content" style="width:750px">
+								<h3>[update__math__divide]</h3> 
+								<p class="content">Update <i>[math].[divide]</i> using this code and rerun <i>[math__test].[divide__test_00]</i>. You should now get <a href="./presentation/unit_test/math__test.divide__test_00.output_02.xml" target="blank">this output</a>. You have now passed four of seven required tests.
+								</p>
+								
+								<ol>
+									<li>Your target method exists.
+									</li>
+									<li>Your target method returns a numeric value.
+									</li>
+									<li>A zero numerator returns 0.
+									</li>
+								</ol>
+								<p class="content">You still need to handle NULL and 0 values as required by the business requirements for the method.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content"> 
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "maroon">[divide]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[divide]</b></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "black"><i>[int]</i></font><font color = "maroon">)</font>
+									<br/><font color = "maroon">returns</font>&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/><font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">return</font>&nbsp;<font color = "#8000FF">@numerator</font>&nbsp;<font color = "silver">/</font>&nbsp;<font color = "#8000FF">@denominator</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>&nbsp;
+									</font>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content" >
+								<h3>[update__math__divide]</h3> 
+								<p class="content">Update <i>[math].[divide]</i> using this code and rerun <i>[math__test].[divide__test_00]</i>. You should now get <a href="./presentation/unit_test/math__test.divide__test_00.output_03.xml" target="blank">this output</a>. You have now passed six of seven required tests, but you still need to handle divide by zero.
+								</p>
+							</td>
+						</tr>
+						<tr> 
+							<td class="content" 
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "maroon">[divide]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[divide]</b></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "black"><i>[int]</i></font><font color = "maroon">)</font>
+									<br/><font color = "maroon">returns</font>&nbsp;<font color = "black"><i>[decimal]</i></font><font color = "maroon">(</font><font color = "black">10</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font>
+									<br/><font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">declare</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "black"><i>[decimal]</i></font><font color = "maroon">(</font><font color = "black">10</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "#8000FF">@numerator</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">or</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">else</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "fuchsia"><i>Round</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Cast</i></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[float]</i></font><font color = "maroon">)</font>&nbsp;<font color = "silver">/</font>&nbsp;<font color = "fuchsia"><i>Cast</i></font><font color = "maroon">(</font><font color = "#8000FF">@denominator</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[float]</i></font><font color = "maroon">)</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">return</font>&nbsp;<font color = "#8000FF">@return</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>&nbsp;
+									</font>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content" >
+								<h3>[update__math__divide]</h3> 
+								<p class="content">Update <i>[math].[divide]</i> using this code and rerun <i>[math__test].[divide__test_00]</i>. You should now get <a href="./presentation/unit_test/math__test__divide__test_00.output_04.xml" target="blank">this output</a>. You have now passed all seven of seven required tests.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content" >
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[divide]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'FN'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "maroon">[divide]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">function</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[divide]</b></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "black"><i>[int]</i></font><font color = "maroon">)</font>
+									<br/><font color = "maroon">returns</font>&nbsp;<font color = "black"><i>[decimal]</i></font><font color = "maroon">(</font><font color = "black">10</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font>
+									<br/><font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">declare</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "black"><i>[decimal]</i></font><font color = "maroon">(</font><font color = "black">10</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "#8000FF">@numerator</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">or</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">or</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">else</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@return</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "fuchsia"><i>Round</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Cast</i></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[float]</i></font><font color = "maroon">)</font>&nbsp;<font color = "silver">/</font>&nbsp;<font color = "fuchsia"><i>Cast</i></font><font color = "maroon">(</font><font color = "#8000FF">@denominator</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[float]</i></font><font color = "maroon">)</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">return</font>&nbsp;<font color = "#8000FF">@return</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>&nbsp;
+									</font>		
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="refactoring">
+						<tr>
+							<td class="content"> 
+								<img style="float:left; padding-right:25px; width:350px; padding-bottom:15px;" src="./source/image/statue_of_liberty.jpg" title="Refactoring." /> 
+								<h3>[refactoring]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">Now that you have met the requirements of the test, you should stop. That is right. You should stop writing code. Of course you should clean up after yourself and document the object as required by professionalism and/or the shop practices where you work, but you should studiously avoid the tendency to add functionality that is not stated within the business requirements. This is a mantra from Agile development termed, <a href="https://martinfowler.com/bliki/Yagni.html" target="blank">YAGNI</a>, <i>You ain't gonna need it</i>.
+								</p>
+								<p class="content">Because you have written a test that completely defines the requirements of the method, future programmers (including yourself next week, next month, or next year), can easily rewrite the method to add new functionality as required, improve the performance, etc. As long as the updated method still meets the requirements of this test the code can be <a href="https://martinfowler.com/books/refactoring.html" target="blank">refactored</a> at will.
+								</p>
+								<p class="content">The ability to refactor code at will is effectively the software equivalent continuous improvement (see: <a href="./engineering.html" target="_top">[engineering]</a>).
+								</p>
+								<p class="content">When you think of using the test in this manner, several things become obvious:
+								<ol>
+									<li>
+										<p class="content"><u>The test MUST be checked into the code repository along with the tested object</u>. In the future, if this test is not available, the developer who needs to modify the tested object will have no way of knowing if her modifications have broken existing business functionality without running, or replicating, this test. Just check it in.
+										</p>
+									</li>
+									<li>
+										<p class="content"><u>The test MUST be fully self contained, without requiring external input parameters</u>. Who knows what the environment will look like a year from now or if the developer who needs to run the test knows under what conditions it must be run. It is best that the test be fully self contained.
+										</p>
+									</li>
+									<li>
+										<p class="content"><u>It is preferable that the unit test be promoted to production along with the tested code</u>. This will allow the unit test to be used as a <a href="https://en.wikipedia.org/wiki/Test_harness" target="blank">test harness</a>. This can be particularly useful after a new installation, upgrade, or during trouble shooting.
+										</p>
+									</li>
+								</ol>
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="testing_a_destructive_method">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:right; padding-left:25px; width:550px;" src="./source/image/pristine_wilderness.jpg" title="Take only pictures. Leave only footprints." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[testing_a_destructive_method]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">The mechanism for testing a descructive method, one that modifies data, is reminiscent of the outdoors mantra of, <i>Take only pictures, leave only footprints</i>. It is important that you disturb the underlying system as little as possible. It is possible to do this using <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/transaction-isolation-levels?view=sql-server-2017" target="blank">transaction isolation levels</a>.
+								</p>
+								<p class="quote"><u>Note</u>; using transaction isolation levels as noted here can cause performance issues. These techniques are recommended for test environments, for post install or upgrade evaluation, and for trouble shooting, not for inline production use. If you use them inline with production, or assume that they will be used as such and therefore misunderstand the purpose, it is because you do not understand the intent here. That is on you. I do not design or write code to be fool proof because I do not believe fools should be working on SQL Servers. Additionally, I am decidedly not a fool, so I have no idea how they think, so I cannot really write code that would work for them. Undertake these techniques only if you understand them as well as their intended use and potential consequences. Enough said.
+								</p>
+								<p class="quote">Those are my principles, and if you don't like them... well, I have others. - Groucho Marx.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" >
+						<tr>
+							<td class="content" >
+								<h3>[create__math__secure__data]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">Create <i>[math__secure].[data]</i> and a <a href="https://en.wikipedia.org/wiki/Mutator_method" target="blank">mutator</a> method, <i>[math].[set]</i>. Note by inspection that <i>[math__secure].[data]</i> contains the results of the formerly tested method, [math].[divide], and <i>[math].[set]</i> inserts data into the table.
+								</p>
+								<p class="content">We want to develop a test for <i>[math].[set]</i>. However, we do not want to alter the contents of the table, <i>[math__secure].[data]</i> with the results of tests.
+								</p> 
+								<p class="content">Note that this is an implementation of the <a href="./design_pattern__vault.html" target="_top">vault design pattern</a>.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="content" >
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">use</font>&nbsp;<font color = "maroon">[chamomile]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "blue">if</font>&nbsp;<font color = "#FF0080"><b>schema_id</b></font><font color = "maroon">(</font><font color = "red">N'math__secure'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">execute</font>&nbsp;<font color = "maroon">(</font><font color = "red">N'create&nbsp;schema&nbsp;math__secure'</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "green"><i>&#45;&#45;&nbsp;</i></font>
+									<br/><font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math__secure].[data]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'U'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>
+									<br/>&nbsp;&nbsp;&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">table</font>&nbsp;<font color = "maroon">[math__secure]</font><font color = "silver">.</font><font color = "maroon">[data]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "green"><i>&#45;&#45;&nbsp;</i></font>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">table</font>&nbsp;<font color = "maroon">[math__secure]</font><font color = "silver">.</font><font color = "maroon">[data]</font>
+									<br/>&nbsp;&nbsp;<font color = "maroon">(</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">[id]</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>&nbsp;<font color = "blue">identity</font><font color = "maroon">(</font><font color = "black">1</font><font color = "silver">,</font>&nbsp;<font color = "black">1</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[numerator]</font>&nbsp;&nbsp;&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[denominator]</font>&nbsp;<font color = "black"><i>[int]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[result]</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[decimal]</i></font><font color = "maroon">(</font><font color = "black">10</font><font color = "silver">,</font>&nbsp;<font color = "black">6</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[timestamp]</font>&nbsp;&nbsp;&nbsp;<font color = "black"><i>[datetime]</i></font>&nbsp;<font color = "blue">default</font>&nbsp;<font color = "maroon">(</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">current_timestamp</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;<font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									
+									</font>
+								</p>
+							</td>
+						</tr>
+					</table>
+					
+					<table class="content" >
+						<tr>
+							<td class="content" >
+								<h3>[create__math__set]</h3> 
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<p class="content">
+									<font face="Courier New" size="2">
+									<font color = "blue">if</font>&nbsp;<font color = "fuchsia"><i>Object_id</i></font><font color = "maroon">(</font><font color = "red">N'[math].[set]'</font><font color = "silver">,</font>&nbsp;<font color = "red">N'P'</font><font color = "maroon">)</font>&nbsp;<font color = "blue">is</font>&nbsp;<font color = "blue">not</font>&nbsp;<font color = "blue">null</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">drop</font>&nbsp;<font color = "blue">procedure</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "maroon">[set]</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>
+									<br/>
+									<br/><font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/><font color = "blue">create</font>&nbsp;<font color = "blue">procedure</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[set]</b></font>&nbsp;<font color = "#8000FF">@numerator</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[INT]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>&nbsp;<font color = "black"><i>[INT]</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@id</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "black"><i>[INT]</i></font>&nbsp;<font color = "maroon">output</font>
+									<br/><font color = "blue">as</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;create&nbsp;a&nbsp;unique&nbsp;transation&nbsp;to&nbsp;avoid&nbsp;issues&nbsp;during&nbsp;parallel&nbsp;operations&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">declare</font>&nbsp;<font color = "#8000FF">@transaction</font>&nbsp;<font color = "black"><i>[NVARCHAR]</i></font><font color = "maroon">(</font><font color = "black">32</font><font color = "maroon">)</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "fuchsia"><i>right</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Lower</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Db_name</i></font><font color = "maroon">(</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "red">N'_'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">+</font>&nbsp;<font color = "fuchsia"><i>Lower</i></font><font color = "maroon">(</font><font color = "#FF0080"><b>object_schema_name</b></font><font color = "maroon">(</font><font color = "#8000FF">@@procid</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "red">N'_'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">+</font>&nbsp;<font color = "fuchsia"><i>Lower</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Object_name</i></font><font color = "maroon">(</font><font color = "#8000FF">@@procid</font><font color = "maroon">)</font><font color = "maroon">)</font>&nbsp;<font color = "silver">+</font>&nbsp;<font color = "red">N'_'</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">+</font>&nbsp;<font color = "fuchsia"><i>Cast</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Round</i></font><font color = "maroon">(</font><font color = "fuchsia"><i>Rand</i></font><font color = "maroon">(</font><font color = "maroon">)</font><font color = "silver">*</font><font color = "black">100000</font><font color = "silver">,</font>&nbsp;<font color = "silver">-</font><font color = "black">1</font><font color = "maroon">)</font>&nbsp;<font color = "blue">as</font>&nbsp;<font color = "black"><i>[SYSNAME]</i></font><font color = "maroon">)</font><font color = "silver">,</font>&nbsp;<font color = "black">32</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;note&nbsp;that&nbsp;a&nbsp;transaction&nbsp;isn't&nbsp;necessarily&nbsp;required&nbsp;here,&nbsp;but&nbsp;it&nbsp;is&nbsp;shown&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;to&nbsp;demonstrate&nbsp;the&nbsp;correct&nbsp;method&nbsp;for&nbsp;unit&nbsp;testing&nbsp;a&nbsp;mutator&nbsp;that&nbsp;includes&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;declared&nbsp;transactions&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>&nbsp;<font color = "maroon">try</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;checking&nbsp;@@trancount&nbsp;is&nbsp;optional&nbsp;as&nbsp;this&nbsp;method&nbsp;will&nbsp;ONLY&nbsp;rollback&nbsp;or&nbsp;commit&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;it's&nbsp;own&nbsp;transaction!&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "#8000FF">@@trancount</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "black">0</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>&nbsp;<font color = "blue">transaction</font>&nbsp;<font color = "#8000FF">@transaction</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">insert</font>&nbsp;<font color = "blue">into</font>&nbsp;<font color = "maroon">[math__secure]</font><font color = "silver">.</font><font color = "maroon">[data]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "maroon">[numerator]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[denominator]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[result]</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">values</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "silver">,</font>&nbsp;<font color = "maroon">[math]</font><font color = "silver">.</font><font color = "#FF0080"><b>[divide]</b></font>&nbsp;<font color = "maroon">(</font><font color = "#8000FF">@numerator</font><font color = "silver">,</font>&nbsp;<font color = "#8000FF">@denominator</font><font color = "maroon">)</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">set</font>&nbsp;<font color = "#8000FF">@id</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "fuchsia"><i>Scope_identity</i></font><font color = "maroon">(</font><font color = "maroon">)</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;commit&nbsp;ONLY&nbsp;your&nbsp;own&nbsp;transaction!&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "blue">exists</font>&nbsp;<font color = "maroon">(</font><font color = "blue">select</font>&nbsp;<font color = "silver">*</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">from</font>&nbsp;&nbsp;&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[dm_tran_active_transactions]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">where</font>&nbsp;&nbsp;<font color = "maroon">[name]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "#8000FF">@transaction</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">commit</font>&nbsp;<font color = "blue">transaction</font>&nbsp;<font color = "#8000FF">@transaction</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font>&nbsp;<font color = "maroon">try</font>
+									<br/>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">begin</font>&nbsp;<font color = "maroon">catch</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&nbsp;rollback&nbsp;ONLY&nbsp;your&nbsp;own&nbsp;transaction!&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "green"><i>&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-&nbsp;&nbsp;</i></font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">if</font>&nbsp;<font color = "blue">exists</font>&nbsp;<font color = "maroon">(</font><font color = "blue">select</font>&nbsp;<font color = "silver">*</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">from</font>&nbsp;&nbsp;&nbsp;<font color = "maroon">[sys]</font><font color = "silver">.</font><font color = "maroon">[dm_tran_active_transactions]</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">where</font>&nbsp;&nbsp;<font color = "maroon">[name]</font>&nbsp;<font color = "silver">=</font>&nbsp;<font color = "#8000FF">@transaction</font><font color = "maroon">)</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">rollback</font>&nbsp;<font color = "blue">transaction</font>&nbsp;<font color = "#8000FF">@transaction</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color = "blue">end</font>&nbsp;<font color = "maroon">catch</font><font color = "silver">;</font>
+									<br/>&nbsp;&nbsp;<font color = "blue">end</font><font color = "silver">;</font>
+									<br/>
+									<br/><font color = "maroon">go</font>&nbsp;
+									</font> 
+								</p>
+							</td>
+						</tr>
+					</table>
+					
+					<table class="content" id="automated_unit_testing">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:right; padding-left:25px; width:550px;" src="./source/image/metropolis.jpg" title="Metropolis." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[automated_unit_testing]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content">Automated testing can be implemented if the conventions defined here are followed. The most important two are naming, grouping tests in schemas named with the &quot;
+									<i>__test</i>&quot; extension, and the use of the 
+									<i>@output [xml]</i> parameter with defined nodes.
+								</p>
+								<p class="content"><u>Naming convention</u>. Using a naming convention for tests as <i>[&lt;schema&gt;__test].[&lt;object&gt;__test_&lt;meaningful_designator&gt;]</i> where <i>[&lt;schema&gt;].[&lt;object&gt;]</i> is the object to be tested allows security constraints as well as ready identification of tests for specific objects.</span>
+								</p>
+								<p class="content"><u>Defined <i>@output [xml]</i> parameter</u>. Implementation of an <i>@output [xml]</i> parameter allows automated testing and aggregation of results.</p>
+								<p>
+									Implementing a test runner such as 
+									<a href="./presentation/unit_test/master.dbo.sp__chamomile__run_test.sql" target="blank"><i>[master].[dbo].[sp__chamomile__run_test]</i></a> allows tests to be run programmatically in any database when the conventions above are followed.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="unbreakable_code">
+						<tr>
+							<td class="content">
+								<a href="./sql.html" target="_top">
+								<img style="float:left; padding-right:25px; width:350px;" src="./source/image/superman.jpg" title="superman." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[unbreakable_code]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content"><a href="./presentation/unit_test/unit_test__unbreakable_code.sql" target="blank"><i>unit_test__unbreakable_code.sql</i></a>.
+								</p>
+								<p class="content">When the above design mechanism has been implemented, <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-2017" target="blank">database or server triggers</a> can be used to implement a technique I call <i>unbreakable code</i>. Essentially I can guarantee that, once implemented with the design constraints stated here, the business functionality cannot be broken. This does not include intential vandalism of course. Someone that intentionally disables a trigger or constraint to allow them to break or disable functionality.
+								</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="download_sql_script">
+						<tr>
+							<td class="content"> 
+								<img style="float:right; padding-left:25px; width:650px;" src="./source/image/tsavo_bridge.jpg" title="tsavo_bridge" /> 
+								<a href="./sql.html" target="_top">
+									<h3>[download_sql_script]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content"><u>Download sql scripts</u>. The presentation steps you through these, but here are the links to download them as a whole:
+								</p>
+								<p class="content"><a href="./presentation/unit_test/math__test.set_00.sql" target="blank">math__test.set_00.sql</a>
+								</p>
+								<p class="content"><a href="./presentation/unit_test/math.set.sql" target="blank">math.set.sql</a>
+								</p>
+								<p class="content"><a href="./presentation/unit_test/unit_testing.sql" target="blank">unit_testing.sql</a>
+								</p>
+								<p class="content"><a href="./presentation/unit_test/master.dbo.sp__chamomile__run_test.sql" target="blank">master.dbo.sp__chamomile__run_test.sql</a>
+								</p>
+								<p class="content"><a href="./presentation/unit_test/unit_test__unbreakable_code.sql" target="blank">unit_test__unbreakable_code.sql</a>
+								</p>
+								<p class="quote">You build bridges, John. You have to go where the rivers are. Helena Patterson, The Ghost and The Darkness.</p>
+							</td>
+						</tr>
+					</table>
+					<table class="content" id="reference">
+						<tr>
+							<td class="content">
+								<a href="https://www.thisiscolossal.com/2017/06/enchanting-libraries-by-photographer-thibaud-poirier/" target="blank">
+								<img style="float:right; padding-left:25px; width:450px;" src="./source/image/library.jpg" title="library." />
+								</a>
+								<a href="./sql.html" target="_top">
+									<h3>[reference]</h3>
+								</a>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<ol>
+									<li><a href="http://en.wikipedia.org/wiki/Unit_testing" target="blank">Unit testing</a> - Unit Testing is a software testing method by which individual units of source code, sets of one or more computer program modules together with associated control data, usage procedures, and operating procedures, are tested to determine whether they are fit for use.</li>
+									<li><a href="http://msdn.microsoft.com/en-us/library/jj851200(v=vs.103).aspx" target="blank">SSDT</a> _ Verifying Database Code by Using SQL Server Unit Tests</li>
+									<li><a href="http://blogs.msdn.com/b/ssdt/archive/2012/12/07/getting-started-with-sql-server-database-unit-testing-in-ssdt.aspx" target="blank">Unit Testing in SSDT</a> - Getting Started with SQL Server Database Unit Testing in SSDT.</li>
+									<li><a href="http://tsqlt.org/" target="blank">tSQLt</a> - Database Unit Testing Framework for SQL Server</li>
+									<li><a href="http://www.red-gate.com/products/sql-development/sql-test/" target="blank">RedGate</a> - Write unit tests for SQL Server databases in SQL Server Management Studio</li>
+									<li><a href="http://sqlunit.sourceforge.net/" target="blank">SQLUnit</a> - SQLUnit is a regression and unit testing harness for testing database stored procedures.</li>
+									<li><a href="http://en.wikipedia.org/wiki/Unit_testing" target="blank">Unit testing</a></li>
+									<li><a href="http://msdn.microsoft.com/en-us/library/jj851200(v=vs.103).aspx" target="blank">Verifying Database Code by Using SQL Server Unit Tests</a></li>
+									<li><a href="http://blogs.msdn.com/b/ssdt/archive/2012/12/07/getting-started-with-sql-server-database-unit-testing-in-ssdt.aspx" target="blank">Getting Started with SQL Server Database Unit Testing in SSDT</a></li>
+									<li><a href="http://tsqlt.org/" target="blank">tSQLt Database Unit Testing Framework for SQL Server</a></li>
+									<li><a href="http://www.red-gate.com/products/sql-development/sql-test/" target="blank">RedGate</a></li>
+									<li><a href="http://sqlunit.sourceforge.net/" target="blank">SQLUnit</a></li>
+								</ol>
+								<p class="quote">Tell me and I forget. Teach me and I remember. Involve me and I learn. Benjamin Franklin.</p>
+							</td>
+						</tr>
+					</table>
+					<!--  -->
+					<!-- end content table -->
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse; margin:0 auto; width:100%; margin-top:-25px;" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td > 
+								<iframe src="./footer.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="200" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

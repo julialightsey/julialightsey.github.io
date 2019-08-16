@@ -1,0 +1,212 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+		  <table class="content">
+			<tr>
+				<td>
+					<hr class="in_chapter" />
+				<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*&nbsp;
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[ChamomileSQL]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;Problem
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;recently&nbsp;added&nbsp;a&nbsp;column&nbsp;to&nbsp;one&nbsp;of&nbsp;my&nbsp;core&nbsp;system&nbsp;tables&nbsp;referenced&nbsp;by&nbsp;a&nbsp;reporting&nbsp;view.&nbsp;When&nbsp;I&nbsp;run&nbsp;the&nbsp;view,&nbsp;the&nbsp;added&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;column&nbsp;is&nbsp;not&nbsp;appearing&nbsp;in&nbsp;my&nbsp;result&nbsp;set!&nbsp;What&nbsp;can&nbsp;I&nbsp;do?
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;
+<br/>&nbsp;&nbsp;--&nbsp;references&nbsp;
+<br/>&nbsp;&nbsp;---------------------------------------------&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;dbo.sp_refreshview&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Transact-SQL):&nbsp;https://msdn.microsoft.com/en-us/library/ms187821.aspx
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Table&nbsp;changes&nbsp;not&nbsp;automatically&nbsp;reflected&nbsp;in&nbsp;a&nbsp;SQL&nbsp;Server&nbsp;View&nbsp;(Armando&nbsp;Prato)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.mssqltips.com/sqlservertip/1427/table-changes-not-automatically-reflected-in-a-sql-server-view/
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;Solution
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;a&nbsp;view&nbsp;is&nbsp;created&nbsp;in&nbsp;SQL&nbsp;Server,&nbsp;metadata&nbsp;for&nbsp;the&nbsp;referenced&nbsp;table&nbsp;columns&nbsp;(column&nbsp;name&nbsp;and&nbsp;ordinal&nbsp;position)&nbsp;is&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;persisted&nbsp;in&nbsp;the&nbsp;database.&nbsp;Any&nbsp;change&nbsp;to&nbsp;the&nbsp;referenced&nbsp;base&nbsp;table(s)&nbsp;(column&nbsp;re-ordering,&nbsp;new&nbsp;column&nbsp;addition,&nbsp;etc)&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;not&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;view&nbsp;until&nbsp;the&nbsp;view&nbsp;is&nbsp;either:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Altered&nbsp;with&nbsp;an&nbsp;ALTER&nbsp;VIEW&nbsp;statement
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Recreated&nbsp;with&nbsp;DROP&nbsp;VIEW/CREATE&nbsp;VIEW&nbsp;statements
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Refreshed&nbsp;using&nbsp;system&nbsp;stored&nbsp;procedure&nbsp;sp_refreshview&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;occurs&nbsp;because&nbsp;the&nbsp;view's&nbsp;metadata&nbsp;information&nbsp;about&nbsp;the&nbsp;table&nbsp;needs&nbsp;to&nbsp;be&nbsp;updated;&nbsp;it's&nbsp;not&nbsp;maintained&nbsp;automatically.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;I&nbsp;find&nbsp;that&nbsp;this&nbsp;can&nbsp;always&nbsp;be&nbsp;avoided&nbsp;by&nbsp;not&nbsp;issuing&nbsp;"SELECT&nbsp;*"&nbsp;in&nbsp;your&nbsp;view&nbsp;definitions.&nbsp;By&nbsp;explicitly&nbsp;defining&nbsp;a&nbsp;column&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;list,&nbsp;you're&nbsp;forced&nbsp;to&nbsp;change&nbsp;any&nbsp;views&nbsp;that&nbsp;reference&nbsp;tables&nbsp;that&nbsp;may&nbsp;require&nbsp;a&nbsp;change.&nbsp;Another&nbsp;approach&nbsp;is&nbsp;to&nbsp;issue&nbsp;your&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;CREATE&nbsp;VIEW&nbsp;statements&nbsp;with&nbsp;a&nbsp;SCHEMABINDING&nbsp;option.&nbsp;Views&nbsp;defined&nbsp;with&nbsp;this&nbsp;option&nbsp;do&nbsp;not&nbsp;allow&nbsp;SELECT&nbsp;*&nbsp;syntax&nbsp;(you'll&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;receive&nbsp;an&nbsp;error&nbsp;if&nbsp;you&nbsp;try)&nbsp;and&nbsp;forces&nbsp;you&nbsp;to&nbsp;enter&nbsp;an&nbsp;explicit&nbsp;column&nbsp;list.&nbsp;This&nbsp;way,&nbsp;you&nbsp;can&nbsp;prevent&nbsp;a&nbsp;less&nbsp;experienced&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;developer&nbsp;from&nbsp;changing&nbsp;a&nbsp;view&nbsp;to&nbsp;use&nbsp;this&nbsp;syntax
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;you're&nbsp;curious&nbsp;about&nbsp;how&nbsp;your&nbsp;view&nbsp;metadata&nbsp;is&nbsp;being&nbsp;stored,&nbsp;you&nbsp;can&nbsp;take&nbsp;a&nbsp;peek&nbsp;at&nbsp;the&nbsp;INFORMATION_SCHEMA.COLUMNS&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;view&nbsp;(view&nbsp;column&nbsp;information&nbsp;is&nbsp;kept&nbsp;there&nbsp;as&nbsp;well&nbsp;as&nbsp;table&nbsp;column&nbsp;information).
+<br/>
+<br/>&nbsp;&nbsp;Next&nbsp;Steps
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Examine&nbsp;your&nbsp;views&nbsp;and&nbsp;consider&nbsp;changing&nbsp;SELECT&nbsp;*&nbsp;syntax&nbsp;to&nbsp;explicit&nbsp;column&nbsp;lists,&nbsp;if&nbsp;possible
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Read&nbsp;more&nbsp;about&nbsp;sp_refreshview&nbsp;in&nbsp;greater&nbsp;detail&nbsp;in&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;2000&nbsp;and&nbsp;2005&nbsp;Books&nbsp;Online
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Read&nbsp;more&nbsp;about&nbsp;SCHEMABINDING&nbsp;option&nbsp;in&nbsp;greater&nbsp;detail&nbsp;in&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;2000&nbsp;and&nbsp;2005&nbsp;Books&nbsp;Online
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Read&nbsp;more&nbsp;about&nbsp;INFORMATION_SCHEMA.COLUMNS&nbsp;view&nbsp;in&nbsp;greater&nbsp;detail&nbsp;in&nbsp;the&nbsp;SQL&nbsp;Server&nbsp;2000&nbsp;and&nbsp;2005&nbsp;Books&nbsp;Online
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;SCHEMABINDING
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Binds&nbsp;the&nbsp;view&nbsp;to&nbsp;the&nbsp;schema&nbsp;of&nbsp;the&nbsp;underlying&nbsp;table&nbsp;or&nbsp;tables.&nbsp;When&nbsp;SCHEMABINDING&nbsp;is&nbsp;specified,&nbsp;the&nbsp;base&nbsp;table&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;tables&nbsp;cannot&nbsp;be&nbsp;modified&nbsp;in&nbsp;a&nbsp;way&nbsp;that&nbsp;would&nbsp;affect&nbsp;the&nbsp;view&nbsp;definition.&nbsp;The&nbsp;view&nbsp;definition&nbsp;itself&nbsp;must&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;be&nbsp;modified&nbsp;or&nbsp;dropped&nbsp;to&nbsp;remove&nbsp;dependencies&nbsp;on&nbsp;the&nbsp;table&nbsp;that&nbsp;is&nbsp;to&nbsp;be&nbsp;modified.&nbsp;When&nbsp;you&nbsp;use&nbsp;SCHEMABINDING,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;select_statement&nbsp;must&nbsp;include&nbsp;the&nbsp;two-part&nbsp;names&nbsp;(schema.object)&nbsp;of&nbsp;tables,&nbsp;views,&nbsp;or&nbsp;user-defined&nbsp;functions&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;are&nbsp;referenced.&nbsp;All&nbsp;referenced&nbsp;objects&nbsp;must&nbsp;be&nbsp;in&nbsp;the&nbsp;same&nbsp;database.
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Views&nbsp;or&nbsp;tables&nbsp;that&nbsp;participate&nbsp;in&nbsp;a&nbsp;view&nbsp;created&nbsp;with&nbsp;the&nbsp;SCHEMABINDING&nbsp;clause&nbsp;cannot&nbsp;be&nbsp;dropped&nbsp;unless&nbsp;that&nbsp;view&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;dropped&nbsp;or&nbsp;changed&nbsp;so&nbsp;that&nbsp;it&nbsp;no&nbsp;longer&nbsp;has&nbsp;schema&nbsp;binding.&nbsp;Otherwise,&nbsp;the&nbsp;Database&nbsp;Engine&nbsp;raises&nbsp;an&nbsp;error.&nbsp;Also,&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;executing&nbsp;ALTER&nbsp;TABLE&nbsp;statements&nbsp;on&nbsp;tables&nbsp;that&nbsp;participate&nbsp;in&nbsp;views&nbsp;that&nbsp;have&nbsp;schema&nbsp;binding&nbsp;fail&nbsp;when&nbsp;these&nbsp;statements&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;affect&nbsp;the&nbsp;view&nbsp;definition.
+<br/>
+<br/>*/</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomilesql]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;create&nbsp;working&nbsp;schemas&nbsp;if&nbsp;not&nbsp;exist</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate_secure'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;kate_secure'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;kate'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;create&nbsp;sample&nbsp;table</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate_secure.sample_01'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">kate_secure</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">kate_secure</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[id]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[int]</span>&nbsp;<span style="color: blue; ">identity</span><span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[column_01]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[column_02]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;create&nbsp;view&nbsp;and&nbsp;use&nbsp;'select&nbsp;*'&nbsp;construct</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate.sample_01'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'V'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">kate</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">view</span>&nbsp;<span style="color: maroon; ">kate</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">kate_secure</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'only&nbsp;two&nbsp;columns&nbsp;expected'</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">kate</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">kate_secure</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">add</span>&nbsp;<span style="color: maroon; ">[column_03]</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'three&nbsp;columns&nbsp;expected&nbsp;but&nbsp;only&nbsp;two&nbsp;as&nbsp;result!'</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">kate</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'but&nbsp;see,&nbsp;the&nbsp;extra&nbsp;column&nbsp;did&nbsp;get&nbsp;added&nbsp;to&nbsp;the&nbsp;table'</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">kate_secure</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">dbo</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">sp_refreshview</span>
+<br/>&nbsp;&nbsp;<span style="color: red; ">N'kate.sample_01'</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>
+<br/>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">null</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: red; ">'correct&nbsp;column&nbsp;list&nbsp;from&nbsp;view&nbsp;after&nbsp;using&nbsp;dbo.sp_refreshview'</span><span style="color: silver; ">,</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">kate</span><span style="color: silver; ">.</span><span style="color: maroon; ">sample_01</span><span style="color: silver; ">;</span>
+<br/>
+<br/><span style="color: maroon; ">go</span>&nbsp;
+</span></div>
+
+
+					<hr class="in_chapter" />
+				
+				</td>
+			</tr>
+		  </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

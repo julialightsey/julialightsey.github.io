@@ -1,0 +1,243 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu_esoterica.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+<hr class="in_chapter" />
+<div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;SQL&nbsp;Server&nbsp;2005&nbsp;caches&nbsp;temporary&nbsp;objects.&nbsp;When&nbsp;table-valued&nbsp;functions,&nbsp;table&nbsp;variables,&nbsp;or&nbsp;local&nbsp;temporary&nbsp;tables&nbsp;are&nbsp;used&nbsp;in&nbsp;a&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;stored&nbsp;procedure,&nbsp;function,&nbsp;or&nbsp;trigger,&nbsp;the&nbsp;frequent&nbsp;drop&nbsp;and&nbsp;create&nbsp;of&nbsp;these&nbsp;temporary&nbsp;objects&nbsp;can&nbsp;be&nbsp;time&nbsp;consuming.&nbsp;This&nbsp;can&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;cause&nbsp;contentions&nbsp;on&nbsp;tempdb&nbsp;system&nbsp;catalog&nbsp;tables&nbsp;and&nbsp;allocation&nbsp;pages.&nbsp;In&nbsp;SQL&nbsp;Server&nbsp;2005,&nbsp;these&nbsp;are&nbsp;cached.&nbsp;That&nbsp;means&nbsp;that&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;dropping&nbsp;and&nbsp;creating&nbsp;temporary&nbsp;objects&nbsp;is&nbsp;very&nbsp;fast.&nbsp;When&nbsp;SQL&nbsp;Server&nbsp;drops&nbsp;a&nbsp;temporary&nbsp;object,&nbsp;it&nbsp;does&nbsp;not&nbsp;remove&nbsp;the&nbsp;catalog&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;entry&nbsp;for&nbsp;the&nbsp;object.&nbsp;If&nbsp;a&nbsp;temporary&nbsp;object&nbsp;is&nbsp;smaller&nbsp;than&nbsp;8&nbsp;MB,&nbsp;then&nbsp;one&nbsp;data&nbsp;page&nbsp;and&nbsp;one&nbsp;IAM&nbsp;page&nbsp;are&nbsp;also&nbsp;cached&nbsp;so&nbsp;that&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;there&nbsp;is&nbsp;no&nbsp;need&nbsp;to&nbsp;allocate&nbsp;them&nbsp;when&nbsp;re-creating&nbsp;the&nbsp;objects.&nbsp;If&nbsp;a&nbsp;temporary&nbsp;object&nbsp;is&nbsp;larger&nbsp;than&nbsp;8&nbsp;MB,&nbsp;defer&nbsp;drop&nbsp;is&nbsp;used.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;tempdb&nbsp;is&nbsp;low&nbsp;on&nbsp;space,&nbsp;SQL&nbsp;Server&nbsp;frees&nbsp;up&nbsp;the&nbsp;cached&nbsp;temporary&nbsp;objects.&nbsp;You&nbsp;can&nbsp;drop&nbsp;the&nbsp;associated&nbsp;stored&nbsp;procedure(s)&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;free&nbsp;the&nbsp;procedure&nbsp;cache&nbsp;to&nbsp;get&nbsp;rid&nbsp;of&nbsp;these&nbsp;temporary&nbsp;tables.&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;local&nbsp;temporary&nbsp;table&nbsp;created&nbsp;within&nbsp;a&nbsp;stored&nbsp;procedure&nbsp;or&nbsp;trigger&nbsp;can&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;as&nbsp;a&nbsp;temporary&nbsp;table&nbsp;that&nbsp;was&nbsp;created&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;before&nbsp;the&nbsp;stored&nbsp;procedure&nbsp;or&nbsp;trigger&nbsp;is&nbsp;called.&nbsp;However,&nbsp;if&nbsp;a&nbsp;query&nbsp;references&nbsp;a&nbsp;temporary&nbsp;table&nbsp;and&nbsp;two&nbsp;temporary&nbsp;tables&nbsp;with&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;same&nbsp;name&nbsp;exist&nbsp;at&nbsp;that&nbsp;time,&nbsp;it&nbsp;is&nbsp;not&nbsp;defined&nbsp;which&nbsp;table&nbsp;the&nbsp;query&nbsp;is&nbsp;resolved&nbsp;against.&nbsp;Nested&nbsp;stored&nbsp;procedures&nbsp;can&nbsp;also&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;create&nbsp;temporary&nbsp;tables&nbsp;with&nbsp;the&nbsp;same&nbsp;name&nbsp;as&nbsp;a&nbsp;temporary&nbsp;table&nbsp;that&nbsp;was&nbsp;created&nbsp;by&nbsp;the&nbsp;stored&nbsp;procedure&nbsp;that&nbsp;called&nbsp;it.&nbsp;However,&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;modifications&nbsp;to&nbsp;resolve&nbsp;to&nbsp;the&nbsp;table&nbsp;that&nbsp;was&nbsp;created&nbsp;in&nbsp;the&nbsp;nested&nbsp;procedure,&nbsp;the&nbsp;table&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;structure,&nbsp;with&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;same&nbsp;column&nbsp;names,&nbsp;as&nbsp;the&nbsp;table&nbsp;created&nbsp;in&nbsp;the&nbsp;calling&nbsp;procedure.&nbsp;This&nbsp;is&nbsp;shown&nbsp;in&nbsp;the&nbsp;following&nbsp;example.&nbsp;
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;interesting&nbsp;find&nbsp;about&nbsp;Temp&nbsp;tables&nbsp;in&nbsp;SQL&nbsp;Server&nbsp;-&nbsp;http://blogs.msdn.com/b/sqlserverfaq/archive/2012/03/15/an-interesting-find-about-temp-tables-in-sql-server.aspx&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;Working&nbsp;with&nbsp;tempdb&nbsp;in&nbsp;SQL&nbsp;Server&nbsp;2005&nbsp;-&nbsp;http://technet.microsoft.com/en-us/library/cc966545.aspx&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;CREATE&nbsp;TABLE&nbsp;(SQL&nbsp;Server)&nbsp;-&nbsp;http://msdn.microsoft.com/en-us/library/ms174979.aspx&nbsp;
+<br/>*/</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;begin</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[chamomile]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;code&nbsp;block&nbsp;end</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;FIRST&nbsp;TEST&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Generic&nbsp;method&nbsp;of&nbsp;demonstrating&nbsp;the&nbsp;error&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Run&nbsp;this&nbsp;first&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..#temp1'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">'1'</span>&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'2'</span><span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/><span style="color: blue; ">into</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Then&nbsp;run&nbsp;this&nbsp;-&nbsp;Invalid&nbsp;column&nbsp;name&nbsp;'c'.&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..#temp1'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: red; ">'3'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'4'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">'The&nbsp;Troublemaker'</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">into</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp1</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;SECOND&nbsp;TEST&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Actual&nbsp;method&nbsp;used&nbsp;that&nbsp;demonstrates&nbsp;error&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Run&nbsp;this&nbsp;first&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..#temp2'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp2</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp2</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">a</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp2</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Then&nbsp;run&nbsp;this&nbsp;-&nbsp;Invalid&nbsp;column&nbsp;name&nbsp;'c'.&nbsp;</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@csql</span>&nbsp;<span style="color: black; font-style: italic; ">nvarchar</span><span style="color: maroon; ">(</span><span style="color: maroon; ">max</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'ALTER&nbsp;TABLE&nbsp;#temp2&nbsp;ADD&nbsp;c&nbsp;INT'</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">execute</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">sp_executesql</span>
+<br/>&nbsp;&nbsp;<span style="color: #8000FF; ">@csql</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp2</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;THIRD&nbsp;TEST&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;This&nbsp;also&nbsp;fails&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..#temp3'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp3</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp3</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">a</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: silver; ">*</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp3</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Then&nbsp;run&nbsp;this&nbsp;</span>
+<br/><span style="color: blue; ">alter</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#temp3</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">add</span>&nbsp;<span style="color: maroon; ">c</span>&nbsp;<span style="color: black; font-style: italic; ">int</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#temp3</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;THE&nbsp;FIX&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Run&nbsp;this&nbsp;first&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..##donor'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">##donor</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">##donor</span>&nbsp;<span style="color: maroon; ">(</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">a</span>&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>
+<br/>&nbsp;&nbsp;<span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Then&nbsp;run&nbsp;this&nbsp;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">donor</span><span style="color: silver; ">.</span><span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">donor</span><span style="color: silver; ">.</span><span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">identity</span><span style="color: maroon; ">(</span><span style="color: maroon; ">int</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">into</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#fix</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#donor</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[donor]</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#fix</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;This&nbsp;does&nbsp;NOT&nbsp;have&nbsp;to&nbsp;be&nbsp;in&nbsp;the&nbsp;proc.&nbsp;I&nbsp;put&nbsp;it&nbsp;here&nbsp;for&nbsp;running&nbsp;as&nbsp;a&nbsp;script&nbsp;</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">'tempdb..#fix'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">table</span>&nbsp;<span style="color: maroon; ">#fix</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;TEST&nbsp;FIX&nbsp;IN&nbsp;A&nbsp;PROCEDURE&nbsp;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;This&nbsp;works&nbsp;as&nbsp;planned&nbsp;and&nbsp;is&nbsp;repeatable&nbsp;</span>
+<br/><span style="color: blue; ">use</span>&nbsp;<span style="color: maroon; ">[dba_backup]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">schema_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'kate_test'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: red; ">N'create&nbsp;schema&nbsp;kate_test'</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N'[kate_test].[pr_TestFix]'</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'P'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">drop</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[pr_testfix]</span><span style="color: silver; ">;</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">create</span>&nbsp;<span style="color: blue; ">procedure</span>&nbsp;<span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[pr_testfix]</span>
+<br/><span style="color: blue; ">as</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@ident_seed</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">1000</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">if</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N''</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">is</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">null</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">object_id</span><span style="color: maroon; ">(</span><span style="color: red; ">N''</span><span style="color: silver; ">,</span>&nbsp;<span style="color: red; ">N'U'</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[this&nbsp;shouldn't&nbsp;be&nbsp;here!]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;Note&nbsp;that&nbsp;this&nbsp;is&nbsp;a&nbsp;violation&nbsp;of&nbsp;commonly&nbsp;accepted&nbsp;best&nbsp;practices&nbsp;(the&nbsp;use&nbsp;of&nbsp;*&nbsp;rather&nbsp;&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;than&nbsp;explicitly&nbsp;declaring&nbsp;columns,&nbsp;but&nbsp;I&nbsp;have&nbsp;included&nbsp;it&nbsp;here&nbsp;as&nbsp;that&nbsp;is&nbsp;how&nbsp;the&nbsp;procedure&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: green; font-style: italic; ">&#45;&#45;&nbsp;&nbsp;to&nbsp;be&nbsp;fixed&nbsp;is&nbsp;written.&nbsp;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: blue; ">top</span><span style="color: maroon; ">(</span><span style="color: black; ">0</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">*</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: #FF0080; font-weight: bold; ">identity</span><span style="color: maroon; ">(</span><span style="color: maroon; ">int</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: silver; ">,</span>&nbsp;<span style="color: black; ">1</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">into</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#fix</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">##donor</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[donor]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">dbcc</span>&nbsp;<span style="color: maroon; ">checkident</span>&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">#fix</span><span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">reseed</span><span style="color: silver; ">,</span>&nbsp;<span style="color: #8000FF; ">@ident_seed</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: blue; ">with</span>&nbsp;<span style="color: maroon; ">no_infomsgs</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">#fix</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">a</span><span style="color: silver; ">,</span><span style="color: maroon; ">b</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">1</span><span style="color: silver; ">,</span><span style="color: black; ">1</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">insert</span>&nbsp;<span style="color: blue; ">into</span>&nbsp;<span style="color: maroon; ">#fix</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: maroon; ">a</span><span style="color: silver; ">,</span><span style="color: maroon; ">b</span><span style="color: maroon; ">)</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">values</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">(</span><span style="color: black; ">2</span><span style="color: silver; ">,</span><span style="color: black; ">2</span><span style="color: maroon; ">)</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">a</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">b</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">c</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">#fix</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>
+<br/><span style="color: maroon; ">go</span>
+<br/><span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@i</span>&nbsp;<span style="color: black; font-style: italic; ">int</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">0</span><span style="color: silver; ">;</span>
+<br/><span style="color: blue; ">while</span>&nbsp;<span style="color: #8000FF; ">@i</span>&nbsp;<span style="color: silver; ">&lt;</span>&nbsp;<span style="color: black; ">5</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">begin</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">execute</span>&nbsp;<span style="color: maroon; ">[dba_backup]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[kate_test]</span><span style="color: silver; ">.</span><span style="color: #FF0080; font-weight: bold; ">[pr_testfix]</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">set</span>&nbsp;<span style="color: #8000FF; ">@i</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@i</span>&nbsp;<span style="color: silver; ">+</span>&nbsp;<span style="color: black; ">1</span><span style="color: silver; ">;</span>
+<br/>&nbsp;&nbsp;<span style="color: blue; ">end</span>&nbsp;
+</span></div>
+
+
+<hr class="in_chapter" />
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>[th&#601;_her&#601;tik]</title>
+		<link rel="shortcut icon" href="./source/image/chamomile.ico" />
+		<link rel="stylesheet" type="text/css" href="./source/common.css" />
+	</head>
+	<body id="top">
+		<table style="border-collapse: collapse; margin-top:0px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td >
+								<iframe src="./header.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0; margin:0 auto; display:block;" height="325" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-bottom:0px; margin-top:-25px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="content">
+						<tr>
+							<td class="content">
+								<iframe src="./menu__home.html" style="border-collapse: collapse; width:100%; overflow:hidden; border:0;" height="50" ></iframe>
+							</td>
+						</tr>
+						<tr>
+							<td class="content">
+								<iframe src="./menu__laws_of_software_design.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="75" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse;  margin-top:0px; margin-top:-15px; width:100%" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<!--  -->
+					<!-- begin content table -->
+					<table class="content"> 
+						<tr>
+							<td>
+								<img style="float:right; padding-left:35px; width:450px;" src="./source/image/signing_the_magna_carta.jpg" alt="signing_the_magna_carta" />
+								<h3>[6th_law__manifest]</h3>
+								<p class="navigation"><a href="#top">back to top...</a></p>
+								<p class="content" style="text-align:center;">Good software should be self-documenting.</p>
+								<p class="quote">Manifest plainness, embrace simplicity, reduce selfishness, have few desires. Lao Tzu</p>
+								<p>The last thing you should do when writing software is to write in the "dead" comments, those comments which are not code and are embedded in the code as guides. Only after you have written the code and have formatted and structured it to be as legible as possible should you consider additional comments.</p>
+								<p class="quote">For me the greatest beauty always lies in the greatest clarity. Gotthold Ephraim Lessing.</p>
+								<p>You should be able to present your code to a non-technical person and the person should be able to read and understand its basic functionality!</p>
+								<p class="quote">Children are remarkable for their intelligence and ardor, for their curiosity, their intolerance of shams, the clarity and ruthlessness of their vision. Aldous Huxley.</p>
+								<p class="content">I have worked with mechanics, electricians, and other engineers on machinery that was up to a century in age. Many software engineers and developers have worked on code that was half a century in age, particularly in the effort to address the potential 'y2k' issues. My rule of thumb is that I should be able to give my code to an intelligent but non-developer colleague, and that colleague should be able to read my code, understanding its basic functionality. I minimize the use of abbreviations for this reason, and try to give common names to objects. For example, the following SQL code is comprehensible to even someone who has never written a line of any code;</p>
+								<p class="content">
+								<div><span style="font-family: Courier New; font-size: 10pt;">
+									<span style="color: blue; ">declare</span>&nbsp;<span style="color: #8000FF; ">@today</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: black; font-style: italic; ">[datetime]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: blue; ">current_timestamp</span><span style="color: silver; ">,</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #8000FF; ">@customer</span>&nbsp;<span style="color: black; font-style: italic; ">[sysname]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: red; ">N'Bob&nbsp;Johnson'</span><span style="color: silver; ">;</span>
+									<br/>
+									<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[order]</span>
+									<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sales]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[data]</span>
+									<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[date]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@today</span>
+									<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[customer]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: #8000FF; ">@customer</span><span style="color: silver; ">;</span>&nbsp;
+									</span>
+								</div>
+								<p class="content">This is a simple example of course, but when I focus on this as an intention I tend to write clearer code. This means that future refactoring (or debugging) will be simpler, furthering the objective of delivering objects on time and with minimal defects that meet business requirements. I also make heavy use of meta-data to document an object. In the case of SQL server, this meta-data is captured in extended properties. This is effectively a carryover from Object Oriented design; the meta-data for an object should be contained within the object and should be accessible by querying the object. This is 'live' documentation and is distinguishable from the 'dead' documentation in a method which is delimited by '-- docs' or '/* docs */' which cannot be queried. 'Dead' documentation should only be used for developer 'sign posts', to improve the clarity of the code. All business documentation should be contained within the 'live' documentation as extended properties. These can be extracted and formatted as required for professional presentations, but the presentations should never supplant the meta-data of the object.</p>
+								<!--
+									http://encyclopedia2.thefreedictionary.com/Self-documenting
+									http://www.encyclopedia.com/doc/1O11-selfdocumentingprogram.html
+									http://c2.com/cgi/wiki?SelfDocumentingCode
+									https://en.wikipedia.org/wiki/Self-documenting
+									
+									-->
+							</td>
+						</tr>
+					</table>
+					<table class="content">
+						<tr>
+							<td>
+								<p class="content">When I was in the Marines I had a Captain named Jimmy Smith. I was laying on my back in the shade with some friends one day, clearly 'goofing off' and definitely not portraying the sharp image that the USMC would like us NCO's to present to our squad, when Captain Jimmy appeared from behind the tree. We all jumped up immediately and brushed ourselves off, expected him to jump our butts or at least glare menacingly in our direction. Instead, he lay down on the grass along side us in the shade. He told us something that has stuck with me ever since.</p>
+								<p class="quote">There's no reason to practice being miserable. When the time comes to be miserable, you'll do just fine without all that practice. Captain Jimmy Smith, USMC.</p>
+								<p class="content"><a href=".\writing_clean_code.html" target="blank">[writing_clean_code]</a> shows common issues I find in code and means to address them. Some of the techniques require a bit of work up front, and some may not give the best performance. I always design for clean code, then optimize where required. You can always go back and 'ugly up' your code later. There's no reason to write it all uglified to begin with. If you need to optimize it and increase the complexity (the 'ugly' factor), you'll be able to optimize it easier if it was cleanly designed to begin with. </p>
+								<p class="content">Don't settle for ugly code. You can always refactor it later as required, but you'll never be allowed to go back and make it more legible once it's in production.</p>
+								<p class="quote">[1st_law] - Well written software can be re-factored, poorly written software can only be tolerated. Well written software in a properly designed architecture with thorough tests can be re-factored for performance, its utility expanded and extended, and will continue to be used over many generations of implementations continuously improving its return on investment.</p>
+								<p class="quote">The quality, not the longevity, of one's life is what is important. Martin Luther King, Jr.</p>
+								<p class="content">Poorly written software lacking in design and tests will never be re-factored, expanded or extended and will continue to demand increasing levels of support while being limited to its original vision or less, continuously costing additional time and money for ever decreasing utility.</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table style="border-collapse: collapse; margin:0 auto; width:100%; margin-top:-25px;" >
+			<tr>
+				<td style="padding-left:25px; padding-right:25px;">
+					<table class="header">
+						<tr>
+							<td > 
+								<iframe src="./footer.html" style="border-collapse: collapse; width:100%; overflow:hidden;  border:0;" height="200" ></iframe>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

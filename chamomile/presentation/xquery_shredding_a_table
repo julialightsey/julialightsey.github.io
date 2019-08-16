@@ -1,0 +1,142 @@
+declare @output xml = N'<data_list>
+  <data>
+    <value_01>3</value_01>
+    <value_02>4</value_02>
+  </data>
+  <data>
+    <value_01>2</value_01>
+    <value_02>29</value_02>
+    <value_03>31</value_03>
+    <value_04>32</value_04>
+  </data>
+  <data>
+    <value_01>39</value_01>
+  </data>
+</data_list>';
+
+select [t].[c].query(N'./value_01').value(N'(/*)[1]', N'int')   as [value_01]
+       , [t].[c].query(N'./value_02').value(N'(/*)[1]', N'int') as [value_02]
+       , [t].[c].query(N'./value_03').value(N'(/*)[1]', N'int') as [value_03]
+       , [t].[c].query(N'./value_04').value(N'(/*)[1]', N'int') as [value_04]
+from   @output.nodes(N'/data_list/data') as [t]([c]); 
+go
+
+
+declare @x2 xml = N'<A>
+  <B>
+    <int>3</int>
+    <int>4</int>
+    <int>2</int>
+    <int>29</int>
+    <int>31</int>
+    <int>32</int>
+    <int>39</int>
+  </B>
+</A>';
+
+select t.c.query(N'.').value(N'(/*)[1]', N'int') as [int_value]
+from   @x2.nodes(N'/A/B/*') as [t]([c]); 
+
+
+--
+-------------------------------------------------
+DECLARE @builder AS TABLE
+  (
+       [C]   [INT]
+       , [D] [INT]
+       , [E] [XML]
+  );
+DECLARE @X XML ='<A> 
+    <B> 
+        <C>161</C> 
+        <D>191</D> 
+        <E>41 ,51 ,61 ,71</E> 
+    </B>
+    <B> 
+        <C>162</C> 
+        <D>192</D> 
+        <E>102</E> 
+    </B>
+    <B> 
+        <C>163</C> 
+        <D>193</D> 
+        <E>43, 53, 63</E> 
+    </B>
+</A>';
+
+WITH [row_builder]
+     AS (SELECT t.c.query(N'.') AS [b_row]
+         FROM   @X.nodes(N'/A/B') AS [t]([c]))
+   , [shredder]
+     AS (SELECT [b_row].value(N'(./B/C/text())[1]', N'[INT]')             AS [C]
+                , [b_row].value(N'(./B/D/text())[1]', N'[INT]')           AS [D]
+                , [b_row].value(N'(./B/E/text())[1]', N'[NVARCHAR](MAX)') AS [E]
+         FROM   [row_builder])
+   , [splitter]
+     AS (SELECT [C]
+                , [D]
+                , cast(( '<E>' + replace([E], N',', '</E><E>') + '</E>' ) AS XML) AS [E]
+         FROM   [shredder])
+SELECT [C]
+       , [D]
+       , [column].query(N'.').value(N'(/E/text())[1]', N'[INT]') AS [E]
+FROM   [splitter] AS [entry]
+       CROSS APPLY [E].[nodes]('/*') AS [table] ( [column] )
+ORDER  BY [C]
+          , [D]
+          , [E]; 
+
+--
+-- shredding specific values out of a table
+-------------------------------------------------
+DECLARE @entry AS TABLE
+  (
+     [id]      int IDENTITY(1, 1)
+     , [entry] xml
+  );
+
+INSERT INTO @entry
+            ([entry])
+VALUES      (N'<log application="apples" timestamp="2016-11-21T14:11:12.123">This is a log item.</log>'),
+            (N'<log application="oranges" timestamp="2016-11-22T06:28:32.990">This is a log item too.
+			 <special_note>The quick brown fox jumps over the lazy dog.</special_note>
+			 </log>'),
+            (N'<value>This is a value item.</value>'),
+            (N'<value>This is a value item too.</value>'),
+            (N'<log application="peaches" timestamp="2016-11-23T07:33:14.887">This is a log item as well.
+				<data>
+				    <list>
+					   <item number="1" value="green" />
+					   <item number="4" value="mauve" />
+					   <item number="2" value="yellow" />
+				    </list>
+				</data>
+			 </log>'),
+            (N'<value>This is a value item as well.</value>');
+
+--
+-- get only the log entries
+-------------------------------------------------
+SELECT [entry]
+       , [entry].value(N'(./*/text())[1]', N'nvarchar(max)')              AS [value]
+       , [entry].value(N'(./*/@application)[1]', N'sysname')              AS [application]
+       , [entry].value(N'(./*/@timestamp)[1]', N'datetime')               AS [timestamp]
+       , [entry].query(N'(./*/data/*)[1]')                                AS [data]
+       , [entry].value(N'(./*/special_note/text())[1]', N'nvarchar(max)') AS [special_note]
+FROM   @entry AS [entry]
+       CROSS APPLY [entry].[nodes]('/*') AS [table] ( [column] )
+WHERE  CAST([table].[column].[query]('fn:local-name(.)') AS [SYSNAME]) = N'log';
+
+--
+-- get only the log entries having a data node in any position (//* syntax)
+-------------------------------------------------
+SELECT [entry]
+       , [entry].value(N'(./*/text())[1]', N'nvarchar(max)')              AS [value]
+       , [entry].value(N'(./*/@application)[1]', N'sysname')              AS [application]
+       , [entry].value(N'(./*/@timestamp)[1]', N'datetime')               AS [timestamp]
+       , [entry].query(N'(./*/data/*)[1]')                                AS [data]
+       , [entry].value(N'(./*/special_note/text())[1]', N'nvarchar(max)') AS [special_note]
+FROM   @entry AS [entry]
+       CROSS APPLY [entry].[nodes]('/*') AS [table] ( [column] )
+WHERE  CAST([table].[column].[query]('fn:local-name(.)') AS [SYSNAME]) = N'log'
+       AND [entry].exist('//*[local-name()="data"]') = 1; 

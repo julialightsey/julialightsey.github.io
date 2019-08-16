@@ -1,0 +1,91 @@
+
+<p>
+</p>
+<ul>
+	<li>Download and install Docker CE. If it comes up with an error, click continue.
+	</li>
+	<li>Enable drive access.
+	</li>
+	<li>Restart your computer.
+	</li>
+	<li><u>Buid SQL Server Linux with SQL Server Agent</u>. Build provided, or build new just to be sure.
+		<p>docker build -t sql_server_linux_with_agent f:\docker\builds\linux_with_agent
+		</p>
+		<p><a href="https://dbafromthecold.com/2017/10/25/running-sql-on-linux-containers-with-the-agent-installed/" target="blank">Enabling the SQL Server Agent in Linux Containers</a>
+		</p>
+		<p><a href="https://github.com/dbafromthecold/SqlOnLinuxAgent/blob/master/dockerfile" target="blank">dockerfile</a>
+		</p>
+		<p><a href="https://docs.docker.com/engine/reference/builder/#format" target="blank">builder format</a>
+		</p>
+		<p><a href="./sql_linux_with_agent__build_output.txt" target="blank">build output</a>
+		</p>
+		<p><a href="./source/image/sql_linux_with_agent__image_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__image_ls.jpg" title="The image list now shows the Linux with SQL Server Agent build." width="400" /></a>
+		</p>
+	</li>
+	<li><u>Create a container with the SQL Linux with Agent image</u>.
+		<p>docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1390:1433 -d --name=sql_00 sql_linux_with_agent
+		</p>
+		<p><a href="./source/image/sql_linux_with_agent__container_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__container_ls.jpg" title="The container list now shows the Linux with SQL Server Agent build." width="400" /></a>
+		</p>
+	</li>
+	<li><u>Connect to the SQL Server Instance using SSMS</u>.
+		<p><a href="./source/image/connect_to_instance.jpg" target="blank"><img src="./source/image/connect_to_instance.jpg" title="Connect to the new SQL Server Instance." width="400" /></a>
+		</p>
+		
+		<p><a href="./source/image/sql_linux_with_agent__instance.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__instance.jpg" title="Connect to the new SQL Server Instance." width="400" /></a>
+		</p>
+	</li> 
+	<li><u>Create a container with the SQL Linux with Agent image mapped to a local drive</u>.
+		<p>docker run -v d:/data:/data -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1391:1433 -d --name=sql_01 sql_linux_with_agent
+		</p>
+		<p><a href="./source/image/sql_linux_with_agent__mapped_drive__container_ls.jpg" target="blank"><img src="./source/image/sql_linux_with_agent__mapped_drive__container_ls.jpg" title="The container list now shows the Linux with SQL Server Agent build." width="400" /></a>
+		</p>
+		<p>Both SQL Server Instances are connected, but only one has a mapped drive.
+		</p>
+		<p><a href="./source/image/both_containers__only_one_with_mapped_drive.jpg" target="blank"><img src="./source/image/both_containers__only_one_with_mapped_drive.jpg" title="Both SQL Server Instances are connected, but only one has a mapped drive." width="400" /></a>
+		</p>
+		<p>Database backup files available on D drive.
+		</p>
+		<p><a href="./source/image/bak_files.jpg" target="blank"><img src="./source/image/bak_files.jpg" title="Database backup files available on D drive." width="400" /></a>
+		</p>
+		<p>The instance with no drive mapped has no data to restore.
+		</p>
+		<p><a href="./source/image/no_drive_mapped.jpg" target="blank"><img src="./source/image/no_drive_mapped.jpg" title="The instance with no drive mapped has no data to restore." width="400" /></a>
+		</p> 
+		<p>The instance with the drive mapped has access to the external data on D drive.
+		</p>
+		<p><a href="./source/image/mapped_drive_available_in_instance.jpg" target="blank"><img src="./source/image/mapped_drive_available_in_instance.jpg" title="The instance with the drive mapped has access to the external data on D drive." width="400" /></a>
+		</p> 
+		<p>Note that the file locations for the recovered files are in the Linux schema.
+		</p>
+		<p><a href="./source/image/file_location.jpg" target="blank"><img src="./source/image/file_location.jpg" title="Note that the file locations for the recovered files are in the Linux schema." width="400" /></a>
+		</p>
+	</li>
+	<li><u>Commit the container with changes</u>.
+		<p><a href="https://docs.docker.com/engine/reference/commandline/commit/" target="blank">docker commit</a>
+		</p>
+		<p><a href="./source/image/commit_container__ls.jpg" target="blank"><img src="./source/image/commit_container__ls.jpg" title="Commit the container with changes." width="400" /></a>
+		</p>
+		<p>docker save -o f:/docker/data/sql_00.tar sql_00
+		</p>
+		<p><a href="./source/image/saved_tar_file.jpg" target="blank"><img src="./source/image/saved_tar_file.jpg" title="The tar file is saved to the target directory." width="400" /></a>
+		</p>
+		<p>docker load -i f:/docker/data/sql_00.tar
+		</p>
+		<p><a href="./source/image/loaded_tar_file.jpg" target="blank"><img src="./source/image/loaded_tar_file.jpg" title="The tar file is loaded into the new Docker instance." width="400" /></a>
+		</p>
+		
+		<p><a href="./source/image/connect_to_loaded_image_in_container.jpg" target="blank"><img src="./source/image/connect_to_loaded_image_in_container.jpg" title="You can now connect to the running container created from the loaded image." width="400" /></a>
+		</p>
+	</li>
+	<li><u>Stop the container</u>. Notice that a stopped container still exists.
+		<p><a href="./source/image/stopped_container_still_exists.jpg" target="blank"><img src="./source/image/stopped_container_still_exists.jpg" title="Notice that a stopped container still exists." width="400" /></a>
+		</p>
+	</li> 
+	<li><u>Restore the [master] database</u>. To restore the [master] database, you first have to start the instance in single user mode.
+		<p>docker run -v d:/data:/data -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=&lt;secure_password&gt;' -p 1392:1433 -d --name=sql_02 sql_linux_with_agent__mapped_d_drive "/opt/mssql/bin/sqlservr" "-m"
+		</p>
+		<p><a href="./source/image/start_in_single_user_mode.jpg" target="blank"><img src="./source/image/start_in_single_user_mode.jpg" title="To restore the [master] database, you first have to start the instance in single user mode." width="400" /></a>
+		</p>
+	</li>
+</ul>

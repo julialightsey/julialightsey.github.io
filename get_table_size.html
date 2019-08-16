@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <title>[th&#601;_her&#601;tik]</title>
+    <link rel="shortcut icon" href=".\source\image\chamomile.ico" />
+    <link rel="stylesheet" type="text/css" href=".\source\common.css" />
+  </head>
+  <body>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <iframe src="./header.html" width="100%" height="350" scrolling="no" seamless="" frameborder="0"></iframe>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <table class="content" width="98%" style="border-collapse: collapse;">
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__home.html" width="100%" height="55" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+            <tr class="menu">
+              <td colspan="2" style="padding-left:25px; padding-right:25px;">
+                <iframe src="./menu__presentation.html" width="100%" height="150" scrolling="no" seamless="" frameborder="0"></iframe>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <table width="100%" style="border-collapse: collapse;">
+      <tr>
+        <td colspan="2" style="padding-left:25px; padding-right:25px;">
+          <!--  -->
+          <!-- begin content table -->
+          <table class="content">
+            <tr>
+              <td>
+			  
+
+			  <div><span style="font-family: Courier New; font-size: 10pt;">
+<span style="color: green; font-style: italic; ">/*
+<br/>&nbsp;&nbsp;All&nbsp;content&nbsp;is&nbsp;licensed&nbsp;as&nbsp;[chamomile]&nbsp;(http://www.KELightsey.com/license.html)&nbsp;and&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;copyright&nbsp;Katherine&nbsp;Elizabeth&nbsp;Lightsey,&nbsp;1959-2014&nbsp;(aka;&nbsp;my&nbsp;life),&nbsp;all&nbsp;rights&nbsp;reserved,
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;as&nbsp;open&nbsp;source&nbsp;under&nbsp;the&nbsp;GNU&nbsp;Affero&nbsp;GPL&nbsp;(http://www.gnu.org/licenses/agpl-3.0.html).
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;description
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;List&nbsp;all&nbsp;tables&nbsp;in&nbsp;a&nbsp;database&nbsp;along&nbsp;with&nbsp;sizes.
+<br/>
+<br/>
+<br/>
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;&nbsp;notes
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;presentation&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;run&nbsp;incrementally&nbsp;a&nbsp;code&nbsp;block&nbsp;at&nbsp;a&nbsp;time.&nbsp;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;code&nbsp;blocks&nbsp;are&nbsp;delineated&nbsp;as:
+<br/>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;begin
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<run&nbsp;code&nbsp;here>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;-----------------------------------------
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;code&nbsp;block&nbsp;end
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;
+<br/>&nbsp;&nbsp;--
+<br/>&nbsp;&nbsp;--&nbsp;references
+<br/>&nbsp;&nbsp;---------------------------------------------
+<br/>
+<br/>*/</span>
+<br/><span style="color: blue; ">select</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schema]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[table]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[partitions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[rows]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[row_count]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">sum</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">total_pages</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">*</span>&nbsp;<span style="color: black; ">8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[total_space_kb]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">sum</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">used_pages</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">*</span>&nbsp;<span style="color: black; ">8</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[used_space_kb]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">(</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">sum</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">total_pages</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">-</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">sum</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">used_pages</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">*</span>&nbsp;<span style="color: black; ">8</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[unused_space_kb]</span>
+<br/><span style="color: blue; ">from</span>&nbsp;&nbsp;&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[tables]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[tables]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schemas]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[schemas]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[schema_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[indexes]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[indexes]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[indexes]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[partitions]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[partitions]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[indexes]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[partitions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[indexes]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[index_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[partitions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[index_id]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">inner</span>&nbsp;<span style="color: blue; ">join</span>&nbsp;<span style="color: maroon; ">[sys]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[allocation_units]</span>&nbsp;<span style="color: blue; ">as</span>&nbsp;<span style="color: maroon; ">[allocation_units]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">on</span>&nbsp;<span style="color: maroon; ">[partitions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[partition_id]</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">container_id</span>
+<br/><span style="color: blue; ">where</span>&nbsp;&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>&nbsp;<span style="color: blue; ">not</span>&nbsp;<span style="color: blue; ">like</span>&nbsp;<span style="color: red; ">'dt%'</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">is_ms_shipped</span>&nbsp;<span style="color: silver; ">=</span>&nbsp;<span style="color: black; ">0</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue; ">and</span>&nbsp;<span style="color: maroon; ">[indexes]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[object_id]</span>&nbsp;<span style="color: silver; ">&gt;</span>&nbsp;<span style="color: black; ">255</span>
+<br/><span style="color: blue; ">group</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: maroon; ">[schemas]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[tables]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[name]</span>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: silver; ">,</span>&nbsp;<span style="color: maroon; ">[partitions]</span><span style="color: silver; ">.</span><span style="color: maroon; ">[rows]</span>
+<br/><span style="color: blue; ">order</span>&nbsp;&nbsp;<span style="color: blue; ">by</span>&nbsp;<span style="color: fuchsia; font-style: italic; ">sum</span><span style="color: maroon; ">(</span><span style="color: maroon; ">[allocation_units]</span><span style="color: silver; ">.</span><span style="color: maroon; ">total_pages</span><span style="color: maroon; ">)</span>&nbsp;<span style="color: silver; ">*</span>&nbsp;<span style="color: black; ">8</span><span style="color: silver; ">;</span>
+<br/><span style="color: green; font-style: italic; ">&#45;&#45;If&nbsp;you&nbsp;want&nbsp;to&nbsp;separate&nbsp;table&nbsp;space&nbsp;from&nbsp;index&nbsp;space,&nbsp;you&nbsp;need&nbsp;to&nbsp;use&nbsp;AND&nbsp;i.index_id&nbsp;IN&nbsp;(0,1)&nbsp;for&nbsp;the&nbsp;table&nbsp;space&nbsp;(index_id&nbsp;=&nbsp;0&nbsp;is&nbsp;the&nbsp;heap&nbsp;space,&nbsp;index_id&nbsp;=&nbsp;1&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;clustered&nbsp;index&nbsp;=&nbsp;data&nbsp;pages)&nbsp;and&nbsp;AND&nbsp;i.index_id&nbsp;>&nbsp;1&nbsp;for&nbsp;the&nbsp;index-only&nbsp;space</span>
+<br/>
+</span></div>
+
+
+
+			  
+			  </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
